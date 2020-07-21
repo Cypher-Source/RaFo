@@ -8,6 +8,34 @@ import { elementEventFullName } from "@angular/compiler/src/view_compiler/view_c
 })
 export class DbUtilsService {
   constructor(private db: AngularFirestore) {}
+  
+  // get post comments data
+  readCommentData(postId: string): Promise<Array<FeedPostComments> | null> {
+    // returns a promise
+    return new Promise(async (resolve, reject) => {
+      try {
+        let commentArray: Array<FeedPostComments> = [];
+
+        // read data from db
+        const commentsRef = this.db
+          .collection("posts")
+          .doc(postId)
+          .collection("comments").ref;
+        const commentsData = await commentsRef.get();
+
+        // structure the data in the form of FeedPost Schema
+        commentsData.forEach((element) => {
+          let responseData = element.data();
+          responseData["id"] = Number(element.id);
+          commentArray.push(<FeedPostComments>responseData);
+        });
+
+        resolve(commentArray);
+      } catch (e) {
+        reject(null);
+      }
+    });
+  }
 
   // get user feed data
   async getUserFeed(
