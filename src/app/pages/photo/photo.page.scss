@@ -1,0 +1,52 @@
+/*=======================================
+                 Footer
+========================================*/
+
+ion-footer{
+            height : 70px !important;
+}
+
+/*=======================================
+          Footer Label colors
+========================================*/
+
+.footer-label-left{
+            color: #FA0606; 
+}
+
+.footer-label-right{
+            color: #2BB71E;        
+}
+
+/*=======================================
+          Footer common adjustment
+========================================*/
+
+.footer-common-adj{
+            text-align: center;
+            margin-top:23px; 
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%; 
+            font-family: Quicksand;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 25px; 
+}
+
+/*=======================================
+ Footer divider and col height extension
+========================================*/
+
+.mid-line{
+            border-right: 2px solid #F0F0F0;
+            height:70px;
+  
+ }
+ 
+ .col-height{
+            top:-6px;
+ }
