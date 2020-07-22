@@ -1,9 +1,29 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>post</ion-title>
+    <ion-button class="button" slot="end" fill="clear">
+      <ion-icon class="toolbar-icon" slot="icon-only" src="assets/icon/into.svg"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 class="circle-avatar"></ion-col>
+        <ion-col col-6 class="circle-name">Poorvasha</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item class="select-item">
+          <ion-label class="label-category">Category</ion-label>
+          <ion-select  class="select-category" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="brown">Brown</ion-select-option>
+            <ion-select-option value="blonde">Blonde</ion-select-option>
+            <ion-select-option value="black">Black</ion-select-option>
+            <ion-select-option value="red">Red</ion-select-option>
+          </ion-select>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>

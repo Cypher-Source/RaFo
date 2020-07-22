@@ -11,11 +11,11 @@ ion-footer{
 ========================================*/
 
 .footer-label-left{
-            color: #FA0606; 
+            color: var(--ion-color-danger); 
 }
 
 .footer-label-right{
-            color: #2BB71E;        
+            color: var(--ion-color-success);        
 }
 
 /*=======================================
@@ -42,11 +42,11 @@ ion-footer{
 ========================================*/
 
 .mid-line{
-            border-right: 2px solid #F0F0F0;
+            border-right: 2px solid var(--ion-color-medium);
             height:70px;
   
- }
+}
  
- .col-height{
+.col-height{
             top:-6px;
- }
+}

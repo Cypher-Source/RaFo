@@ -1,0 +1,64 @@
+ion-toolbar{
+    .button{
+            margin-top:32px;
+            margin-right:24px;
+    }
+    ion-icon{
+        &.toolbar-icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+.circle-avatar{
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            left: 43px;
+            top: 50px;
+            border-radius: 50%;
+            background: var(--ion-color-light);
+            border: 1px solid var(--ion-color-primary);
+            box-sizing: border-box;
+}
+.circle-name{
+            left: 94px;
+            top: 55px;
+            font-family: Quicksand;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 17px;
+}
+.select-item{
+            position: absolute;
+            width: 370px;
+            height: 36px;
+            left: 38px;
+            top: 90px;
+            background: var(--ion-color-white);
+            border: 0.5px solid var(--ion-color-tertiary);
+            box-sizing: border-box;
+            border-radius: 5px;
+}
+.label-category{
+            margin-top:-9px;
+            font-family: Quicksand;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 17px;
+            line-height: 19px;    
+            color: var(--ion-color-warning);
+}
+.select-category{
+            margin-top:-9px;
+}
+
+ion-select::part(icon) {
+            color: var(--ion-color-primary);
+            opacity: 1;
+            width:40px;
+            height:40px;
+            margin-right:-15px;
+  }
+
