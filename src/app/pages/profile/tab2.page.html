@@ -1,17 +1,96 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border" [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+      <ion-icon slot="end" src="assets/icon/closeIcon.svg"></ion-icon>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
 
-  <h1>Tab 2</h1>
+    <!-- Display Profile with editIcon-->
+    <ion-row>
+      <ion-col>
+        <ion-avatar></ion-avatar>
+      </ion-col>
+    </ion-row>
+
+    <!-- UserName with editIcon -->
+      <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-row>
+            <ion-col>
+          <h4>Poorvasha</h4>
+          </ion-col>
+          <ion-col>
+          <ion-icon src="assets/icon/editIcon.svg"></ion-icon>
+        </ion-col>
+        </ion-row>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!-- Category Button -->
+    <ion-row>
+      <ion-button>
+        <ion-label>Category  5</ion-label>
+      </ion-button>
+    </ion-row>
+
+    <!-- Post -->
+      <ion-row>
+      <ion-label>Post</ion-label>
+
+      <ion-card>
+        <!-- Post Header -->
+        <ion-card-header>
+          <ion-grid>
+            <ion-row>
+
+              <!-- Post Avatar -->
+              <ion-col size="3">
+                <ion-avatar slot="start"></ion-avatar>
+              </ion-col>
+
+              <!-- Post (UserName, Category, Date) -->
+              <ion-col size="9">
+                <ion-row>
+                  <ion-label>Poorvasha</ion-label>
+                </ion-row>
+                <ion-row>
+                  <ion-label>Science</ion-label>
+                  <ion-label>20th Jul,2020</ion-label>
+                </ion-row>
+              </ion-col>
+
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+        <!-- Post Header Ends -->
+
+        <!-- Post Content -->
+        <ion-card-content>
+          There is nothing good or bad it’s all about the characterization
+          the more you express the more you are!
+        </ion-card-content>
+        <!-- Post Image -->
+        <img src="../../../assets/B4-images/postImage.png">
+        <!-- Post Content Ends -->
+
+        <!-- Post Footer -->
+        <ion-footer class="ion-no-border">
+                <ion-toolbar>
+
+                <ion-icon src="assets/icon/unstarIcon.svg"></ion-icon>
+                <ion-label>50</ion-label>
+                <ion-icon src="assets/icon/commentIcon.svg"></ion-icon>
+                <ion-label>2</ion-label>
+
+              </ion-toolbar>
+        </ion-footer>
+        <!-- Post Footer Ends -->
+      </ion-card>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

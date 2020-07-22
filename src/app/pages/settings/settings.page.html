@@ -1,9 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border" [translucent]="true">
+      <ion-toolbar>
+        <h1>Settings</h1>
+        <ion-icon slot="end" src="assets/icon/closeIcon.svg"></ion-icon>
+      </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-label>Change Password</ion-label>
+    </ion-col>
+  </ion-row>
+    <hr>
+    <ion-row>
+      <ion-item>
+        <ion-label>Grape</ion-label>
+        <ion-toggle slot="end" name="grape" color="tertiary" checked></ion-toggle>
+      </ion-item>
+    </ion-row>
+</ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+  <ion-icon src="assets/icon/logoutIcon.svg"></ion-icon>
+</ion-toolbar>
+</ion-footer>
