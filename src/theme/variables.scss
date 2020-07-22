@@ -67,6 +67,7 @@
   --ion-color-light-tint: #fefefe;
 
   --ion-color-white: #FFFFFF;
+  --ion-background-color: var(--ion-color-light)
 }
 
 @media (prefers-color-scheme: dark) {
@@ -217,4 +218,7 @@
 
     --ion-tab-bar-background: #1f1f1f;
   }
+}
+ion-content{
+  background-color: black !important;
 }

@@ -1,0 +1,62 @@
+/*=========================================================
+                         Common
+==========================================================*/
+
+// background color of the page.
+ion-content{
+    --ion-background-color: var(--ion-color-light);
+}
+
+// Text color commonly stated
+.text-color{
+    color: var(--ion-color-dark);
+    text-align: center;
+}
+
+/*=========================================================
+                        Heading
+==========================================================*/
+
+
+// Heading font style
+.headingStyle{
+    font: bold 20px 'Raleway', sans-serif;
+    margin-top: 60px;
+}
+
+/*=========================================================
+                        Cards
+==========================================================*/
+
+// grid size adjustments
+ion-grid{
+    padding: 0 19px !important;
+    margin-top: 60px;
+}
+
+// gap between each row
+ion-col{
+    margin-bottom: 25px !important;
+}
+
+// card size, shadow, radius, color
+.card-design{
+    height: 150px;
+    width: 150px;
+    box-shadow: 0 0 5px 0px #979797;
+    border-radius: 10px;
+    margin: 0 auto !important;
+    --ion-background-color: white;
+}
+
+// alignment of image 
+  .image-adjustment{
+    margin-top: 10px;;
+    text-align: center;
+  }
+
+  // text style which is inside the card
+  .cardTextStyle{
+    font : bold 12px  'Quciksand', sans-serif;
+    color: var(--ion-color-dark);
+  } 
