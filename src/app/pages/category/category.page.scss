@@ -60,3 +60,18 @@ ion-col{
     font : bold 12px  'Quciksand', sans-serif;
     color: var(--ion-color-dark);
   } 
+
+
+#Button-RowPadding{
+    padding-top: 70px;
+}
+ion-button{
+    font: bold 20px 'Raleway', sans-serif;
+    text-transform: none !important;
+    height: 50px;
+    width: 135px;
+}
+.alignCenter{
+    display: flex;
+    justify-content: center;
+}
