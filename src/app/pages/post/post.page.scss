@@ -1,15 +1,33 @@
+/*=======================================
+                 Toolbar
+========================================*/
+
 ion-toolbar{
     .button{
             margin-top:32px;
             margin-right:24px;
     }
-    ion-icon{
-        &.toolbar-icon {
+}
+
+/*=======================================
+                 Icon size
+========================================*/
+
+ion-icon{
+    &.toolbar-icon{
             width: 16px;
             height: 16px;
-        }
+    }
+    &.footer-icon{
+            width: 25px;
+            height: 25px;
     }
 }
+
+/*=======================================
+        Avatar and its name
+========================================*/
+
 .circle-avatar{
             position: absolute;
             width: 45px;
@@ -30,19 +48,27 @@ ion-toolbar{
             font-size: 18px;
             line-height: 17px;
 }
+
+/*=======================================
+            Category selection
+========================================*/
 .select-item{
             position: absolute;
-            width: 370px;
-            height: 36px;
+            height: 40px;
             left: 38px;
+            right:38px;
             top: 90px;
             background: var(--ion-color-white);
             border: 0.5px solid var(--ion-color-tertiary);
             box-sizing: border-box;
             border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
 }
 .label-category{
-            margin-top:-9px;
+            margin-top:-6px;
             font-family: Quicksand;
             font-style: normal;
             font-weight: normal;
@@ -51,14 +77,51 @@ ion-toolbar{
             color: var(--ion-color-warning);
 }
 .select-category{
-            margin-top:-9px;
+            margin-top:-8px;
 }
 
 ion-select::part(icon) {
             color: var(--ion-color-primary);
             opacity: 1;
-            width:40px;
-            height:40px;
-            margin-right:-15px;
-  }
+            // width:40px;
+            // height:40px;
+            //margin-right:10px;
+}
 
+/*=======================================
+            Comment section
+========================================*/
+
+.label-comments{
+            position: absolute;
+            height: 450px;
+            left: 38px;
+            right:38px;
+            top: 137px;
+            color:var(--ion-color-warning);
+            background: var(--ion-color-white);
+            border: 0.5px solid var(--ion-color-tertiary);
+            box-sizing: border-box;
+            border-radius: 5px;
+            font-family: Quicksand;
+            padding-top:5px;
+            padding-left:16px;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 24px;
+}
+
+/*=======================================
+            Footer section
+========================================*/
+
+ion-footer{
+    height : 90px !important;
+    .button-photo{
+            padding-left:25px;
+    }
+    .button-Go{
+        padding-right:6px;
+    }
+}
