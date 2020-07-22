@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
-import { PostComponent } from '../../components/post/post.component';
 
 
 @NgModule({
@@ -15,6 +14,6 @@ import { PostComponent } from '../../components/post/post.component';
     FormsModule,
     Tab2PageRoutingModule
   ],
-  declarations: [Tab2Page,PostComponent]
+  declarations: [Tab2Page]
 })
 export class Tab2PageModule {}
