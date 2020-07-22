@@ -6,11 +6,7 @@ const routes: Routes = [
   {
     path: '',
     component: Tab2Page,
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./profile.module').then( m => m.ProfilePageModule)
-  }
+  },q
 ];
 
 @NgModule({
