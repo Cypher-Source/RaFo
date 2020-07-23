@@ -1,0 +1,49 @@
+/*=========================================================
+                        Common
+==========================================================*/
+ion-grid{
+    margin : 10px;
+}
+.large-text-color{
+    color: var(--ion-color-dark);
+}
+
+/*=========================================================
+                        Header
+==========================================================*/
+// Heading font style
+#headingStyle{
+    font: bold 24px 'Raleway', sans-serif;
+    text-align: center;
+}
+// border line below header
+#borderLine{
+    border-bottom: 1px solid var(--ion-color-primary);
+    height: 50%;
+}
+// setting icon
+#setting-icon{
+    zoom: 1.3;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 9px;
+}
+/*=========================================================
+                        Not Found
+==========================================================*/
+// to bring overall content center
+#grid-not-found{
+    margin: 35% 70px 50% 70px;
+}
+// to bring image center
+.align-center{
+    text-align: center;
+}
+// text style
+#not-found-text{
+    line-height: 25px !important;
+    letter-spacing: 1px;
+    font: 500 14px 'Raleway', sans-serif;
+    color: #6F6F6F;
+}
+
