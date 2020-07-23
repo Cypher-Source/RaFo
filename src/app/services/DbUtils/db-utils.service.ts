@@ -192,6 +192,34 @@ export class DbUtilsService {
     });
   }
 
+  // get user posts
+  async getUserPosts(uid: string): Promise<Array<FeedPost>> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let feedPostArray: Array<FeedPost> = [];
+
+        // read data from db
+        const postRef = this.db.collection("posts").ref;
+        const data = await postRef.where("postedBy", "==", uid).get();
+
+        // structure the data in the form of FeedPost Schema
+        data.forEach((resp) => {
+          let responseData = resp.data();
+          responseData["id"] = resp.id;
+          responseData["liked"] = responseData["likes"].includes(uid);
+          feedPostArray.push(<FeedPost>responseData);
+        });
+
+        console.log(feedPostArray);
+
+        resolve(feedPostArray);
+      } catch (e) {
+        console.log(e);
+        reject(e);
+      }
+    });
+  }
+
   // get current date in dd/mm/yyyy format
   private getDate = (): String => {
     let d = new Date();
