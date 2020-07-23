@@ -86,4 +86,41 @@ export class AuthUtilsService {
       }
     });
   }
+
+  // set preferred category for current user
+  async setCurrentUserCategory(newCategory: Array<String>): Promise<Object> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        // get the current user
+        const currentUser: UserStatus = await this.getCurrentUser();
+
+        if (currentUser.status) {
+          // update the category
+          await this.db
+            .collection("users")
+            .doc(currentUser.uid)
+            .update({ category: newCategory });
+
+          resolve({
+            status: true,
+            category: newCategory,
+            message: "Category updated successfully",
+          });
+        } else {
+          resolve({
+            status: false,
+            category: null,
+            message: "User not signed in",
+          });
+        }
+      } catch (e) {
+        console.log(e);
+        resolve({
+          status: false,
+          category: null,
+          message: "Category update failed",
+        });
+      }
+    });
+  }
 }
