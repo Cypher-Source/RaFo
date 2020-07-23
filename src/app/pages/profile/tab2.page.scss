@@ -1,4 +1,52 @@
+/*==================================================
+                       HEADER
+==================================================*/
 .closeIconResize{
-    font-size: 24px;
-    padding-right: 4%;
+    font-size: 23px;
+    padding-right: 5% !important;
+    padding: 0;
+    margin: 0;
+}
+
+/*==================================================
+                       Content
+==================================================*/
+ion-content{
+    padding: 0;
+    margin: 0;
+}
+
+/*Avatar Display*/  
+.avatarAlignment{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+#avatarProfile{
+    border: 1px solid var(--ion-color-primary);
+    width: 114px;  
+    height: 114px;
+    position: absolute;
+}
+
+/*Camera*/  
+#cameraBgIcon{
+
+    position: absolute;
+    zoom: 2.5 !important;
+}
+#cameraIcon
+{
+    padding-top: 10px !important;
+    padding-left: 10.38px !important;
+    zoom: 1.1;
+}
+#cameraAlignment{
+    padding-top: 66px;
+    padding-left: 75px;
+
+}
+#userNameEdit{
+    padding-top: 30px;
 }

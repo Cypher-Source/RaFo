@@ -1,34 +1,41 @@
 <!-- Header -->
 <ion-header class="ion-no-border" [translucent]="true">
-  <ion-toolbar class="closeIconResize">
+  <ion-toolbar no-border class="closeIconResize">
     <!-- Close Icon -->
-      <ion-icon  slot="end" src="assets/icon/closeIcon.svg"></ion-icon>
-    </ion-toolbar>
+    <ion-icon slot="end" src="assets/icon/closeIcon.svg"></ion-icon>
+  </ion-toolbar>
 </ion-header>
 <!-- Header Ends -->
 
-<ion-content [fullscreen]="true">
+<!-- Content -->
+<ion-content no-border [fullscreen]="true">
   <ion-grid>
 
     <!-- Display Profile with editIcon-->
     <ion-row>
-      <ion-col>
-        <ion-avatar></ion-avatar>
+      <!-- Avatar -->
+      <ion-col class="avatarAlignment">
+        <ion-avatar id="avatarProfile"></ion-avatar>
+        <!-- Camera -->
+        <div id="cameraAlignment">
+          <ion-icon src="assets/icon/cameraBgIcon.svg" id="cameraBgIcon"></ion-icon>
+          <ion-icon src="assets/icon/cameraIcon.svg" id="cameraIcon"></ion-icon>
+        </div>
       </ion-col>
     </ion-row>
 
     <!-- UserName with editIcon -->
-      <ion-row>
+    <ion-row>
       <ion-col>
-        <ion-item>
+        <ion-item id="userNameEdit">
           <ion-row>
             <ion-col>
-          <h4>Poorvasha</h4>
-          </ion-col>
-          <ion-col>
-          <ion-icon src="assets/icon/editIcon.svg"></ion-icon>
-        </ion-col>
-        </ion-row>
+              <h4>Poorvasha</h4>
+            </ion-col>
+            <ion-col>
+              <ion-icon src="assets/icon/editIcon.svg"></ion-icon>
+            </ion-col>
+          </ion-row>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -36,12 +43,12 @@
     <!-- Category Button -->
     <ion-row>
       <ion-button>
-        <ion-label>Category  5</ion-label>
+        <ion-label>Category 5</ion-label>
       </ion-button>
     </ion-row>
 
     <!-- Post -->
-      <ion-row>
+    <ion-row>
       <ion-label>Post</ion-label>
 
       <ion-card>
@@ -82,14 +89,14 @@
 
         <!-- Post Footer -->
         <ion-footer class="ion-no-border">
-                <ion-toolbar>
+          <ion-toolbar>
 
-                <ion-icon src="assets/icon/unstarIcon.svg"></ion-icon>
-                <ion-label>50</ion-label>
-                <ion-icon src="assets/icon/commentIcon.svg"></ion-icon>
-                <ion-label>2</ion-label>
+            <ion-icon src="assets/icon/unstarIcon.svg"></ion-icon>
+            <ion-label>50</ion-label>
+            <ion-icon src="assets/icon/commentIcon.svg"></ion-icon>
+            <ion-label>2</ion-label>
 
-              </ion-toolbar>
+          </ion-toolbar>
         </ion-footer>
         <!-- Post Footer Ends -->
       </ion-card>
