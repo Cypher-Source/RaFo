@@ -1,6 +1,12 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { UserStatus, UserDetails } from "src/app/schemas/users.schema";
+import {
+  UserStatus,
+  UserDetails,
+  UserCategoryStatus,
+  UserNameStatus,
+  ProfilePictureStatus,
+} from "src/app/schemas/users.schema";
 import { AngularFirestore } from "@angular/fire/firestore";
 
 @Injectable({
@@ -88,7 +94,9 @@ export class AuthUtilsService {
   }
 
   // set preferred category for current user
-  async setCurrentUserCategory(newCategory: Array<String>): Promise<Object> {
+  async setCurrentUserCategory(
+    newCategory: Array<String>
+  ): Promise<UserCategoryStatus> {
     return new Promise(async (resolve, reject) => {
       try {
         // get the current user
@@ -123,4 +131,75 @@ export class AuthUtilsService {
       }
     });
   }
+
+  // change the user name
+  async setUserName(userName: string): Promise<UserNameStatus> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const currentUser: UserStatus = await this.getCurrentUser();
+
+        if (currentUser.status) {
+          await this.db
+            .collection("users")
+            .doc(currentUser.uid)
+            .update({ userId: userName });
+
+          resolve({
+            status: true,
+            userName: userName,
+            message: "User name updated successfully",
+          });
+        } else {
+          resolve({
+            status: false,
+            userName: null,
+            message: "User not logged in",
+          });
+        }
+      } catch (e) {
+        console.log(e);
+        reject({
+          status: false,
+          userName: null,
+          message: e.message,
+        });
+      }
+    });
+  }
+
+  // change profile picture
+  async setProfilePicture(profilePic: string): Promise<ProfilePictureStatus> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const currentUser: UserStatus = await this.getCurrentUser();
+
+        if (currentUser.status) {
+          await this.db
+            .collection("users")
+            .doc(currentUser.uid)
+            .update({ profilePic: profilePic });
+
+          resolve({
+            status: true,
+            profilePic: profilePic,
+            message: "User name updated successfully",
+          });
+        } else {
+          resolve({
+            status: false,
+            profilePic: null,
+            message: "User not logged in",
+          });
+        }
+      } catch (e) {
+        console.log(e);
+        reject({
+          status: false,
+          profilePic: null,
+          message: e.message,
+        });
+      }
+    });
+  }
+
 }
