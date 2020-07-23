@@ -52,6 +52,7 @@ ion-icon{
 /*=======================================
             Category selection
 ========================================*/
+
 .select-item{
             position: absolute;
             height: 40px;
@@ -83,10 +84,8 @@ ion-icon{
 ion-select::part(icon) {
             color: var(--ion-color-primary);
             opacity: 1;
-            // width:40px;
-            // height:40px;
-            //margin-right:10px;
 }
+
 
 /*=======================================
             Comment section
