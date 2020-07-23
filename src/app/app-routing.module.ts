@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'photo',
     loadChildren: () => import('./pages/photo/photo.module').then( m => m.PhotoPageModule)
+  },
+  {
+    path: 'feed-comments',
+    loadChildren: () => import('./modals/feed-comments/feed-comments.module').then( m => m.FeedCommentsPageModule)
   }
 ];
 @NgModule({
