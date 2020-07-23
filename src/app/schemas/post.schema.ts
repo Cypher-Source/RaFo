@@ -10,6 +10,21 @@ export interface FeedPost {
   liked: boolean;
 }
 
+export interface Post {
+  category: Array<String>;
+  date?: String;
+  image: String;
+  postedBy?: String;
+  text: String;
+  likes?: Array<String>;
+}
+
+export interface PostStatus {
+  status: boolean;
+  post: Post;
+  message?: string;
+}
+
 export interface FeedPostComments {
   id: string;
   commentedBy: String;
