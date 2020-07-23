@@ -32,34 +32,32 @@ ion-footer{
 }
 
 /*=======================================
-          Footer Label colors
-========================================*/
-
-.footer-label-left{
-            color: var(--ion-color-danger); 
-}
-
-.footer-label-right{
-            color: var(--ion-color-success);        
-}
-
-/*=======================================
           Footer common adjustment
 ========================================*/
 
 .footer-common-adj{
             text-align: center;
-            margin-top:23px; 
+            margin-top:2px;
             position: absolute;
             left: 0;
             top: 0;
             height: 100%;
-            width: 100%; 
+            width: 100%;
             font-family: Quicksand;
             font-style: normal;
             font-weight: bold;
             font-size: 20px;
-            line-height: 25px; 
+            line-height: 25px;
+            
+            
+}
+
+/*=======================================
+           Footer button text
+========================================*/
+
+ion-button {
+    text-transform: none;
 }
 
 /*=======================================

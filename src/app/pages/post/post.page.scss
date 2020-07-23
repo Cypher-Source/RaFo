@@ -96,7 +96,6 @@ ion-select::part(placeholder) {
             left: 38px;
             right:38px;
             top: 137px;
-            //color:var(--ion-color-warning);
             background: var(--ion-color-white);
             border: 0.5px solid var(--ion-color-tertiary);
             box-sizing: border-box;
@@ -104,7 +103,7 @@ ion-select::part(placeholder) {
 }
 ion-textarea{     
             font-family: Quicksand;
-            margin-top:-6px;
+            margin-top:0;
             font-style: normal;
             font-weight: normal;
             font-size: 20px;
