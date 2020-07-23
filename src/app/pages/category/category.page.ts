@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular'
+import { FeedCommentsPage } from '../../modals/feed-comments/feed-comments.page';
 
 @Component({
   selector: 'app-category',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryPage implements OnInit {
 
-  constructor() { }
+  constructor( private modalController: ModalController) { }
 
   ngOnInit() {
+  }
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: FeedCommentsPage
+    });
+    return await modal.present();
   }
 
 }

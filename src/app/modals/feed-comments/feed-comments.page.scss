@@ -1,0 +1,82 @@
+/*=========================================================
+                        common
+==========================================================*/
+
+// text color for headings of the page
+.heading-text-color{
+    color: var(--ion-color-dark);
+}
+ion-content {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+ion-grid{
+    margin: 20px 30px 0px 20px !important;
+}
+
+/*=========================================================
+                        Heading
+==========================================================*/
+// Heading font style
+#headingStyle p{
+    font: 500 18px 'Raleway', sans-serif !important;
+    //text-align: center;
+}
+// cancel icon
+#cancel-icon{
+    display: flex;
+    justify-content: flex-end !important;
+    margin-top: 20px;
+}
+
+/*=========================================================
+                        User comments 
+==========================================================*/
+// overall top space for comments...
+#grid-comments{
+    margin-top: 10px;
+}
+// gap between each comment
+.comment{
+    margin-bottom: 15px;
+}
+// user profile width and height
+ion-avatar{
+    width: 30px;  
+    height: 30px;  
+}
+// UserName font styles
+.userName{
+    font: bold 14px 'Raleway', sans-serif;
+    margin-top: -10px;
+    margin-bottom: -35px ;
+    color: black;
+}
+// userComment font Styles
+.userComment{
+    font:  normal 14px 'Quicksand', sans-serif;
+    color: var(--ion-color-warning);
+}
+
+/*=========================================================
+                        User comments 
+==========================================================*/
+// footer at bottom of the page
+ion-footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+// to leave space at the right and left side of the page
+#grid-footer{
+    margin: auto 20px auto 20px !important;
+}
+// send icon
+#send-icon{
+    display: flex;
+    justify-content: flex-end !important;
+    margin-top: 5px;
+    zoom : 1.4 !important;
+}
+
+

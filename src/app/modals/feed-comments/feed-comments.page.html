@@ -1,9 +1,124 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>feedComments</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
+ 
+
+  <!-- HEADER START -->
+  <ion-grid>
+    <!-- row-01 -->
+    <ion-row>
+      <!-- col-01 for heading -->
+      <ion-col size="4">
+          <div id="headingStyle">
+            <p class="heading-text-color">Comments</p>
+          </div>
+      </ion-col>
+      <!-- col-02 for cancel-icon -->
+      <ion-col size="8">  
+          <div id="cancel-icon">
+              <ion-icon src="../../../assets/icon/cancel-icon.svg"></ion-icon>
+          </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <!-- HEADER END -->
+
+
+  <!-- COMMENTS START -->
+  <ion-grid id="grid-comments">
+    
+      <!-- row-01 - comment 01-->
+      <ion-row class="comment">
+          <!-- col-01 for avatar -->
+          <ion-col size="1.5">
+            <div id="avatar-align-center">
+              <ion-avatar>
+                <img src="../../../assets/icon/userProfile-icon.svg">
+              </ion-avatar>
+            </div>
+          </ion-col>
+
+          <!-- col-02 for userName and usercomments -->
+          <ion-col size="10.5">
+            <!-- userName -->
+            <div class="userName heading-text-color">
+              <p>Ramya Venkatesh</p>
+            </div><br> 
+             <!-- UserComment  -->
+            <div class="userComment"> 
+              <p>hdhjsdsjndsjbhjsdjksnjsfhsdbcjsncjhcjbjcnjbcdhcbddh</p>
+            </div>
+          </ion-col>
+
+      </ion-row>
+      
+  
+      
+      <!-- row-02 - comment 02 -->
+      <ion-row class="comment">
+          <!-- col-01 for avatar -->
+          <ion-col size="1.5">
+            <div id="avatar-align-center">
+              <ion-avatar>
+                <img src="../../../assets/icon/userProfile-icon.svg">
+              </ion-avatar>
+            </div>
+          </ion-col>
+      
+          <!-- col-02 for userName and usercomments -->
+          <ion-col size="10.5">
+            <!-- userName -->
+            <div class="userName heading-text-color">
+              <p>Poorvasha Murugavel</p>
+            </div><br> 
+            <!-- UserComment  -->
+            <div class="userComment"> 
+              <p>hdhjsdsjndsjbhjsdjksnjsfhsdbcjsncjhcjbjcnjbcdhcbddh</p>
+            </div>
+          </ion-col>
+
+      </ion-row>
+
+  </ion-grid>
+   <!-- COMMENTS END  -->
+
+
+
+  <!-- FOOTER  -->
+  <ion-footer>
+    <ion-toolbar>
+      <ion-grid id="grid-footer">
+        <!-- row-01 for header -->
+        <ion-row>
+
+            <!-- col-01 for avatar -->
+            <ion-col size="2">
+                <!-- avatar -->
+                  <ion-avatar>
+                    <img src="../../../assets/icon/userProfile-icon.svg">
+                  </ion-avatar>
+                <!-- </div> -->
+            </ion-col>
+
+            <!-- col-02 for input -->
+            <ion-col size="8">
+                <ion-input></ion-input>
+            </ion-col>
+
+            <!-- col-02 for cancel-icon -->
+            <ion-col size="2">  
+              <div id="send-icon">
+                  <ion-icon src="../../../assets/icon/send.svg"></ion-icon>
+              </div>
+            </ion-col>
+    
+        </ion-row>
+
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+  <!-- FOOTER END -->
+
 
 </ion-content>
