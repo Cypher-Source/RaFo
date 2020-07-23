@@ -31,3 +31,22 @@ ion-footer {
   --ion-background-color: var(--ion-color-light);
 }
 
+// Select category of post page
+
+.my-alert .alert-wrapper { 
+    font-family:Quicksand;
+    border-radius:20px;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -ms-border-radius:20px;
+    -o-border-radius:20px;
+
+  .alert-button-group {
+    justify-content: center;
+    font-weight: bold;
+    font-size:20px;
+  }
+  .alert-button:nth-child(1) {
+    display: none;
+}
+}

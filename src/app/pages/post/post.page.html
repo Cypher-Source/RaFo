@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-button class="button" slot="end" fill="clear">
+    <ion-button class="into-button" slot="end" fill="clear">
       <ion-icon class="toolbar-icon" slot="icon-only" src="assets/icon/into.svg"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -8,15 +8,18 @@
 
 <ion-content>
     <ion-grid>
+
+      <!-- avatar with name of the user -->
       <ion-row>
         <ion-col col-4 class="circle-avatar"></ion-col>
         <ion-col col-6 class="circle-name">Poorvasha</ion-col>
       </ion-row>
+
+      <!-- selecting the type of category -->
       <ion-row>
         <ion-col col-12>
           <ion-item  class="select-item">
-            <ion-label   class="label-category">Category</ion-label>
-            <ion-select class="select-category" okText="Okay" cancelText="Dismiss">
+            <ion-select placeholder="Category" [interfaceOptions]="customAlertOptions" interface="alert" class="select-category" okText="Ok">
               <ion-select-option value="Science">Science</ion-select-option>
               <ion-select-option value="Technology">Technology</ion-select-option>
               <ion-select-option value="Sports">Sports</ion-select-option>
@@ -28,22 +31,26 @@
             </ion-select>
           </ion-item>
         </ion-col>
-      </ion-row> 
+      </ion-row>
       
+      <!-- Entering the users thoughts -->
       <ion-row>
-        <ion-col col-12>
-          <ion-label class="label-comments">Express your thoughts...</ion-label>         
+        <ion-col>
+          <ion-item class="comments-item" lines="none">
+            <ion-textarea autoGrow="false" autosize rows="18" placeholder="Express your thoughts..."></ion-textarea>
+          </ion-item>
         </ion-col>
       </ion-row>
     </ion-grid>
 </ion-content>
 
+<!-- Footer with two icons -->
 <ion-footer class="ion-no-border">
   <ion-toolbar>
-    <ion-button class="button-photo" slot="start" fill="clear">
+    <ion-button class="footer-button-photo" slot="start" fill="clear">
       <ion-icon class="footer-icon" slot="icon-only" src="assets/icon/post-photo.svg"></ion-icon>
     </ion-button>
-    <ion-button class="button-Go" slot="end" fill="clear">
+    <ion-button class="footer-button-Go" slot="end" fill="clear">
       <ion-icon class="footer-icon" slot="icon-only" src="assets/icon/Go.svg"></ion-icon>
     </ion-button>
   </ion-toolbar>
