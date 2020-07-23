@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  public slideOneForm: FormGroup;
 
-  ngOnInit() {
-  }
+  constructor(public formBuilder: FormBuilder) { }
+
+  
+  this.slideOneForm = formBuilder.group({
+    email: ['']
+});
+
+  
 
 }

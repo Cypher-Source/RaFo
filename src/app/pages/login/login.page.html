@@ -3,19 +3,22 @@
   <h1>Welcome Back!</h1>
   <div class="center">
 
+    <form [formGroup]="slideOneForm">
     <!-- Username input -->
-    <div class="uname">
+    <div class="email">
       <ion-item>
-        <ion-input placeholder="User Name"></ion-input>
+        <ion-label position="floating">Email ID</ion-label>
+        <ion-input formControlName="email" type="Email"></ion-input>
       </ion-item>
     </div>
 
-    <!-- Password input -->
-    <div class="password">
-      <ion-item>
-        <ion-input placeholder="Password"></ion-input>
-      </ion-item>
-    </div>
+      <!-- Password input -->
+      <div class="password">
+        <ion-item>
+          <ion-input placeholder="Password"></ion-input>
+        </ion-item>
+      </div>
+      </form>
   </div>
   <!-- login button -->
   <div class="login-btn">
@@ -24,6 +27,6 @@
 
   <!-- new user signup content -->
   <div class="lower-content">
-    <span style="align-items: center;">New user? </span><span style="color: #FF4D85;">Signup</span>
+    <h6>New user ?<span style="color: var(--ion-color-primary);"> Signup</span></h6>
   </div>
 </ion-content>
