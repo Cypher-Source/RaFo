@@ -5,8 +5,11 @@ import {
   FeedPostComments,
   LikeResponse,
   CommentResponse,
+  PostStatus,
+  Post,
 } from "src/app/schemas/post.schema";
 import { AuthUtilsService } from "../AuthUtils/auth-utils.service";
+import { UserStatus } from "src/app/schemas/users.schema";
 
 @Injectable({
   providedIn: "root",
@@ -164,14 +167,11 @@ export class DbUtilsService {
   ): Promise<CommentResponse> {
     return new Promise(async (resolve, reject) => {
       try {
-        let d = new Date();
-        let n = d.getTime();
-
         await this.db
           .collection("posts")
           .doc(postId)
           .collection("comments")
-          .doc(String(n))
+          .doc(this.getTime())
           .set({
             commentedBy: (await this.auth.getCurrentUser()).uid,
             date: this.getDate(),
@@ -220,6 +220,42 @@ export class DbUtilsService {
     });
   }
 
+  // post a content
+  async postAContent(post: Post): Promise<PostStatus> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const currentUser: UserStatus = await this.auth.getCurrentUser();
+
+        if (currentUser.status) {
+          post["postedBy"] = currentUser.uid;
+          post["date"] = this.getDate();
+          post["likes"] = [];
+
+          await this.db.collection("posts").doc(this.getTime()).set(post);
+
+          resolve({
+            status: true,
+            post: post,
+            message: "Post updated successfully",
+          });
+        } else {
+          resolve({
+            status: false,
+            post: null,
+            message: "User not logged in",
+          });
+        }
+      } catch (e) {
+        console.log(e);
+        reject({
+          status: false,
+          post: null,
+          message: "Some error has occured!",
+        });
+      }
+    });
+  }
+
   // get current date in dd/mm/yyyy format
   private getDate = (): String => {
     let d = new Date();
@@ -233,5 +269,13 @@ export class DbUtilsService {
     today = dd + "/" + mm + "/" + yyyy;
 
     return today;
+  };
+
+  // get the current time snapshot
+  private getTime = (): string => {
+    let d = new Date();
+    let n = d.getTime();
+
+    return String(n);
   };
 }
