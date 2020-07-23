@@ -11,3 +11,21 @@ export interface UserDetails {
   profilePic: String | null;
   userId: String;
 }
+
+export interface UserCategoryStatus {
+  status: boolean;
+  category: Array<String>;
+  message?: string;
+}
+
+export interface UserNameStatus {
+  status: boolean;
+  userName: string;
+  message?: string;
+}
+
+export interface ProfilePictureStatus {
+  status: boolean;
+  profilePic: string;
+  message?: string;
+}
