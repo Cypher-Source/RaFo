@@ -29,7 +29,7 @@ export class AuthUtilsService {
           );
         } else {
           // No user is signed in.
-          reject({ status: true, uid: null });
+          reject({ status: false, uid: null });
         }
       });
     });
@@ -201,5 +201,4 @@ export class AuthUtilsService {
       }
     });
   }
-
 }
