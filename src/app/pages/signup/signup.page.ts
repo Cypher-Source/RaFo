@@ -10,6 +10,6 @@ export class SignupPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
-}
+  }
+ }

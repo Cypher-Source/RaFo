@@ -219,3 +219,16 @@
     --ion-tab-bar-background: #1f1f1f;
   }
 }
+
+//Popover for password-change
+ion-popover{
+  .popover-wrapper{
+    .popover-content{
+            border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            -ms-border-radius: 20px;
+            -o-border-radius: 20px;
+    }
+  }
+}
