@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ModalController } from "@ionic/angular";
+import { ModalController, Platform } from "@ionic/angular";
 
 @Component({
   selector: "app-post",
@@ -7,6 +7,8 @@ import { ModalController } from "@ionic/angular";
   styleUrls: ["./post.page.scss"],
 })
 export class PostPage implements OnInit {
+  textAreaRows: number = 18;
+
   customAlertOptions: any = {
     cssClass: "my-alert",
     header: "Category",
