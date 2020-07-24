@@ -91,6 +91,14 @@ ion-content{
     text-transform: none;
     font-family: 'Quicksand' sans-serif;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 800;
     --box-shadow:none;
+}
+
+/*Post*/
+#postHeading{
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 5px;
 }
