@@ -27,80 +27,78 @@
     <!-- UserName with editIcon -->
     <ion-row>
       <ion-col>
-          <ion-row id="userNameEdit">
-            <!-- UserName -->
-            <ion-col size="11" id="userName">
-              <ion-label class="noPaddingMarign">Poorvasha Murugavel</ion-label>
-            </ion-col>
-            <!-- Edit Icon -->
-            <ion-col size="1" id="editIcon">
-              <ion-icon src="assets/icon/editIcon.svg"></ion-icon>
-            </ion-col>
-          </ion-row>
+        <ion-row id="userNameEdit">
+          <!-- UserName -->
+          <ion-col size="11" id="userName">
+            <ion-label class="noPaddingMarign">Poorvasha Murugavel</ion-label>
+          </ion-col>
+          <!-- Edit Icon -->
+          <ion-col size="1" id="editIcon">
+            <ion-icon src="assets/icon/editIcon.svg"></ion-icon>
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
 
     <!-- Category Button -->
     <ion-row class="topSpacing">
       <ion-col class="alignCenter">
-        <ion-button shape="round" color="dark" class="noPaddingMarign" id="categoryButton">Category<span>5</span> </ion-button>
+        <ion-button style="font-family: 'Quicksand' sans-serif;
+                           font-size: 14px;
+                           font-weight: 600;" shape="round" color="dark" class="noPaddingMarign" id="categoryButton">
+          Category<span>5</span>
+        </ion-button>
       </ion-col>
     </ion-row>
 
     <!-- Post Heaing -->
     <ion-row class="alignCenter topSpacing">
-    <ion-label id="postHeading">Posts</ion-label>
-   </ion-row>
+      <ion-label id="postHeading">Posts</ion-label>
+    </ion-row>
 
     <!-- Post -->
-    <ion-row class="topSpacing">
+    <ion-row class="topSpacing alignCenter noPaddingMarign">
       <ion-card>
         <!-- Post Header -->
         <ion-card-header>
-          <ion-grid>
-            <ion-row>
-
-              <!-- Post Avatar -->
-              <ion-col size="3">
-                <ion-avatar slot="start"></ion-avatar>
-              </ion-col>
-
-              <!-- Post (UserName, Category, Date) -->
-              <ion-col size="9">
-                <ion-row>
-                  <ion-label>Poorvasha</ion-label>
-                </ion-row>
-                <ion-row>
-                  <ion-label>Science</ion-label>
-                  <ion-label>20th Jul,2020</ion-label>
-                </ion-row>
-              </ion-col>
-
-            </ion-row>
-          </ion-grid>
+          <ion-row class="noPaddingMarign">
+            <!-- Post Avatar -->
+            <ion-col size="3" class="noPaddingMarign">
+              <ion-avatar id="postAvatar"></ion-avatar>
+            </ion-col>
+            <!-- Post (UserName, Category, Date) -->
+            <ion-col size="9" class="noPaddingMarign">
+              <ion-row id="postUserNameAlignment" class="noPaddingMarign">
+                <h4 class="noPaddingMarign">Poorvasha</h4>
+              </ion-row>
+              <ion-row id="postCategoryDateDetails" class="noPaddingMarign">
+                <h4 class="noPaddingMarign">Science
+                  <hr class="noPaddingMarign">
+                  <span>20th Jul,2020</span></h4>
+              </ion-row>
+            </ion-col>
+          </ion-row>
         </ion-card-header>
         <!-- Post Header Ends -->
 
         <!-- Post Content -->
-        <ion-card-content>
+        <ion-card-content id="postContent">
           There is nothing good or bad it’s all about the characterization
           the more you express the more you are!
         </ion-card-content>
         <!-- Post Image -->
-        <img src="../../../assets/B4-images/postImage.png">
+        <img src="../../../assets/B4-images/postImage.png" class="img-responisve">
         <!-- Post Content Ends -->
 
         <!-- Post Footer -->
-        <ion-footer class="ion-no-border">
-          <ion-toolbar>
-
-            <ion-icon src="assets/icon/unstarIcon.svg"></ion-icon>
-            <ion-label>50</ion-label>
-            <ion-icon src="assets/icon/commentIcon.svg"></ion-icon>
-            <ion-label>2</ion-label>
-
-          </ion-toolbar>
-        </ion-footer>
+          <ion-row class="noPaddingMarign">
+            <!-- StarIcon with count -->
+              <ion-icon class="iconResize" id="star" src="assets/icon/unstarIcon.svg"></ion-icon>
+              <ion-badge class="countStyle noPaddingMarign">99</ion-badge>
+            <!-- CommentIcon with count -->
+              <ion-icon class="iconResize" id="comment" src="assets/icon/commentIcon.svg"></ion-icon>
+              <ion-badge class="countStyle noPaddingMarign" >100</ion-badge>
+          </ion-row>
         <!-- Post Footer Ends -->
       </ion-card>
     </ion-row>
