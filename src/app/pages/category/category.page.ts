@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { FeedCommentsPage } from "../../modals/feed-comments/feed-comments.page";
 import { Category } from "src/app/schemas/users.schema";
+import { threadId } from "worker_threads";
 
 @Component({
   selector: "app-category",
@@ -11,6 +12,9 @@ import { Category } from "src/app/schemas/users.schema";
 export class CategoryPage implements OnInit {
   // maintaining category state
   categories: Array<Category> = [];
+
+  // selected categories
+  selectedCategories: Array<String> = [];
 
   constructor(private modalController: ModalController) {}
 
@@ -24,6 +28,19 @@ export class CategoryPage implements OnInit {
       component: FeedCommentsPage,
     });
     return await modal.present();
+  }
+
+  // category click handler
+  categoryClicked(i) {
+    this.categories[i].isSelected = !this.categories[i].isSelected;
+
+    // empty the selected categories
+    this.selectedCategories = [];
+    this.categories.forEach((category) => {
+      if (category.isSelected) {
+        this.selectedCategories.push(category.name);
+      }
+    });
   }
 
   // load the list of categories

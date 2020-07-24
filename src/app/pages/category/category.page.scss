@@ -46,6 +46,19 @@ ion-col {
 
   // for ripple effect
   position: relative;
+
+  .selected {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 182, 193, 0.3) 0%,
+      rgba(255, 77, 133, 0.3) 100%
+    );
+  }
 }
 // alignment of image
 .card-image-adjustment {

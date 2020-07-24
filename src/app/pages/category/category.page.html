@@ -15,10 +15,14 @@
         size-sm="4"
         size-xs="6"
         size="12"
-        *ngFor="let category of categories"
+        *ngFor="let category of categories; let i = index"
       >
         <!-- card 01 -->
-        <ion-card class="card-design ion-activatable">
+        <ion-card
+          class="card-design ion-activatable"
+          (click)="categoryClicked(i)"
+        >
+          <div class="selected" *ngIf="category.isSelected"></div>
           <div class="card-image-adjustment">
             <img src="{{category.image}}" />
           </div>
@@ -35,7 +39,12 @@
       <!-- col-1 for button -->
       <ion-col class="button-alignCenter">
         <!-- Next Button -->
-        <ion-button color="dark" (click)="openModal()">Next</ion-button>
+        <ion-button
+          color="dark"
+          (click)="openModal()"
+          [disabled]="selectedCategories.length === 0"
+          >Next</ion-button
+        >
       </ion-col>
     </ion-row>
   </ion-grid>
