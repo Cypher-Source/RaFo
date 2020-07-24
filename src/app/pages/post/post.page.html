@@ -78,7 +78,12 @@
 <!-- Footer with two icons -->
 <ion-footer class="ion-no-border">
   <ion-toolbar>
-    <ion-button class="footer-button-photo" slot="start" fill="clear">
+    <ion-button
+      class="footer-button-photo"
+      slot="start"
+      fill="clear"
+      (click)="selectImage()"
+    >
       <ion-icon
         class="footer-icon"
         slot="icon-only"
