@@ -29,3 +29,8 @@ export interface ProfilePictureStatus {
   profilePic: string;
   message?: string;
 }
+
+export interface Category {
+  isSelected: boolean;
+  image: string;
+}
