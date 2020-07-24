@@ -47,6 +47,29 @@ ion-content{
     padding-left: 75px;
 
 }
+
+/*UserName Edit*/
 #userNameEdit{
-    padding-top: 30px;
+    padding-top: 45px !important;
+    border-bottom: 1px solid var(--ion-color-secondary);
+    margin-left: 95px;
+    margin-right: 95px;
+    padding: 0;
+}
+#userName{
+    padding-left: 2px;
+}
+#editIcon{
+    padding-left: 0;
+    padding-right: 2px;
+    font-size: 15px;
+}
+#userName ion-label{
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+.noPaddingMarign{
+    padding: 0;
+    margin: 0;
 }
