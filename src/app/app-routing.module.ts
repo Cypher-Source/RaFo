@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'photo',
     loadChildren: () => import('./pages/photo/photo.module').then( m => m.PhotoPageModule)
+  },
+  {
+    path: 'renamepopup',
+    loadChildren: () => import('./pages/renamepopup/renamepopup.module').then( m => m.RenamepopupPageModule)
   }
 ];
 @NgModule({

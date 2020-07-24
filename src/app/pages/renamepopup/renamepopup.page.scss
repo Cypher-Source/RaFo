@@ -1,0 +1,36 @@
+/* =========================================
+                Content
+ =========================================== */
+ion-content{
+    background-color: var(--ion-color-white);
+}
+.noPaddingMarign{
+    padding: 0;
+    margin: 0;
+}
+.alignCenter{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+#closeIcon{
+    zoom: 1.5;
+    text-align: end;
+    padding-top: 5px;
+    padding-right: 10px;
+}
+#input ion-input{
+    border-bottom: 1px solid var(--ion-color-secondary);
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+ion-button{
+    height: 40px;
+    font-weight: 600;
+    text-transform: none !important;
+}
+#inputResize{
+    padding-left: 30px;
+    padding-right: 30px;
+}

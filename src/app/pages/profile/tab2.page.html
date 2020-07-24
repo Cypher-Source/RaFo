@@ -33,7 +33,7 @@
               <ion-label class="noPaddingMarign">Poorvasha Murugavel</ion-label>
             </ion-col>
             <!-- Edit Icon -->
-            <ion-col size="1" id="editIcon">
+            <ion-col size="1" id="editIcon" (click)="rename()">
               <ion-icon src="assets/icon/editIcon.svg"></ion-icon>
             </ion-col>
           </ion-row>
@@ -42,9 +42,9 @@
 
     <!-- Category Button -->
     <ion-row>
-      <ion-button>
-        <ion-label>Category 5</ion-label>
-      </ion-button>
+      <ion-col class="alignCenter">
+        <ion-button shape="round" text-capitalize color="dark"> Rename </ion-button>
+      </ion-col>
     </ion-row>
 
     <!-- Post -->
