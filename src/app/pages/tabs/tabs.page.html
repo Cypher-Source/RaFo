@@ -1,45 +1,35 @@
 <ion-tabs>
-
   <ion-tab-bar slot="bottom">
-      <!--  grid for responsiveness -->
-      <ion-grid class="footerGrid">
-          <ion-row>
-            <ion-col>
-                <!-- tab-button-01 - homeButton -->
-                <ion-tab-button tab="tab1" id="home">
-                    <div id="home-icon">
-                      <ion-icon src="../../../assets/icon/home.svg"></ion-icon>
-                    </div>
-                  </ion-tab-button>
-            </ion-col>
-            
-            <ion-col>
-                <!-- tab-button-02 - profileButton -->
-                <ion-tab-button tab="tab2" id="profile">
-                    <div id="profile-icon">
-                      <ion-icon src="../../../assets/icon/profile-icon.svg"></ion-icon>
-                    </div>
-                  </ion-tab-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-    
+    <!--  grid for responsiveness -->
+    <ion-grid class="footerGrid">
+      <ion-row>
+        <ion-col>
+          <!-- tab-button-01 - homeButton -->
+          <ion-tab-button tab="tab1" id="home">
+            <div id="home-icon">
+              <ion-icon src="../../../assets/icon/home.svg"></ion-icon>
+            </div>
+          </ion-tab-button>
+        </ion-col>
+
+        <ion-col>
+          <!-- tab-button-02 - profileButton -->
+          <ion-tab-button tab="tab2" id="profile">
+            <div id="profile-icon">
+              <ion-icon src="../../../assets/icon/profile-icon.svg"></ion-icon>
+            </div>
+          </ion-tab-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-tab-bar>
 
   <!-- Add Icon -->
   <div class="fab-container">
-    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-        <ion-fab-button>
-            <ion-icon src="../../../assets/icon/plus.svg" id="addIcon"></ion-icon>
-        </ion-fab-button>
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed" (click)="openPostModal()">
+      <ion-fab-button>
+        <ion-icon src="../../../assets/icon/plus.svg" id="addIcon"></ion-icon>
+      </ion-fab-button>
     </ion-fab>
   </div>
-
 </ion-tabs>
-
-
-
-
-
-
-  
