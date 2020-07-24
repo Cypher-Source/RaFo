@@ -1,60 +1,26 @@
-h1{
+.heading{
     text-align:center;
-    margin-top: 15%;
     font-family: 'Raleway', sans-serif;
 }
-h6{
-    vertical-align: bottom !important;
+
+.lower-content{
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    display: inline;
 }
 
-.uname {
-    margin-top: 60%;
-    width: 80%;
-    vertical-align: middle;
-    text-align: left;
+img{
+    width: 100%;
 }
 
-.password{
-    margin-top: 5%;
-    width: 80%;
-    text-align: left;
-    vertical-align: middle;
+
+.margin{
+    margin-top: 40px;
 }
 
-.email{
-    margin-top: 5%;
-    width: 80%;
-    text-align: left;
-    vertical-align: middle;
+.signup{
+    margin-top: 50px;
+    //margin-bottom: 10% !important;
 }
 
-.center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    //height: 100%;
+.error-message {
+    color: var(--ion-color-primary);
 }
-
-.login-btn{
-    text-align: center;
-    margin-top: 20%;
-    font-weight: bold;
-    color: whitesmoke;
-    font-weight: 550 !important;
-    font-size: 26px;
-    width: auto;
-}
-
-.lower-content {
-    margin-top: 10%;
-    text-align: center;
-    //display: inline;
-    margin-bottom: 10%;
-    vertical-align: middle;
-}
-
