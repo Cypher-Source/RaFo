@@ -1,9 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { ModalController, ActionSheetController } from "@ionic/angular";
+import {
+  ModalController,
+  ActionSheetController,
+  ToastController,
+} from "@ionic/angular";
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { Crop, CropOptions } from "@ionic-native/crop/ngx";
 import { File } from "@ionic-native/file/ngx";
 import { PhotoPage } from "../photo/photo.page";
+import { Post } from "src/app/schemas/post.schema";
+import { DbUtilsService } from "src/app/services/DbUtils/db-utils.service";
 
 @Component({
   selector: "app-post",
@@ -11,7 +17,8 @@ import { PhotoPage } from "../photo/photo.page";
   styleUrls: ["./post.page.scss"],
 })
 export class PostPage implements OnInit {
-  selectedImage: string = "";
+  // post details
+  postDetails: Post;
 
   imagePickerOptions = {
     maximumImagesCount: 1,
@@ -30,9 +37,18 @@ export class PostPage implements OnInit {
     private camera: Camera,
     private crop: Crop,
     public actionSheetController: ActionSheetController,
-    private file: File
+    private file: File,
+    private dbUtils: DbUtilsService,
+    private toastController: ToastController
   ) {}
-  ngOnInit() {}
+  ngOnInit() {
+    // initialising the post details
+    this.postDetails = {
+      category: [""],
+      text: "",
+      image: null,
+    };
+  }
 
   // dismiss the modal view
   closeModal() {
@@ -134,7 +150,37 @@ export class PostPage implements OnInit {
     const { data } = await modal.onWillDismiss();
 
     if (data.status) {
-      this.selectedImage = data.image;
+      this.postDetails.image = data.image;
     }
+  }
+
+  // post the content
+  async postTheContent() {
+    if (this.postDetails.category[0] !== "" || this.postDetails.text !== "") {
+      try {
+        const result = await this.dbUtils.postAContent(this.postDetails);
+        if (result.status) {
+          this.presentToast("Post updated!");
+          this.modalController.dismiss();
+        } else {
+          this.presentToast("User not logged in");
+        }
+      } catch (error) {
+        this.presentToast(
+          "Some error has been occured, please check your internet connection"
+        );
+      }
+    } else {
+      this.presentToast("Oops! Post content or category may be empty!");
+    }
+  }
+
+  // show toast message
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000,
+    });
+    toast.present();
   }
 }
