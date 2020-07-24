@@ -3,24 +3,23 @@
 ==========================================================*/
 
 // background color of the page.
-ion-content{
-    --ion-background-color: var(--ion-color-light);
+ion-content {
+  --ion-background-color: var(--ion-color-light);
 }
 // Text color commonly stated
-.text-color{
-    color: var(--ion-color-dark);
-    text-align: center;
+.text-color {
+  color: var(--ion-color-dark);
+  text-align: center;
 }
 
 /*=========================================================
                         Heading
 ==========================================================*/
 
-
 // Heading font style
-.headingStyle{
-    font: bold 20px 'Raleway', sans-serif;
-    margin-top: 60px;
+.headingStyle {
+  font: bold 20px "Raleway", sans-serif;
+  margin-top: 60px;
 }
 
 /*=========================================================
@@ -28,54 +27,56 @@ ion-content{
 ==========================================================*/
 
 // grid size adjustments
-ion-grid{
-    padding: 0 19px !important;
-    margin-top: 60px;
+ion-grid {
+  padding: 0 19px !important;
+  margin-top: 60px;
 }
 // gap between each row
-ion-col{
-    margin-bottom: 25px !important;
+ion-col {
+  margin-bottom: 25px !important;
 }
 // card size, shadow, radius, color
-.card-design{
-    height: 150px;
-    width: 150px;
-    box-shadow: 0 0 5px 0px #979797;
-    border-radius: 10px;
-    margin: 0 auto !important;
-    --ion-background-color: white;
+.card-design {
+  height: 150px;
+  width: 150px;
+  box-shadow: 0 0 5px 0px #979797;
+  border-radius: 10px;
+  margin: 0 auto !important;
+  --ion-background-color: white;
+
+  // for ripple effect
+  position: relative;
 }
-// alignment of image 
-.card-image-adjustment{
-    margin-top: 10px;;
-    text-align: center;
+// alignment of image
+.card-image-adjustment {
+  margin-top: 10px;
+  text-align: center;
 }
 // text style which is inside the card
-.cardTextStyle{
-    font : bold 12px  'Quciksand', sans-serif;
-} 
+.cardTextStyle {
+  font: bold 12px "Quciksand", sans-serif;
+}
 
 /*=========================================================
                         Button
 ==========================================================*/
 
 // to bring button bottom of the page
-#button-to-bring-bottom{
-    padding-top: 50px;
+#button-to-bring-bottom {
+  padding-top: 50px;
 }
-//Buttom styles 
-ion-button{
-    font: bold 20px 'Raleway', sans-serif;
-    text-transform: none !important;
-    height: 45px;
-    width: 130px;
+//Buttom styles
+ion-button {
+  font: bold 20px "Raleway", sans-serif;
+  text-transform: none !important;
+  height: 45px;
+  width: 130px;
 }
 // to algin th buttom center of the page
-.button-alignCenter{
-    display: flex;
-    justify-content: center;
+.button-alignCenter {
+  display: flex;
+  justify-content: center;
 }
-
 
 /*=========================================================
                         Animation
