@@ -1,9 +1,68 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <ion-content>
+  
+  <!-- HEADER START -->
+  <ion-grid>
+    <!-- row-01 -->
+    <ion-row>
+      <!-- col-01 -->
+      <ion-col size="3">  
+          <!-- empty for responsiveness -->
+      </ion-col>
 
-<ion-content>
+      <!-- col-02 for heading and border line -->
+      <ion-col size="6">
+        <div>
+            <p id="headingStyle" class="dark-color">Settings</p>
+        </div>
+      </ion-col>
+
+      <!-- col-03 for Setting-icon -->
+      <ion-col size="3"> 
+        <div id="setting-icon" class="dark-color" >
+            <ion-icon src="../../../assets/icon/cancel-icon.svg"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+<!-- HEADER END -->
+
+
+<!-- Content Starts Here -->
+<ion-grid id="grid">
+  <!-- row-01 -->
+  <ion-row class="row-margin-top" >
+    <!-- change password -->
+    <ion-col>
+      <div id="button-alignCenter" class="borderLine" >
+        <ion-button color = dark style="color: white;">Change password</ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <!-- row-02 -->
+  <ion-row class="row-margin-top">
+    <!-- Dark mode text -->
+    <ion-col>
+      <div id="darkMode-text">
+        <p>Dark Mode</p>
+      </div>
+    </ion-col>
+    <ion-col>
+      <!-- toggle -->
+      <div id="toogle-align">
+        <ion-toggle color = dark mode = ios></ion-toggle>
+      </div>
+    </ion-col>
+  </ion-row> 
+
+</ion-grid>
+<!-- CONTENT STARTS HERE -->
+
+
+<!-- LOGOUT ICON -->
+<div id="logout-icon">
+    <ion-icon src="../../../assets/icon/logout.svg" id="bottom"></ion-icon>
+</div>
+
 
 </ion-content>
