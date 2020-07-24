@@ -1,0 +1,75 @@
+/*=======================================
+           header height
+========================================*/
+
+.header{
+            height:0px;
+}
+
+/*=======================================
+            Content image
+========================================*/
+
+.top-img{
+            position:absolute;
+            left: 0;
+            right: 0;
+            margin:0 auto;
+            top:50%;
+            transform:translateY(-50%);
+            -webkit-transform:translateY(-50%);
+            -moz-transform:translateY(-50%);
+            -ms-transform:translateY(-50%);
+            -o-transform:translateY(-50%);
+}
+
+/*=======================================
+                 Footer
+========================================*/
+
+ion-footer{
+            height : 70px !important;
+}
+
+/*=======================================
+          Footer common adjustment
+========================================*/
+
+.footer-common-adj{
+            text-align: center;
+            margin-top:2px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Quicksand;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 25px;
+            
+            
+}
+
+/*=======================================
+           Footer button text
+========================================*/
+
+ion-button {
+    text-transform: none;
+}
+
+/*=======================================
+ Footer divider and col height extension
+========================================*/
+
+.mid-line{
+            border-right: 2px solid var(--ion-color-medium);
+            height:70px;
+  
+}
+ 
+.col-height{
+            top:-6px;
+}

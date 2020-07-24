@@ -1,0 +1,126 @@
+/*=======================================
+                 Toolbar
+========================================*/
+
+ion-toolbar{
+    .into-button{
+            margin-top:32px;
+            margin-right:24px;
+    }
+}
+
+/*=======================================
+                 Icon size
+========================================*/
+
+ion-icon{
+    &.toolbar-icon{
+            width: 16px;
+            height: 16px;
+    }
+    &.footer-icon{
+            width: 25px;
+            height: 25px;
+    }
+}
+
+/*=======================================
+        Avatar and its name
+========================================*/
+
+.circle-avatar{
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            left: 43px;
+            top: 50px;
+            border-radius: 50%;
+            background: var(--ion-color-light);
+            border: 1px solid var(--ion-color-primary);
+            box-sizing: border-box;
+}
+.circle-name{
+            left: 94px;
+            top: 55px;
+            font-family: Quicksand;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 17px;
+}
+
+/*=======================================
+            Category selection
+========================================*/
+
+ion-select {
+            min-width: 100%;
+            padding-left: 0;
+}
+.select-item{
+            position: absolute;
+            height: 40px;
+            left: 38px;
+            right:38px;
+            top: 90px;
+            background: var(--ion-color-white);
+            border: 0.5px solid var(--ion-color-tertiary);
+            box-sizing: border-box;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+}
+.select-category{
+            margin-top:-8px;
+            font-family: Quicksand;
+            font-size:18px;
+}
+ion-select::part(icon) {
+            color: var(--ion-color-primary);
+            opacity: 1;     
+}
+ion-select::part(placeholder) {
+            color:var(--ion-color-warning); 
+            opacity: 1;
+}
+
+/*=======================================
+            Comment section
+========================================*/
+
+.comments-item{
+            position: absolute;
+            height: 450px;
+            left: 38px;
+            right:38px;
+            top: 137px;
+            background: var(--ion-color-white);
+            border: 0.5px solid var(--ion-color-tertiary);
+            box-sizing: border-box;
+            border-radius: 5px;       
+}
+ion-textarea{     
+            font-family: Quicksand;
+            margin-top:0;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 24px; 
+}
+
+/*=======================================
+            Footer section
+========================================*/
+
+ion-footer{
+           height : 90px !important;
+
+           .footer-button-photo{
+                   padding-left:25px;
+           }
+           .footer-button-Go{
+                   padding-right:25px;
+           }
+}
