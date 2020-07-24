@@ -33,4 +33,5 @@ export interface ProfilePictureStatus {
 export interface Category {
   isSelected: boolean;
   image: string;
+  name: string;
 }
