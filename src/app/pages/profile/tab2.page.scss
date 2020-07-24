@@ -16,6 +16,11 @@ ion-content{
     margin: 0;
 }
 
+.noPaddingMargin{
+    padding: 0;
+    margin: 0;
+}
+
 /*Avatar Display*/  
 .avatarAlignment{
     padding: 0;
@@ -68,10 +73,6 @@ ion-content{
     font-size: 14px;
     font-family: 'Raleway', sans-serif;
     font-weight: normal;
-}
-.noPaddingMarign{
-    padding: 0;
-    margin: 0;
 }
 
 /*Category Button*/ 
@@ -166,7 +167,7 @@ hr{
     zoom: 1.6;
 }
 #star{
-    padding-left: 75% !important; 
+    padding-left: 74% !important; 
 }
 #comment {
     padding-left: 3% !important;
