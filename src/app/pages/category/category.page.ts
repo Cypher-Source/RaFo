@@ -1,8 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { ModalController } from "@ionic/angular";
+import {
+  ModalController,
+  ToastController,
+  LoadingController,
+} from "@ionic/angular";
 import { FeedCommentsPage } from "../../modals/feed-comments/feed-comments.page";
-import { Category } from "src/app/schemas/users.schema";
-import { threadId } from "worker_threads";
+import { Category, UserStatus } from "src/app/schemas/users.schema";
+import { AuthUtilsService } from "src/app/services/AuthUtils/auth-utils.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-category",
@@ -16,22 +21,64 @@ export class CategoryPage implements OnInit {
   // selected categories
   selectedCategories: Array<String> = [];
 
-  constructor(private modalController: ModalController) {}
+  constructor(
+    private authUtils: AuthUtilsService,
+    private toastController: ToastController,
+    private router: Router,
+    private loadingController: LoadingController
+  ) {}
 
   ngOnInit() {
     // load the category list into the holder
     this.categories = this.loadCategories();
   }
 
-  async openModal() {
-    const modal = await this.modalController.create({
-      component: FeedCommentsPage,
+  // show toast message
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000,
     });
-    return await modal.present();
+    toast.present();
+  }
+
+  // show loading screen
+  async getLoadingScreen() {
+    const loading = await this.loadingController.create({
+      cssClass: "loading-spinner",
+      spinner: "lines",
+      message: null,
+      translucent: true,
+    });
+    return loading;
+  }
+
+  // update the category in the database
+  async updateCategory() {
+    const loading = this.getLoadingScreen();
+    (await loading).present();
+    try {
+      const result = await this.authUtils.setCurrentUserCategory(
+        this.selectedCategories
+      );
+
+      if (result.status) {
+        (await loading).dismiss();
+        this.router.navigate(["/tabs/tab1"]);
+      } else {
+        (await loading).dismiss();
+        this.presentToast("User not logged in!");
+      }
+    } catch (error) {
+      (await loading).dismiss();
+      this.presentToast(
+        "Some error has occured, please check your internet connection"
+      );
+    }
   }
 
   // category click handler
-  categoryClicked(i) {
+  categoryClicked(i: number) {
     this.categories[i].isSelected = !this.categories[i].isSelected;
 
     // empty the selected categories
