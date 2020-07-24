@@ -1,28 +1,37 @@
 <ion-header class="header ion-no-border">
-  <ion-toolbar>
-  </ion-toolbar>
+  <ion-toolbar> </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <!-- image to be inserted -->
-  <img class="top-img" src="../../assets/icon/articlepic.jpg">   
+  <img class="top-img" src="{{image}}" />
 </ion-content>
 
-<ion-footer >
+<ion-footer>
   <ion-toolbar>
-    <ion-grid> 
-      <ion-row>  
+    <ion-grid>
+      <ion-row>
+        <!-- footer left side content with the middle line -->
+        <ion-col col-6 class="mid-line col-height">
+          <ion-button
+            color="danger"
+            class="footer-common-adj"
+            fill="clear"
+            (click)="dismissModal(false)"
+            >Cancel</ion-button
+          >
+        </ion-col>
 
-          <!-- footer left side content with the middle line -->
-          <ion-col col-6 class="mid-line col-height">
-            <ion-button color="danger" class="footer-common-adj" fill="clear">Cancel</ion-button>
-          </ion-col>
-         
-          <!-- footer right side content -->
-          <ion-col col-6 class="col-height">
-              <ion-button color="success" class="footer-common-adj" fill="clear">Confirm</ion-button>    
-          </ion-col>
-   
+        <!-- footer right side content -->
+        <ion-col col-6 class="col-height">
+          <ion-button
+            color="success"
+            class="footer-common-adj"
+            fill="clear"
+            (click)="dismissModal(true)"
+            >Confirm</ion-button
+          >
+        </ion-col>
       </ion-row>
     </ion-grid>
   </ion-toolbar>

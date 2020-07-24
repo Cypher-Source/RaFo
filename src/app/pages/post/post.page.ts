@@ -3,6 +3,7 @@ import { ModalController, ActionSheetController } from "@ionic/angular";
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { Crop, CropOptions } from "@ionic-native/crop/ngx";
 import { File } from "@ionic-native/file/ngx";
+import { PhotoPage } from "../photo/photo.page";
 
 @Component({
   selector: "app-post",
@@ -10,7 +11,7 @@ import { File } from "@ionic-native/file/ngx";
   styleUrls: ["./post.page.scss"],
 })
 export class PostPage implements OnInit {
-  croppedImagepath = "";
+  selectedImage: string = "";
 
   imagePickerOptions = {
     maximumImagesCount: 1,
@@ -111,11 +112,29 @@ export class PostPage implements OnInit {
 
     this.file.readAsDataURL(filePath, imageName).then(
       (base64) => {
-        this.croppedImagepath = base64;
+        this.presentPhotoModal(base64);
       },
       (error) => {
         alert("Error in showing image" + error);
       }
     );
+  }
+
+  // present and handle the photo modal
+  async presentPhotoModal(base64: string) {
+    const modal = await this.modalController.create({
+      component: PhotoPage,
+      componentProps: {
+        image: base64,
+      },
+    });
+
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+
+    if (data.status) {
+      this.selectedImage = data.image;
+    }
   }
 }
