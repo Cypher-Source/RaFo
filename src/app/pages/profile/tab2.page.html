@@ -33,7 +33,7 @@
           <!-- UserName -->
           <ion-col size="11" id="userName">
             <ion-input
-              [(ngModel)]="profileName"
+              [(ngModel)]="userDetails.name"
               [disabled]="!profileNameEditStatus"
               class="noPaddingMargin"
             ></ion-input>
@@ -68,7 +68,7 @@
           class="noPaddingMarign"
           id="categoryButton"
         >
-          Category<span>5</span>
+          Category<span>{{categoryLength}}</span>
         </ion-button>
       </ion-col>
     </ion-row>

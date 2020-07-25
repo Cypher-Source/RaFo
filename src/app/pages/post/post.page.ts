@@ -50,7 +50,7 @@ export class PostPage implements OnInit {
       image: null,
     };
   }
-
+  
   // dismiss the modal view
   closeModal() {
     this.modalController.dismiss();
@@ -157,21 +157,27 @@ export class PostPage implements OnInit {
 
   // post the content
   async postTheContent() {
+    const loading = this.responseViews.getLoadingScreen();
+    (await loading).present();
     if (this.postDetails.category[0] !== "" || this.postDetails.text !== "") {
       try {
         const result = await this.dbUtils.postAContent(this.postDetails);
         if (result.status) {
           this.responseViews.presentToast("Post updated!");
+          (await loading).dismiss();
           this.modalController.dismiss();
         } else {
+          (await loading).dismiss();
           this.responseViews.presentToast("User not logged in");
         }
       } catch (error) {
+        (await loading).dismiss();
         this.responseViews.presentToast(
           "Some error has been occured, please check your internet connection"
         );
       }
     } else {
+      (await loading).dismiss();
       this.responseViews.presentToast(
         "Oops! Post content or category may be empty!"
       );

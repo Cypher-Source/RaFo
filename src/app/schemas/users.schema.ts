@@ -7,7 +7,7 @@ export interface UserStatus {
 export interface UserDetails {
   category: Array<String>;
   emailId: String;
-  name: String;
+  name: string;
   profilePic: String | null;
   userId: String;
 }
