@@ -1,13 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import {
-  ModalController,
-  ToastController,
-  LoadingController,
-} from "@ionic/angular";
 import { FeedCommentsPage } from "../../modals/feed-comments/feed-comments.page";
 import { Category, UserStatus } from "src/app/schemas/users.schema";
 import { AuthUtilsService } from "src/app/services/AuthUtils/auth-utils.service";
 import { Router } from "@angular/router";
+import { ResponseViewService } from "src/app/services/ResponseViews/response-view.service";
 
 @Component({
   selector: "app-category",
@@ -23,9 +19,8 @@ export class CategoryPage implements OnInit {
 
   constructor(
     private authUtils: AuthUtilsService,
-    private toastController: ToastController,
-    private router: Router,
-    private loadingController: LoadingController
+    private responseViews: ResponseViewService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -33,29 +28,9 @@ export class CategoryPage implements OnInit {
     this.categories = this.loadCategories();
   }
 
-  // show toast message
-  async presentToast(message: string) {
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 3000,
-    });
-    toast.present();
-  }
-
-  // show loading screen
-  async getLoadingScreen() {
-    const loading = await this.loadingController.create({
-      cssClass: "loading-spinner",
-      spinner: "lines",
-      message: null,
-      translucent: true,
-    });
-    return loading;
-  }
-
   // update the category in the database
   async updateCategory() {
-    const loading = this.getLoadingScreen();
+    const loading = this.responseViews.getLoadingScreen();
     (await loading).present();
     try {
       const result = await this.authUtils.setCurrentUserCategory(
@@ -67,11 +42,11 @@ export class CategoryPage implements OnInit {
         this.router.navigate(["/tabs/tab1"]);
       } else {
         (await loading).dismiss();
-        this.presentToast("User not logged in!");
+        this.responseViews.presentToast("User not logged in!");
       }
     } catch (error) {
       (await loading).dismiss();
-      this.presentToast(
+      this.responseViews.presentToast(
         "Some error has occured, please check your internet connection"
       );
     }

@@ -10,6 +10,7 @@ import { File } from "@ionic-native/file/ngx";
 import { PhotoPage } from "../photo/photo.page";
 import { Post } from "src/app/schemas/post.schema";
 import { DbUtilsService } from "src/app/services/DbUtils/db-utils.service";
+import { ResponseViewService } from "src/app/services/ResponseViews/response-view.service";
 
 @Component({
   selector: "app-post",
@@ -39,7 +40,7 @@ export class PostPage implements OnInit {
     public actionSheetController: ActionSheetController,
     private file: File,
     private dbUtils: DbUtilsService,
-    private toastController: ToastController
+    private responseViews: ResponseViewService
   ) {}
   ngOnInit() {
     // initialising the post details
@@ -160,27 +161,20 @@ export class PostPage implements OnInit {
       try {
         const result = await this.dbUtils.postAContent(this.postDetails);
         if (result.status) {
-          this.presentToast("Post updated!");
+          this.responseViews.presentToast("Post updated!");
           this.modalController.dismiss();
         } else {
-          this.presentToast("User not logged in");
+          this.responseViews.presentToast("User not logged in");
         }
       } catch (error) {
-        this.presentToast(
+        this.responseViews.presentToast(
           "Some error has been occured, please check your internet connection"
         );
       }
     } else {
-      this.presentToast("Oops! Post content or category may be empty!");
+      this.responseViews.presentToast(
+        "Oops! Post content or category may be empty!"
+      );
     }
-  }
-
-  // show toast message
-  async presentToast(message: string) {
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 3000,
-    });
-    toast.present();
   }
 }
