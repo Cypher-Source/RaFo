@@ -1,9 +1,141 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<link
+  href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap"
+  rel="stylesheet"
+/>
 <ion-content>
+  <ion-grid>
+    <ion-row class="margin text-center">
+      <!-- Heading section-->
+      <ion-col>
+        <h1 class="heading">Create Account</h1>
+      </ion-col>
+      <!-- ion section-->
+    </ion-row>
+    <ion-row class="margin text-center">
+      <ion-col>
+        <img src="../../../assets/icon/favicon.png" />
+      </ion-col>
+    </ion-row>
 
+    <!-- Singup form-->
+    <form [formGroup]="signupForm" (ngSubmit)="submit()" class="signup-input">
+      <ion-row class="margin">
+        <ion-col size="1"></ion-col>
+        <ion-col size="10">
+          <ion-list>
+            <!-- Username input-->
+            <ion-input
+              formControlName="username"
+              type="text"
+              placeholder="Name"
+            ></ion-input>
+            <div *ngFor="let error of errorMessages.username">
+              <ng-container
+                *ngIf="username.hasError(error.type) && (username.dirty || username.touched)"
+              >
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+          </ion-list>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col size="10">
+          <ion-list>
+            <!-- email input-->
+            <ion-input
+              formControlName="email"
+              type="Email"
+              placeholder="Email ID"
+            ></ion-input>
+            <div *ngFor="let error of errorMessages.email">
+              <ng-container
+                *ngIf="email.hasError(error.type) && (email.dirty || email.touched)"
+              >
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+          </ion-list>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col size="10">
+          <ion-list>
+            <!-- Password input-->
+            <ion-input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+            ></ion-input>
+            <div *ngFor="let error of errorMessages.password">
+              <ng-container
+                *ngIf="password.hasError(error.type) && (password.dirty || password.touched)"
+              >
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+          </ion-list>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col size="10">
+          <ion-list>
+            <!-- Confirm password input-->
+            <ion-input
+              formControlName="cpassword"
+              type="password"
+              placeholder="Confirm password"
+            ></ion-input>
+            <div *ngFor="let error of errorMessages.cpassword">
+              <ng-container
+                *ngIf="cpassword.hasError(error.type) && (cpassword.dirty || cpassword.touched)"
+              >
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+          </ion-list>
+        </ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
+
+      <ion-row class="text-center signup-btn">
+        <ion-col>
+          <!-- signin button-->
+          <ion-button
+            [disabled]="!signupForm.valid"
+            type="submit"
+            fill="solid"
+            color="dark"
+            >Sign up</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-row class="signup text-center">
+    <ion-col>
+      <div class="lower-content">
+        <h6>
+          Already a user ?<span
+            style="color: var(--ion-color-primary);"
+            (click)="signup()"
+          >
+            Login</span
+          >
+        </h6>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-footer>

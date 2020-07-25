@@ -1,0 +1,36 @@
+img {
+  width: 150px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin {
+  margin-top: 40px;
+}
+
+.signup {
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: var(--ion-color-primary);
+}
+
+.signup-input {
+  ion-input {
+    border-bottom: 1px solid var(--ion-color-secondary);
+  }
+}
+
+.signup-btn {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  ion-button {
+    width: 120px !important;
+    height: 40px !important;
+  }
+}
