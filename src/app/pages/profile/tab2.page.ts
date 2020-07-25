@@ -11,8 +11,9 @@ export class Tab2Page {
   constructor(
   ) {}  
 
-  //  fnum(x: number) {
-  //   if(isNaN(x)) return x;
+  //  public count(x: number) {
+  //    x= 30;
+  //   if(isNaN(x)) return null;
   
   //   if(x < 9999) {
   //     return x;
