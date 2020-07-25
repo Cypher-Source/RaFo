@@ -21,7 +21,12 @@
         <!-- col-03 for Setting-icon -->
         <ion-col size="3"> 
           <div id="setting-icon">
-              <ion-icon src="../../../assets/icon/settings-icon.svg" id="setting-icon"></ion-icon>
+            <!-- ripple effect -->
+            <div class="ion-activatable ripple">
+                <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
+                <!-- setting icon -->
+                <ion-icon src="../../../assets/icon/settings-icon.svg" id="setting-icon" (click)= "openSettingPage()"></ion-icon>
+            </div>   
           </div>
         </ion-col>
       </ion-row>
@@ -31,11 +36,12 @@
 
 
   <!-- CONTENT-01 STARTS -->
-  <ion-grid id="grid-not-found">
+  <div id="center">
+  <ion-grid>
     <!-- row-01 image -->
     <ion-row>
       <ion-col>
-        <div id="not-found-image" class="align-center">
+        <div id="not-found-image" class="align-items-center">
             <img src="../../../assets/B2-images/not_found.svg">
         </div>
       </ion-col>
@@ -44,16 +50,19 @@
     <!-- row-02 image -->
     <ion-row>
       <ion-col size="12">
-          <div id="not-found-text" class="align-center">
+          <div id="not-found-text" class="align-items-center">
             <p>Sorry, No feeds available for your <br> prefered category!</p>
           </div>
       </ion-col>
     </ion-row>
   
   </ion-grid>
+</div>
   <!-- CONTENT-01 ENDS -->
 
 
+ 
+ 
   <!-- CONTENT-02 STARTS -->
 
   <!-- CONTENT-02 ENDS -->

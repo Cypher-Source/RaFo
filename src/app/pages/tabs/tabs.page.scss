@@ -3,27 +3,25 @@
 ==========================================================*/
 #home-icon{
     text-align: center;
-    zoom: 1.7;
+    zoom: 2;
 }
 #profile-icon{
     text-align: center;
-    zoom: 1.9;
+    zoom: 2.5;
 }
 
 /*=========================================================
                         Add Icon
 ==========================================================*/
-
 /* Add Icon */
 #addIcon{
     font-size: 20px !important;
 }
 ion-fab{
     bottom: 30px;
-    zoom: -100px ;
 }
 ion-fab-button{
-    width: 45px !important;
-    height: 45px !important;
-    margin: 5px;
+    width: 50px !important;
+    height: 50px !important;
+    margin: 3px;
 }
