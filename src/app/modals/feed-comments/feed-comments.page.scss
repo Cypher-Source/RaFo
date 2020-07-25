@@ -6,12 +6,14 @@
 .heading-text-color{
     color: var(--ion-color-dark);
 }
-ion-content {
-    padding-left: 50px;
-    padding-right: 50px;
-}
+// gird side margins
 ion-grid{
-    margin: 20px 30px 0px 20px !important;
+    margin: 10px 20px!important;
+}
+.ripple{
+    position: relative;
+    overflow: hidden;
+    color: var(--ion-color-secondary);
 }
 
 /*=========================================================
@@ -23,10 +25,14 @@ ion-grid{
     //text-align: center;
 }
 // cancel icon
-#cancel-icon{
+.cancel-icon{
     display: flex;
     justify-content: flex-end !important;
-    margin-top: 20px;
+    margin-top: 12px;
+}
+#cancel-padd{
+    padding: 10px 10px 5px 10px;
+    
 }
 
 /*=========================================================
@@ -34,7 +40,7 @@ ion-grid{
 ==========================================================*/
 // overall top space for comments...
 #grid-comments{
-    margin-top: 10px;
+    margin-top: 5px;
 }
 // gap between each comment
 .comment{
@@ -71,15 +77,26 @@ ion-footer{
 #grid-footer{
     margin: auto 20px auto 20px !important;
 }
+// avatar
+#avatar{
+     margin-top: 7px !important;
+}
+// input field
+ion-input{
+    --placeholder-color : var(--ion-color-warning) ;
+    --placeholder-font-style:'Quicksand', sans-serif !important;
+    margin-top: 5px;
+}
 // send icon
 #send-icon{
     display: flex;
     justify-content: flex-end !important;
-    margin-top: 4px;
-    zoom : 1.7 !important;
+    margin-top: 3px;
+    zoom : 1.3 !important;
 }
-#avatar{
-    margin-top: 4px;
+#send-padd{
+    padding: 7px 10px 3px 10px;
 }
+
 
 
