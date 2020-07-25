@@ -8,6 +8,12 @@
 ion-grid{
     margin : 2px 30px;
 }
+// ripple effect for icon
+.ripple{
+    position: relative;
+    overflow: hidden;
+    color: var(--ion-color-secondary);
+}
 
 /*=========================================================
                         Header
@@ -18,10 +24,13 @@ ion-grid{
     text-align: center;
 }
 // setting icon
-#setting-icon{
+#cancel-icon{
     display: flex;
     justify-content: flex-end;
-    margin-top: 30px;
+    margin-top: 20px;
+}
+ion-icon{
+    padding: 10px 10px 5px 10px;    
 }
 /*=========================================================
                         Header

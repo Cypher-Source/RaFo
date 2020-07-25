@@ -18,8 +18,13 @@
 
       <!-- col-03 for Setting-icon -->
       <ion-col size="3"> 
-        <div id="setting-icon" class="dark-color" >
-            <ion-icon src="../../../assets/icon/cancel-icon.svg"></ion-icon>
+        <div id="cancel-icon" class="dark-color" >
+            <!-- ripple effect -->
+            <div class="ion-activatable ripple">
+                <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
+                <!-- cancel icon -->
+                <ion-icon src="../../../assets/icon/cancel-icon.svg" id="cancel-padd"> </ion-icon> 
+            </div>     
         </div>
       </ion-col>
     </ion-row>
@@ -61,7 +66,12 @@
 
 <!-- LOGOUT ICON -->
 <div id="logout-icon">
-    <ion-icon src="../../../assets/icon/logout.svg" id="bottom"></ion-icon>
+      <!-- ripple effect -->
+    <div class="ion-activatable ripple">
+      <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
+      <!-- cancel icon -->
+      <ion-icon src="../../../assets/icon/logout.svg" id="cancel-padd"> </ion-icon> 
+    </div>     
 </div>
 
 
