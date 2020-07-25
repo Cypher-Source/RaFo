@@ -1,8 +1,12 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { FeedCommentsPage } from "../../modals/feed-comments/feed-comments.page";
-import { Category, UserStatus } from "src/app/schemas/users.schema";
+import {
+  Category,
+  UserStatus,
+  UserDetails,
+} from "src/app/schemas/users.schema";
 import { AuthUtilsService } from "src/app/services/AuthUtils/auth-utils.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { ResponseViewService } from "src/app/services/ResponseViews/response-view.service";
 import { ModalController } from "@ionic/angular";
 
@@ -21,12 +25,22 @@ export class CategoryPage implements OnInit {
   // selected categories
   selectedCategories: Array<String> = [];
 
+  // user details
+  userDetails: UserDetails;
+
   constructor(
     private authUtils: AuthUtilsService,
     private responseViews: ResponseViewService,
     private router: Router,
+    private route: ActivatedRoute,
     private modalController: ModalController
-  ) {}
+  ) {
+    this.route.queryParams.subscribe((params) => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.userDetails = this.router.getCurrentNavigation().extras.state.userDetails;
+      }
+    });
+  }
 
   ngOnInit() {
     // load the category list into the holder
@@ -65,6 +79,29 @@ export class CategoryPage implements OnInit {
       if (this.fromPage !== null) {
         this.modalController.dismiss();
       }
+    }
+  }
+
+  async createAccount() {
+    this.userDetails["category"] = this.selectedCategories;
+    const loading = this.responseViews.getLoadingScreen();
+    (await loading).present();
+    try {
+      const result = await this.authUtils.createUser(this.userDetails);
+      if (result.status) {
+        this.responseViews.presentToast("Account created!");
+        (await loading).dismiss();
+      } else {
+        this.responseViews.presentToast(
+          "Some error has occured, please try again"
+        );
+        (await loading).dismiss();
+      }
+    } catch (e) {
+      this.responseViews.presentToast(
+        "Some error has occured, please try again"
+      );
+      (await loading).dismiss();
     }
   }
 

@@ -5,11 +5,12 @@ export interface UserStatus {
 }
 
 export interface UserDetails {
-  category: Array<String>;
-  emailId: String;
+  category?: Array<String>;
+  emailId: string;
   name: string;
-  profilePic: string | null;
-  userId: String;
+  profilePic?: string | null;
+  userId?: String;
+  password?: string;
 }
 
 export interface UserCategoryStatus {

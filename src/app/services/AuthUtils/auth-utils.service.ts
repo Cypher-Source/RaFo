@@ -59,6 +59,36 @@ export class AuthUtilsService {
     });
   }
 
+  // create an user account
+  async createUser(userDetails: UserDetails): Promise<UserStatus> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const user = await this.auth.createUserWithEmailAndPassword(
+          userDetails.emailId,
+          userDetails.password
+        );
+
+        userDetails["profilePic"] = null;
+
+        delete userDetails["password"];
+
+        await this.db.collection("users").doc(user.user.uid).set(userDetails);
+
+        resolve({
+          uid: user.user.uid,
+          status: true,
+          message: "User Logged in Sucessfully",
+        });
+      } catch (e) {
+        reject({
+          uid: null,
+          status: false,
+          message: e.message,
+        });
+      }
+    });
+  }
+
   // get user category
   async getUserCategory(uid: string): Promise<Array<String>> {
     return new Promise(async (resolve, reject) => {

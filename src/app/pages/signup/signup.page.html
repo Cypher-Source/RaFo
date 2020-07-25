@@ -97,7 +97,7 @@
             ></ion-input>
             <div *ngFor="let error of errorMessages.cpassword">
               <ng-container
-                *ngIf="cpassword.hasError(error.type) && (cpassword.dirty || cpassword.touched)"
+                *ngIf="cpassword.hasError(error.type) && signupForm.hasError('passwordNotMatch') && (cpassword.dirty || cpassword.touched)"
               >
                 <small class="error-message">{{error.message}}</small>
               </ng-container>
@@ -115,7 +115,7 @@
             type="submit"
             fill="solid"
             color="dark"
-            >Sign up</ion-button
+            >Next</ion-button
           >
         </ion-col>
       </ion-row>

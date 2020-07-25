@@ -2,6 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 
 import { Router } from "@angular/router";
+import { AuthUtilsService } from "src/app/services/AuthUtils/auth-utils.service";
+import { ResponseViewService } from "src/app/services/ResponseViews/response-view.service";
+import { LoadingController } from "@ionic/angular";
 
 @Component({
   selector: "app-login",
@@ -36,12 +39,40 @@ export class LoginPage implements OnInit {
     password: ["", Validators.required],
   });
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authUtils: AuthUtilsService,
+    private responseViews: ResponseViewService
+  ) {}
 
   ngOnInit() {}
 
-  public submit() {
-    console.log(this.loginForm.value);
+  // login the user
+  async submit() {
+    const loading = this.responseViews.getLoadingScreen();
+    (await loading).present();
+
+    try {
+      const result = await this.authUtils.loginUser(
+        this.loginForm.value.email,
+        this.loginForm.value.password
+      );
+
+      if (result.status) {
+        (await loading).dismiss();
+      } else {
+        (await loading).dismiss();
+        this.responseViews.presentToast(result.message);
+      }
+    } catch (error) {
+      (await loading).dismiss();
+      this.responseViews.presentToast(error.message);
+    }
   }
-  
+
+  // nav to signup page
+  signup() {
+    this.router.navigate(["signup"]);
+  }
 }

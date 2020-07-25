@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { FormBuilder, Validators, FormGroup } from "@angular/forms";
+import { Router, NavigationExtras } from "@angular/router";
+import { AuthUtilsService } from "src/app/services/AuthUtils/auth-utils.service";
+import { UserDetails } from "src/app/schemas/users.schema";
 
 @Component({
   selector: "app-signup",
@@ -51,36 +53,63 @@ export class SignupPage implements OnInit {
     ],
   };
 
-  signupForm = this.formBuilder.group({
-    username: ["", [Validators.required, Validators.maxLength(20)]],
-    email: [
-      "",
-      [
-        Validators.required,
-        Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+  signupForm = this.formBuilder.group(
+    {
+      username: ["", [Validators.required, Validators.maxLength(20)]],
+      email: [
+        "",
+        [
+          Validators.required,
+          Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+        ],
       ],
-    ],
-    password: [
-      "",
-      [
-        Validators.required,
-        Validators.maxLength(20),
-        Validators.minLength(5),
-        Validators.pattern(/[^((0-9)|(a-z)|(A-Z)|\s)]/),
+      password: [
+        "",
+        [
+          Validators.required,
+          Validators.maxLength(20),
+          Validators.minLength(5),
+          Validators.pattern(/[^((0-9)|(a-z)|(A-Z)|\s)]/),
+        ],
       ],
-    ],
-    cpassword: ["", Validators.required],
-  });
+      cpassword: ["", Validators.required],
+    },
+    {
+      validators: this.passwordMatch.bind(this),
+    }
+  );
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authUtils: AuthUtilsService
+  ) {}
 
   ngOnInit() {}
 
-  public submit() {
-    console.log(this.signupForm.value);
+  async submit() {
+    let obj: UserDetails = {
+      emailId: this.signupForm.value.email,
+      name: this.signupForm.value.username,
+      password: this.signupForm.value.password,
+    };
+
+    let navigationExtras: NavigationExtras = {
+      state: {
+        userDetails: obj,
+      },
+    };
+
+    this.router.navigate(["category"], navigationExtras);
   }
 
   signup() {
     this.router.navigateByUrl("/signup");
+  }
+
+  passwordMatch(formGroup: FormGroup) {
+    const { value: password } = formGroup.get("password");
+    const { value: confirmPassword } = formGroup.get("cpassword");
+    return password === confirmPassword ? null : { passwordNotMatch: true };
   }
 }
