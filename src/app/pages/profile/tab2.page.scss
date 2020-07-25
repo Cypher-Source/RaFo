@@ -7,6 +7,10 @@
     padding: 0;
     margin: 0;
 }
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
+  }
 
 /*==================================================
                        Content
@@ -144,9 +148,6 @@ hr{
     border: 1px solid var(--ion-color-secondary);
     margin-left: 6px !important;
 }
-.paddingLeft{
-    padding-left: 22px;
-}
 //Post content
 #postContent{
     font-family: 'Quicksand';
@@ -186,77 +187,7 @@ hr{
 
 /*==================================================
                    Responsiveness
-==================================================*/
-/* large Devices (Desktops & Laptops) */
-@media(min-width: 1200px) and (max-width: 1299px){
-    .closeIconResize{
-        padding-right: 3% !important;
-    }
-    #userNameEdit{
-        margin-left: 350px;
-        margin-right: 350px;
-        padding-top: 52px !important;
-    }
-    #editIcon{
-        padding-left: 15px;
-        padding-right: 2px;
-    }
-    .topSpacing{
-        padding-top: 20px;
-    }
-    #categoryButton {
-        width: 150px;
-    }
-    #postHeading{
-        padding-bottom: 20px;
-    }
-
-    /*Post Card*/ 
-    ion-card{
-        width: 90%;
-    }
-
-    //Avatar
-    #postAvatar{
-        width: 80px;
-        height: 80px;
-
-    }
-    .paddingLeft{
-        padding-left: 0 !important;
-    }
-    //userDetails, category and date
-    #postUserNameAlignment h4{
-        font-size: 16px;
-        line-height: 36px;
-    }
-    #postCategoryDateDetails{
-        padding-bottom: 18px !important;
-    }
-    #postCategoryDateDetails h4{
-        font-size: 15px;
-    }
-    //Post content
-    #postContent{
-        font-size: 16px;
-    }
-    .largeDeviceAlignment{
-        display: flex;
-        justify-content: center;
-    }
-    // post footer - star and comment
-    .countStyle{
-        font-size: 14px;
-        padding-top: 12px !important;
-    }
-    .iconResize{
-        zoom: 1.8;
-    }
-    #star{
-        padding-left: 88% !important; 
-    }
-}
-
+===================================================*/
 /* Medium Devices (Landscape Tablets & Medium Desktops) */
 @media(min-width: 992px) and (max-width: 1199px){
     .closeIconResize{
@@ -289,10 +220,6 @@ hr{
     #postAvatar{
         width: 80px;
         height: 80px;
-
-    }
-    .paddingLeft{
-        padding-left: 0 !important;
     }
     //userDetails, category and date
     #postUserNameAlignment h4{
@@ -334,9 +261,6 @@ hr{
         margin-left: 240px;
         margin-right: 240px;
     }
-    #editIcon{
-        padding-right: 2px;
-    }
     .topSpacing{
         padding-top: 20px;
     }
@@ -356,10 +280,6 @@ hr{
     #postAvatar{
         width: 70px;
         height: 70px;
-
-    }
-    .paddingLeft{
-        padding-left: 0 !important;
     }
     //userDetails, category and date
     #postUserNameAlignment h4{
@@ -389,11 +309,11 @@ hr{
         zoom: 1.8;
     }
     #star{
-        padding-left: 84% !important; 
+        padding-left: 83% !important; 
     }
 }
 /* Extra Small Devices (Portrait Tablets & Landscape Phones) */
-@media(max-width: 768px){
+@media(min-width: 500px) and (max-width: 767px){
     .closeIconResize{
         padding-right: 3% !important;
     }
@@ -401,13 +321,21 @@ hr{
         margin-left: 150px;
         margin-right: 150px;
     }
+    //Avatar
+    #postAvatar{
+        width: 70px;
+        height: 70px;
+        }
+        .paddingLeft{
+            padding-left: 15px;
+        }
     #star{
-        padding-left: 79% !important; 
+        padding-left: 81% !important; 
     }
 
 }
 /* Extra Small Devices (Portrait Phones & Smaller Devices) */
-@media(max-width:480px){
+@media(min-width: 400px) and (max-width:499px){
     .closeIconResize{
         padding-right: 3% !important;
     }
@@ -415,13 +343,16 @@ hr{
         margin-left: 90px;
         margin-right: 90px;
     }
+    .paddingLeft{
+        padding-left: 22px;
+    }
     // post footer - star and comment
     #star{
-        padding-left: 73% !important; 
+        padding-left: 75% !important; 
     }
 }
 /* Extra Small Devices (Portrait Phones & Smaller Devices) */
-@media(max-width:360px){
+@media(min-width: 360px) and (max-width:399px){
     .closeIconResize{
         padding-right: 3% !important;
     }
@@ -435,25 +366,31 @@ hr{
         height:55px;
 
     }
+    .paddingLeft{
+        padding-left: 22px;
+    }
     // post footer - star and comment
     #star{
         padding-left: 72% !important; 
     }
 }
 /* Extra Small Devices (Portrait Phones & Smaller Devices) */
-@media(max-width:320px){
+@media(min-width: 320px) and (max-width:359px){
     .closeIconResize{
         padding-right: 3% !important;
     }
     #userNameEdit{
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 65px;
+        margin-right: 65px;
     }
     //Avatar
     #postAvatar{
         width: 50px;
         height:50px;
 
+    }
+    .paddingLeft{
+        padding-left: 22px;
     }
     // post footer - star and comment
     #star{

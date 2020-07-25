@@ -2,7 +2,7 @@
 <ion-header class="ion-no-border" >
   <ion-toolbar no-border class="closeIconResize">
     <!-- Close Icon -->
-    <ion-icon slot="end" src="assets/icon/closeIcon.svg"></ion-icon>
+    <ion-icon  slot="end" src="assets/icon/closeIcon.svg"></ion-icon>
   </ion-toolbar>
 </ion-header>
 <!-- Header Ends -->
@@ -18,8 +18,8 @@
         <ion-avatar id="avatarProfile"></ion-avatar>
         <!-- Camera -->
         <div id="cameraAlignment">
-          <ion-icon src="assets/icon/cameraBgIcon.svg" id="cameraBgIcon"></ion-icon>
-          <ion-icon src="assets/icon/cameraIcon.svg" id="cameraIcon"></ion-icon>
+          <ion-icon src="assets/icon/cameraBgIcon.svg" id="cameraBgIcon">{{count}}</ion-icon>
+          <ion-icon src="assets/icon/cameraIcon.svg" id="cameraIcon">{{count}}</ion-icon>
         </div>
       </ion-col>
     </ion-row>
@@ -45,9 +45,10 @@
       <ion-col class="alignCenter">
         <ion-button style="font-family: 'Quicksand' sans-serif;
                            font-size: 14px;
-                           font-weight: 600;" shape="round" color="dark" class="noPaddingMarign" id="categoryButton">
+                           font-weight: 600;" shape="round" color="dark" class="ripple-parent noPaddingMarign" id="categoryButton">
           Category<span>5</span>
         </ion-button>
+        <ion-ripple-effect></ion-ripple-effect>
       </ion-col>
     </ion-row>
 
@@ -93,10 +94,10 @@
           <ion-row class="noPaddingMargin bottomPadding">
             <!-- StarIcon with count -->
               <ion-icon class="iconResize" id="star" src="assets/icon/unstarIcon.svg"></ion-icon>
-              <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
+              <ion-badge class="countStyle noPaddingMargin">{{count}}</ion-badge>
             <!-- CommentIcon with count -->
               <ion-icon class="iconResize" id="comment" src="assets/icon/commentIcon.svg"></ion-icon>
-              <ion-badge class="countStyle noPaddingMargin" >20</ion-badge>
+              <ion-badge class="countStyle noPaddingMargin">{{count}}</ion-badge>
           </ion-row>
         <!-- Post Footer Ends -->
       </ion-card>

@@ -8,33 +8,24 @@ import { Component } from '@angular/core';
 })
 
 export class Tab2Page {
+  starcount : any = 1000;
+  count : any;
   constructor(
-  ) {}  
+  ) {
+    this.numberFormat(this.starcount);
+  }  
 
-  //  public count(x: number) {
-  //    x= 30;
-  //   if(isNaN(x)) return null;
-  
-  //   if(x < 9999) {
-  //     return x;
-  //   }
-  
-  //   if(x < 1000000) {
-  //     return Math.round(x/1000) + "K";
-  //   }
-  //   if( x < 10000000) {
-  //     return (x/1000000).toFixed(2) + "M";
-  //   }
-  
-  //   if(x < 1000000000) {
-  //     return Math.round((x/1000000)) + "M";
-  //   }
-  
-  //   if(x < 1000000000000) {
-  //     return Math.round((x/1000000000)) + "B";
-  //   }
-  
-  //   return "1T+";
-  // }
- 
+  //number with suffix 
+  numberFormat(count){
+    if(count >= 1000 && count <= 999000){
+        this.count = (((count/1000).toFixed())) + 'k';
+    }
+    else{
+        this.count = (((count/1000000).toFixed())) + 'M';
+    }
+    //console.log(count);
+    }
+
 }
+
+
