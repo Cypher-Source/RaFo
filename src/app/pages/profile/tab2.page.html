@@ -14,9 +14,11 @@
     <ion-row>
       <!-- Avatar -->
       <ion-col class="avatarAlignment">
-        <ion-avatar id="avatarProfile"></ion-avatar>
+        <ion-avatar id="avatarProfile">
+          <img src="{{userDetails.profilePic}}" alt="" />
+        </ion-avatar>
         <!-- Camera -->
-        <div id="cameraAlignment">
+        <div id="cameraAlignment" (click)="selectImage()">
           <ion-icon
             src="assets/icon/cameraBgIcon.svg"
             id="cameraBgIcon"
@@ -67,8 +69,9 @@
           color="dark"
           class="noPaddingMarign"
           id="categoryButton"
+          (click)="openCategoryModal()"
         >
-          Category<span>{{categoryLength}}</span>
+          Category<span>{{userDetails.category.length}}</span>
         </ion-button>
       </ion-col>
     </ion-row>

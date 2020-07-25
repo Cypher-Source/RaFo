@@ -40,6 +40,14 @@
       <ion-col class="button-alignCenter">
         <!-- Next Button -->
         <ion-button
+          *ngIf="fromPage == 'profile'"
+          color="dark"
+          (click)="updateCategory()"
+          [disabled]="selectedCategories.length === 0"
+          >Save</ion-button
+        >
+        <ion-button
+          *ngIf="fromPage == null"
           color="dark"
           (click)="updateCategory()"
           [disabled]="selectedCategories.length === 0"

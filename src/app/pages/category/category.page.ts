@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { FeedCommentsPage } from "../../modals/feed-comments/feed-comments.page";
 import { Category, UserStatus } from "src/app/schemas/users.schema";
 import { AuthUtilsService } from "src/app/services/AuthUtils/auth-utils.service";
 import { Router } from "@angular/router";
 import { ResponseViewService } from "src/app/services/ResponseViews/response-view.service";
+import { ModalController } from "@ionic/angular";
 
 @Component({
   selector: "app-category",
@@ -11,6 +12,9 @@ import { ResponseViewService } from "src/app/services/ResponseViews/response-vie
   styleUrls: ["./category.page.scss"],
 })
 export class CategoryPage implements OnInit {
+  @Input() category: Array<String> = [];
+  @Input() fromPage: string = null;
+
   // maintaining category state
   categories: Array<Category> = [];
 
@@ -20,7 +24,8 @@ export class CategoryPage implements OnInit {
   constructor(
     private authUtils: AuthUtilsService,
     private responseViews: ResponseViewService,
-    private router: Router
+    private router: Router,
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {
@@ -39,16 +44,27 @@ export class CategoryPage implements OnInit {
 
       if (result.status) {
         (await loading).dismiss();
-        this.router.navigate(["/tabs/tab1"]);
+        this.responseViews.presentToast("Prefered categories updated!");
+        if (this.fromPage !== null) {
+          this.modalController.dismiss();
+        } else {
+          this.router.navigate(["/tabs/tab1"]);
+        }
       } else {
         (await loading).dismiss();
         this.responseViews.presentToast("User not logged in!");
+        if (this.fromPage !== null) {
+          this.modalController.dismiss();
+        }
       }
     } catch (error) {
       (await loading).dismiss();
       this.responseViews.presentToast(
         "Some error has occured, please check your internet connection"
       );
+      if (this.fromPage !== null) {
+        this.modalController.dismiss();
+      }
     }
   }
 
@@ -109,6 +125,13 @@ export class CategoryPage implements OnInit {
         name: "Entertainment",
       },
     ];
+
+    categories = categories.map((element) => {
+      if (this.category.includes(element.name)) {
+        element.isSelected = true;
+      }
+      return element;
+    });
 
     return categories;
   }

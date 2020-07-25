@@ -8,7 +8,7 @@ export interface UserDetails {
   category: Array<String>;
   emailId: String;
   name: string;
-  profilePic: String | null;
+  profilePic: string | null;
   userId: String;
 }
 
