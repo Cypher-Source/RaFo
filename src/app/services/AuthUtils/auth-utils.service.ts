@@ -142,7 +142,7 @@ export class AuthUtilsService {
           await this.db
             .collection("users")
             .doc(currentUser.uid)
-            .update({ userId: userName });
+            .update({ name: userName });
 
           resolve({
             status: true,
