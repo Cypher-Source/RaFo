@@ -89,18 +89,22 @@ ion-content {
 }
 
 /*Post Heading*/
-#postHeading {
-  font-family: "Raleway", sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  padding-top: 5px;
-  padding-bottom: 14px;
+#postHeading{
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 4px;
+    padding-bottom: 12px;
 }
 
-/*Post Card*/
-ion-card {
-  box-shadow: 0 !important;
-  background-color: var(--ion-color-white);
+/*Post Card*/ 
+ion-card{
+    width: 100%;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    //box-shadow: none !important;
+    background-color: var(--ion-color-white);
+
 }
 //Avatar
 #postAvatar {
@@ -135,6 +139,9 @@ hr {
   border: 1px solid var(--ion-color-secondary);
   margin-left: 6px !important;
 }
+.paddingLeft{
+    padding-left: 22px;
+}
 //Post content
 #postContent {
   font-family: "Quicksand";
@@ -144,11 +151,11 @@ hr {
   color: var(--ion-color-dark);
 }
 //Image responsiveness
-.img-responisve {
-  width: 100%;
-  height: 45%;
-  border-radius: 3px;
-  padding-bottom: 10px;
+.img-responisve{
+    width: 100%;
+    // height: 45%;
+    border-radius: 3px;
+    padding-bottom: 10px;
 }
 // post footer - star and comment
 .countStyle {
@@ -167,4 +174,284 @@ hr {
 }
 #comment {
   padding-left: 3% !important;
+}
+.bottomPadding{
+    padding-bottom: 10px !important;
+}
+
+/*==================================================
+                   Responsiveness
+==================================================*/
+/* large Devices (Desktops & Laptops) */
+@media(min-width: 1200px) and (max-width: 1299px){
+    .closeIconResize{
+        padding-right: 3% !important;
+    }
+    #userNameEdit{
+        margin-left: 350px;
+        margin-right: 350px;
+        padding-top: 52px !important;
+    }
+    #editIcon{
+        padding-left: 15px;
+        padding-right: 2px;
+    }
+    .topSpacing{
+        padding-top: 20px;
+    }
+    #categoryButton {
+        width: 150px;
+    }
+    #postHeading{
+        padding-bottom: 20px;
+    }
+
+    /*Post Card*/ 
+    ion-card{
+        width: 90%;
+    }
+
+    //Avatar
+    #postAvatar{
+        width: 80px;
+        height: 80px;
+
+    }
+    .paddingLeft{
+        padding-left: 0 !important;
+    }
+    //userDetails, category and date
+    #postUserNameAlignment h4{
+        font-size: 16px;
+        line-height: 36px;
+    }
+    #postCategoryDateDetails{
+        padding-bottom: 18px !important;
+    }
+    #postCategoryDateDetails h4{
+        font-size: 15px;
+    }
+    //Post content
+    #postContent{
+        font-size: 16px;
+    }
+    .largeDeviceAlignment{
+        display: flex;
+        justify-content: center;
+    }
+    // post footer - star and comment
+    .countStyle{
+        font-size: 14px;
+        padding-top: 12px !important;
+    }
+    .iconResize{
+        zoom: 1.8;
+    }
+    #star{
+        padding-left: 88% !important; 
+    }
+}
+
+/* Medium Devices (Landscape Tablets & Medium Desktops) */
+@media(min-width: 992px) and (max-width: 1199px){
+    .closeIconResize{
+        padding-right: 3% !important;
+    }
+    #userNameEdit{
+        margin-left: 320px;
+        margin-right: 320px;
+        padding-top: 52px !important;
+    }
+    #editIcon{
+        padding-right: 2px;
+    }
+    .topSpacing{
+        padding-top: 20px;
+    }
+    #categoryButton {
+        width: 150px;
+    }
+    #postHeading{
+        padding-bottom: 20px;
+    }
+
+    /*Post Card*/ 
+    ion-card{
+        width: 90%;
+    }
+
+    //Avatar
+    #postAvatar{
+        width: 80px;
+        height: 80px;
+
+    }
+    .paddingLeft{
+        padding-left: 0 !important;
+    }
+    //userDetails, category and date
+    #postUserNameAlignment h4{
+        font-size: 16px;
+        line-height: 36px;
+    }
+    #postCategoryDateDetails{
+        padding-bottom: 18px !important;
+    }
+    #postCategoryDateDetails h4{
+        font-size: 15px;
+    }
+    //Post content
+    #postContent{
+        font-size: 16px;
+    }
+    .largeDeviceAlignment{
+        display: flex;
+        justify-content: center;
+    }
+    // post footer - star and comment
+    .countStyle{
+        font-size: 14px;
+        padding-top: 12px !important;
+    }
+    .iconResize{
+        zoom: 1.8;
+    }
+    #star{
+        padding-left: 85% !important; 
+    }
+}
+/* Small Devices (Portrait Tablets & Small Desktops) */
+@media(min-width: 768px) and (max-width: 991px){
+    .closeIconResize{
+        padding-right: 3% !important;
+    }
+    #userNameEdit{
+        margin-left: 240px;
+        margin-right: 240px;
+    }
+    #editIcon{
+        padding-right: 2px;
+    }
+    .topSpacing{
+        padding-top: 20px;
+    }
+    #categoryButton {
+        width: 150px;
+    }
+    #postHeading{
+        padding-bottom: 20px;
+    }
+
+    /*Post Card*/ 
+    ion-card{
+        width: 90%;
+    }
+
+    //Avatar
+    #postAvatar{
+        width: 70px;
+        height: 70px;
+
+    }
+    .paddingLeft{
+        padding-left: 0 !important;
+    }
+    //userDetails, category and date
+    #postUserNameAlignment h4{
+        font-size: 16px;
+        line-height: 36px;
+    }
+    #postCategoryDateDetails{
+        padding-bottom: 18px !important;
+    }
+    #postCategoryDateDetails h4{
+        font-size: 15px;
+    }
+    //Post content
+    #postContent{
+        font-size: 16px;
+    }
+    .largeDeviceAlignment{
+        display: flex;
+        justify-content: center;
+    }
+    // post footer - star and comment
+    .countStyle{
+        font-size: 14px;
+        padding-top: 12px !important;
+    }
+    .iconResize{
+        zoom: 1.8;
+    }
+    #star{
+        padding-left: 84% !important; 
+    }
+}
+/* Extra Small Devices (Portrait Tablets & Landscape Phones) */
+@media(max-width: 768px){
+    .closeIconResize{
+        padding-right: 3% !important;
+    }
+    #userNameEdit{
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+    #star{
+        padding-left: 79% !important; 
+    }
+
+}
+/* Extra Small Devices (Portrait Phones & Smaller Devices) */
+@media(max-width:480px){
+    .closeIconResize{
+        padding-right: 3% !important;
+    }
+    #userNameEdit{
+        margin-left: 90px;
+        margin-right: 90px;
+    }
+    // post footer - star and comment
+    #star{
+        padding-left: 73% !important; 
+    }
+}
+/* Extra Small Devices (Portrait Phones & Smaller Devices) */
+@media(max-width:360px){
+    .closeIconResize{
+        padding-right: 3% !important;
+    }
+    #userNameEdit{
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+    //Avatar
+    #postAvatar{
+        width: 55px;
+        height:55px;
+
+    }
+    // post footer - star and comment
+    #star{
+        padding-left: 72% !important; 
+    }
+}
+/* Extra Small Devices (Portrait Phones & Smaller Devices) */
+@media(max-width:320px){
+    .closeIconResize{
+        padding-right: 3% !important;
+    }
+    #userNameEdit{
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+    //Avatar
+    #postAvatar{
+        width: 50px;
+        height:50px;
+
+    }
+    // post footer - star and comment
+    #star{
+        padding-left: 68% !important; 
+    }
 }

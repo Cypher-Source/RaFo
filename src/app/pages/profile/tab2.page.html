@@ -76,32 +76,34 @@
       </ion-col>
     </ion-row>
 
-    <!-- Post Heaing -->
+    <!-- Post Heading -->
     <ion-row class="alignCenter topSpacing">
       <ion-label id="postHeading">Posts</ion-label>
     </ion-row>
 
     <!-- Post -->
+<<<<<<< HEAD
     <ion-row class="alignCenter noPaddingMargin">
+=======
+    <ion-row class=" noPaddingMargin largeDeviceAlignment">
+>>>>>>> B#4
       <ion-card>
         <!-- Post Header -->
         <ion-card-header>
           <ion-row class="noPaddingMargin">
             <!-- Post Avatar -->
-            <ion-col size="3" class="noPaddingMargin">
-              <ion-avatar id="postAvatar"></ion-avatar>
+            <ion-col size="2" class="noPaddingMargin">
+              <ion-avatar class="noPaddingMargin" id="postAvatar"></ion-avatar>
             </ion-col>
             <!-- Post (UserName, Category, Date) -->
-            <ion-col size="9" class="noPaddingMargin">
-              <ion-row id="postUserNameAlignment" class="noPaddingMarign">
+            <ion-col size="10" class="noPaddingMargin">
+              <ion-row id="postUserNameAlignment" class="paddingLeft">
                 <h4 class="noPaddingMargin">Poorvasha</h4>
               </ion-row>
-              <ion-row id="postCategoryDateDetails" class="noPaddingMarign">
-                <h4 class="noPaddingMargin">
-                  Science
-                  <hr class="noPaddingMargin" />
-                  <span>20th Jul,2020</span>
-                </h4>
+              <ion-row id="postCategoryDateDetails" class="paddingLeft">
+                <h4 class="noPaddingMargin">Science
+                  <hr class="noPaddingMargin">
+                  <span>20th Jul,2020</span></h4>
               </ion-row>
             </ion-col>
           </ion-row>
@@ -120,22 +122,14 @@
         <!-- Post Content Ends -->
 
         <!-- Post Footer -->
-        <ion-row class="noPaddingMargin">
-          <!-- StarIcon with count -->
-          <ion-icon
-            class="iconResize"
-            id="star"
-            src="assets/icon/unstarIcon.svg"
-          ></ion-icon>
-          <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
-          <!-- CommentIcon with count -->
-          <ion-icon
-            class="iconResize"
-            id="comment"
-            src="assets/icon/commentIcon.svg"
-          ></ion-icon>
-          <ion-badge class="countStyle noPaddingMargin">30</ion-badge>
-        </ion-row>
+          <ion-row class="noPaddingMargin bottomPadding">
+            <!-- StarIcon with count -->
+              <ion-icon class="iconResize" id="star" src="assets/icon/unstarIcon.svg"></ion-icon>
+              <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
+            <!-- CommentIcon with count -->
+              <ion-icon class="iconResize" id="comment" src="assets/icon/commentIcon.svg"></ion-icon>
+              <ion-badge class="countStyle noPaddingMargin" >20</ion-badge>
+          </ion-row>
         <!-- Post Footer Ends -->
       </ion-card>
     </ion-row>
