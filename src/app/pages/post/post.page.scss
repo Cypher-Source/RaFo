@@ -23,7 +23,6 @@ ion-icon{
             height: 25px;
     }
 }
-
 /*=======================================
         Avatar and its name
 ========================================*/
@@ -82,8 +81,8 @@ ion-select::part(icon) {
             opacity: 1;     
 }
 ion-select::part(placeholder) {
-            color:var(--ion-color-warning); 
-            opacity: 1;
+            //color:var(--ion-color-warning); 
+            opacity: 0.56;
 }
 
 /*=======================================
@@ -92,16 +91,16 @@ ion-select::part(placeholder) {
 
 .comments-item{
             position: absolute;
-            height: 450px;
-            left: 38px;
-            right:38px;
+            height: 180px;
+            left: 23px;
+            right:23px;
             top: 137px;
             background: var(--ion-color-white);
-            border: 0.5px solid var(--ion-color-tertiary);
             box-sizing: border-box;
             border-radius: 5px;       
 }
-ion-textarea{     
+ion-textarea{ 
+           // --placeholder-color : var(--ion-color-warning);    
             font-family: Quicksand;
             margin-top:0;
             font-style: normal;
@@ -109,7 +108,46 @@ ion-textarea{
             font-size: 20px;
             line-height: 24px; 
 }
+/*=======================================
+            Image section
+========================================*/
 
+.image-size{
+        width:100%;
+        height:100% !important;
+}
+
+.image-col-width{
+        position: absolute;
+        height: 185px;
+        left: 34px;
+        right:24px;
+        top: 320px;
+        margin-left:0px;
+        box-sizing: border-box;
+        border-radius: 5px; 
+}
+
+/*=======================================
+        Image closing section
+========================================*/
+
+ .into-avatar{
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 22px;
+        top: 308px;
+        border-radius: 50%;
+        background: var(--ion-color-dark);
+        box-sizing: border-box;
+ }
+ .into-size{
+        width:13px;
+        height:13px;
+        margin-top:6px;
+        margin-left:6px;
+ }
 /*=======================================
             Footer section
 ========================================*/
@@ -123,4 +161,29 @@ ion-footer{
            .footer-button-Go{
                    padding-right:25px;
            }
+}
+
+/*=======================================
+  Media queries - Image height extension
+========================================*/
+
+@media(min-width:450px) and (max-width:750px){
+        .image-col-width{
+                height:280px;
+        }
+}
+@media(min-width:751px) and (max-width:950px){
+        .image-col-width{
+                height:360px;
+        }
+}
+@media(min-width:951px) and (max-width:1050px){
+        .image-col-width{
+                height:420px;
+        }
+}
+@media(min-width:1051px){
+        .image-col-width{
+                height:450px;
+        }
 }

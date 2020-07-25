@@ -37,11 +37,30 @@
       <ion-row>
         <ion-col>
           <ion-item class="comments-item" lines="none">
-            <ion-textarea autoGrow="false" autosize rows="18" placeholder="Express your thoughts..."></ion-textarea>
+            <ion-textarea autoGrow="false" autosize rows="10" maxlength="200" placeholder="Drop your perception..."></ion-textarea>
           </ion-item>
         </ion-col>
       </ion-row>
+
+      <!-- Image selected from gallery -->
+      <ion-row>
+        <ion-col >
+          <ion-card class="image-col-width">
+            <img class="image-size" src="../../assets/icon/postphoto.png">
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- Image deletion (closing of image) -->
+      <ion-row>
+        <ion-col>
+          <ion-avatar class="into-avatar">
+            <img class="into-size" src="../../assets/icon/pinkinto.svg">
+          </ion-avatar>
+        </ion-col>
+      </ion-row>
     </ion-grid>
+  
 </ion-content>
 
 <!-- Footer with two icons -->
