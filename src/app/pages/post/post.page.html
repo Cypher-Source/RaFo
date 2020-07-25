@@ -1,9 +1,76 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>post</ion-title>
+    <ion-button class="into-button" slot="end" fill="clear">
+      <ion-icon class="toolbar-icon" slot="icon-only" src="assets/icon/into.svg"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-grid>
 
+      <!-- avatar with name of the user -->
+      <ion-row>
+        <ion-col col-4 class="circle-avatar"></ion-col>
+        <ion-col col-6 class="circle-name">Poorvasha</ion-col>
+      </ion-row>
+
+      <!-- selecting the type of category -->
+      <ion-row>
+        <ion-col col-12>
+          <ion-item  class="select-item">
+            <ion-select placeholder="Category" [interfaceOptions]="customAlertOptions" interface="alert" class="select-category" okText="Ok">
+              <ion-select-option value="Science">Science</ion-select-option>
+              <ion-select-option value="Technology">Technology</ion-select-option>
+              <ion-select-option value="Sports">Sports</ion-select-option>
+              <ion-select-option value="Politics">Politics</ion-select-option>
+              <ion-select-option value="Finance">Finance</ion-select-option>
+              <ion-select-option value="Education">Education</ion-select-option>
+              <ion-select-option value="Entertainment">Entertainment</ion-select-option>
+              <ion-select-option value="Agriculture">Agriculture</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      
+      <!-- Entering the users thoughts -->
+      <ion-row>
+        <ion-col>
+          <ion-item class="comments-item" lines="none">
+            <ion-textarea autoGrow="false" autosize rows="10" maxlength="200" placeholder="Drop your perception..."></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <!-- Image selected from gallery -->
+      <ion-row>
+        <ion-col >
+          <ion-card class="image-col-width">
+            <img class="image-size" src="../../assets/icon/postphoto.png">
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!-- Image deletion (closing of image) -->
+      <ion-row>
+        <ion-col>
+          <ion-avatar class="into-avatar">
+            <img class="into-size" src="../../assets/icon/pinkinto.svg">
+          </ion-avatar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
 </ion-content>
+
+<!-- Footer with two icons -->
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-button class="footer-button-photo" slot="start" fill="clear">
+      <ion-icon class="footer-icon" slot="icon-only" src="assets/icon/post-photo.svg"></ion-icon>
+    </ion-button>
+    <ion-button class="footer-button-Go" slot="end" fill="clear">
+      <ion-icon class="footer-icon" slot="icon-only" src="assets/icon/Go.svg"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
