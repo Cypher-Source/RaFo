@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
+
 import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-login',
@@ -52,5 +55,6 @@ export class LoginPage implements OnInit {
   // login(){
   //   this.router.navigateByUrl('/tabs/tab1');
   // }
+
 
 }

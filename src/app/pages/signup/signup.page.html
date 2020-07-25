@@ -3,31 +3,24 @@
   <ion-grid>
 
     <ion-row class="margin">
-      <ion-col size="2">
-
-      </ion-col>
+      <ion-col size="2"></ion-col>
+      <!-- Heading section-->
       <ion-col size="8">
         <h1 class="heading">Create Account</h1>
       </ion-col>
       
-      <ion-col size="2">
-
-      </ion-col>
+      <ion-col size="2"></ion-col>
+      <!-- ion section-->
     </ion-row>
     <ion-row class="margin">
       <ion-col size=3></ion-col>
       <ion-col size="6">
-      
       <img src="../../../assets/icon/favicon.png">
-    
     </ion-col>
       <ion-col size="3"></ion-col>
     </ion-row>
 
-
-
-
-
+<!-- Singup form-->
     <form [formGroup]="signupForm" (ngSubmit)="submit()">
 
 
@@ -36,7 +29,7 @@
         <ion-col size="10">
       <ion-list>
         <ion-item>
-          
+          <!-- Username input-->
           <ion-input formControlName="username" type="text" placeholder="Username"></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.username">
@@ -55,7 +48,7 @@
         <ion-col size="10">
       <ion-list>
         <ion-item>
-          
+          <!-- email input-->
           <ion-input formControlName="email" type="Email" placeholder="Email ID"></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.email">
@@ -75,7 +68,7 @@
       <ion-col size="10">
       <ion-list>
         <ion-item>
-          
+          <!-- Password input-->
           <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.password">
@@ -94,7 +87,7 @@
         <ion-col size="10">
       <ion-list>
         <ion-item>
-          
+          <!-- Confirm password input-->
           <ion-input formControlName="cpassword" type="password" placeholder="Confirm password"></ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.cpassword">
@@ -107,10 +100,10 @@
     <ion-col size="1"></ion-col>
     </ion-row>
 
-
           <ion-row class="margin">
             <ion-col size="4"></ion-col>
             <ion-col size="4">
+              <!-- signin button-->
           <ion-button [disabled]="!signupForm.valid" type="submit" fill="solid" expand="block" color="dark" routerLink="/tabs/tab1" routerDirection="root">Sign up</ion-button>
         </ion-col>
         <ion-col size="4"></ion-col>
@@ -120,11 +113,11 @@
 
     <ion-row class="signup">
       <ion-col size="3">
-
+        <!-- login route-->
       </ion-col>
       <ion-col size="6">
         <div class="lower-content">
-          <h6>New user ?<span style="color: var(--ion-color-primary);" (click)="signup()"> Signup</span></h6>
+          <h6>Already a user ?<span style="color: var(--ion-color-primary);" (click)="signup()"> Login</span></h6>
         </div>
       </ion-col>
       <ion-col size="3">

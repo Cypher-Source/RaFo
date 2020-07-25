@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -74,4 +75,6 @@ export class SignupPage implements OnInit {
   signup(){
     this.router.navigateByUrl('/signup');
   }
+
+
 }
