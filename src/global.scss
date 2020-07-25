@@ -69,3 +69,14 @@ ion-footer {
     }
   }
 }
+
+// profile name edit in profile tab
+.noPaddingMargin {
+  padding: 0;
+  margin: 0;
+  input.native-input.sc-ion-input-md {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+  }
+}

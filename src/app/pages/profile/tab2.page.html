@@ -1,5 +1,5 @@
 <!-- Header -->
-<ion-header class="ion-no-border" >
+<ion-header class="ion-no-border">
   <ion-toolbar no-border class="closeIconResize">
     <!-- Close Icon -->
     <ion-icon slot="end" src="assets/icon/closeIcon.svg"></ion-icon>
@@ -10,7 +10,6 @@
 <!-- Content -->
 <ion-content no-border [fullscreen]="true">
   <ion-grid>
-
     <!-- Display Profile with editIcon-->
     <ion-row>
       <!-- Avatar -->
@@ -18,7 +17,10 @@
         <ion-avatar id="avatarProfile"></ion-avatar>
         <!-- Camera -->
         <div id="cameraAlignment">
-          <ion-icon src="assets/icon/cameraBgIcon.svg" id="cameraBgIcon"></ion-icon>
+          <ion-icon
+            src="assets/icon/cameraBgIcon.svg"
+            id="cameraBgIcon"
+          ></ion-icon>
           <ion-icon src="assets/icon/cameraIcon.svg" id="cameraIcon"></ion-icon>
         </div>
       </ion-col>
@@ -30,11 +32,23 @@
         <ion-row id="userNameEdit">
           <!-- UserName -->
           <ion-col size="11" id="userName">
-            <ion-label class="noPaddingMargin">Poorvasha Murugavel</ion-label>
+            <ion-input
+              [(ngModel)]="profileName"
+              [disabled]="!profileNameEditStatus"
+              class="noPaddingMargin"
+            ></ion-input>
           </ion-col>
           <!-- Edit Icon -->
-          <ion-col size="1" id="editIcon">
-            <ion-icon src="assets/icon/editIcon.svg"></ion-icon>
+          <ion-col size="1" id="editIcon" (click)="editActionPerformed()">
+            <ion-icon
+              src="assets/icon/editIcon.svg"
+              *ngIf="!profileNameEditStatus"
+            ></ion-icon>
+            <ion-icon
+              id="done-icon"
+              name="checkmark"
+              *ngIf="profileNameEditStatus"
+            ></ion-icon>
           </ion-col>
         </ion-row>
       </ion-col>
@@ -43,9 +57,17 @@
     <!-- Category Button -->
     <ion-row class="topSpacing">
       <ion-col class="alignCenter">
-        <ion-button style="font-family: 'Quicksand' sans-serif;
-                           font-size: 14px;
-                           font-weight: 600;" shape="round" color="dark" class="noPaddingMarign" id="categoryButton">
+        <ion-button
+          style="
+            font-family: 'Quicksand' sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+          "
+          shape="round"
+          color="dark"
+          class="noPaddingMarign"
+          id="categoryButton"
+        >
           Category<span>5</span>
         </ion-button>
       </ion-col>
@@ -57,7 +79,7 @@
     </ion-row>
 
     <!-- Post -->
-    <ion-row class=" alignCenter noPaddingMargin">
+    <ion-row class="alignCenter noPaddingMargin">
       <ion-card>
         <!-- Post Header -->
         <ion-card-header>
@@ -72,9 +94,11 @@
                 <h4 class="noPaddingMargin">Poorvasha</h4>
               </ion-row>
               <ion-row id="postCategoryDateDetails" class="noPaddingMarign">
-                <h4 class="noPaddingMargin">Science
-                  <hr class="noPaddingMargin">
-                  <span>20th Jul,2020</span></h4>
+                <h4 class="noPaddingMargin">
+                  Science
+                  <hr class="noPaddingMargin" />
+                  <span>20th Jul,2020</span>
+                </h4>
               </ion-row>
             </ion-col>
           </ion-row>
@@ -83,24 +107,34 @@
 
         <!-- Post Content -->
         <ion-card-content id="postContent">
-          There is nothing good or bad it’s all about the characterization
-          the more you express the more you are
+          There is nothing good or bad it’s all about the characterization the
+          more you express the more you are
         </ion-card-content>
-        <img src="../../../assets/B4-images/postImage.png" class="img-responisve">
+        <img
+          src="../../../assets/B4-images/postImage.png"
+          class="img-responisve"
+        />
         <!-- Post Content Ends -->
 
         <!-- Post Footer -->
-          <ion-row class="noPaddingMargin">
-            <!-- StarIcon with count -->
-              <ion-icon class="iconResize" id="star" src="assets/icon/unstarIcon.svg"></ion-icon>
-              <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
-            <!-- CommentIcon with count -->
-              <ion-icon class="iconResize" id="comment" src="assets/icon/commentIcon.svg"></ion-icon>
-              <ion-badge class="countStyle noPaddingMargin">30</ion-badge>
-          </ion-row>
+        <ion-row class="noPaddingMargin">
+          <!-- StarIcon with count -->
+          <ion-icon
+            class="iconResize"
+            id="star"
+            src="assets/icon/unstarIcon.svg"
+          ></ion-icon>
+          <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
+          <!-- CommentIcon with count -->
+          <ion-icon
+            class="iconResize"
+            id="comment"
+            src="assets/icon/commentIcon.svg"
+          ></ion-icon>
+          <ion-badge class="countStyle noPaddingMargin">30</ion-badge>
+        </ion-row>
         <!-- Post Footer Ends -->
       </ion-card>
     </ion-row>
-
   </ion-grid>
 </ion-content>

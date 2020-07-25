@@ -1,175 +1,170 @@
 /*==================================================
                        HEADER
 ==================================================*/
-.closeIconResize{
-    font-size: 23px;
-    padding-right: 5% !important;
-    padding: 0;
-    margin: 0;
+.closeIconResize {
+  font-size: 23px;
+  padding-right: 5% !important;
+  padding: 0;
+  margin: 0;
 }
 
 /*==================================================
                        Content
 ==================================================*/
-ion-content{
-    padding: 0;
-    margin: 0;
+ion-content {
+  padding: 0;
+  margin: 0;
 }
 
-.noPaddingMargin{
-    padding: 0;
-    margin: 0;
+/*Avatar Display*/
+.avatarAlignment {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+#avatarProfile {
+  border: 1px solid var(--ion-color-primary);
+  width: 114px;
+  height: 114px;
+  position: absolute;
 }
 
-/*Avatar Display*/  
-.avatarAlignment{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
+/*Camera*/
+#cameraBgIcon {
+  position: absolute;
+  zoom: 2.5 !important;
 }
-#avatarProfile{
-    border: 1px solid var(--ion-color-primary);
-    width: 114px;  
-    height: 114px;
-    position: absolute;
+#cameraIcon {
+  padding-top: 10px !important;
+  padding-left: 10.38px !important;
+  zoom: 1.1;
 }
-
-/*Camera*/  
-#cameraBgIcon{
-
-    position: absolute;
-    zoom: 2.5 !important;
-}
-#cameraIcon
-{
-    padding-top: 10px !important;
-    padding-left: 10.38px !important;
-    zoom: 1.1;
-}
-#cameraAlignment{
-    padding-top: 66px;
-    padding-left: 75px;
-
+#cameraAlignment {
+  padding-top: 66px;
+  padding-left: 75px;
 }
 
 /*UserName Edit*/
-#userNameEdit{
-    padding-top: 42px !important;
-    border-bottom: 1px solid var(--ion-color-secondary);
-    margin-left: 95px;
-    margin-right: 95px;
-    padding: 0;
+#userNameEdit {
+  padding-top: 42px !important;
+  border-bottom: 1px solid var(--ion-color-secondary);
+  margin-left: 95px;
+  margin-right: 95px;
+  padding: 0;
 }
-#userName{
-    padding-left: 2px;
+#userName {
+  padding-left: 2px;
 }
-#editIcon{
-    padding-left: 0;
-    padding-right: 2px;
-    font-size: 15px;
+#editIcon {
+  padding-left: 0;
+  padding-right: 2px;
+  font-size: 15px;
+
+  ion-icon#done-icon {
+    color: var(--ion-color-success);
+  }
 }
-#userName ion-label{
-    font-size: 14px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: normal;
+#userName ion-label {
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
 }
 
-/*Category Button*/ 
-.alignCenter{
-    display: flex;
-    justify-content: center;
+/*Category Button*/
+.alignCenter {
+  display: flex;
+  justify-content: center;
 }
-#categoryButton span{
-    padding-left: 10px;
+#categoryButton span {
+  padding-left: 10px;
 }
-.topSpacing{
-    padding-top: 14px;
+.topSpacing {
+  padding-top: 14px;
 }
 #categoryButton {
-    width: 120px;
-    text-transform: none;
-    --box-shadow:none;
+  width: 120px;
+  text-transform: none;
+  --box-shadow: none;
 }
 
 /*Post Heading*/
-#postHeading{
-    font-family: 'Raleway', sans-serif;
-    font-size: 24px;
-    font-weight: 500;
-    padding-top: 5px;
-    padding-bottom: 14px;
+#postHeading {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  padding-top: 5px;
+  padding-bottom: 14px;
 }
 
-/*Post Card*/ 
-ion-card{
-    box-shadow: 0 !important;
-    background-color: var(--ion-color-white);
+/*Post Card*/
+ion-card {
+  box-shadow: 0 !important;
+  background-color: var(--ion-color-white);
 }
 //Avatar
-#postAvatar{
-    border: 1px solid var(--ion-color-primary);
-    width: 60px;
-    height: 60px;
-
+#postAvatar {
+  border: 1px solid var(--ion-color-primary);
+  width: 60px;
+  height: 60px;
 }
 //userDetails, category and date
-#postUserNameAlignment h4{
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 34px;
-    color:var(--ion-color-dark);
+#postUserNameAlignment h4 {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 34px;
+  color: var(--ion-color-dark);
 }
-#postCategoryDateDetails{
-    padding-bottom: 16px !important;
+#postCategoryDateDetails {
+  padding-bottom: 16px !important;
 }
-#postCategoryDateDetails h4{
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    font-size: 12px;
-    color:var(--ion-color-warning);
+#postCategoryDateDetails h4 {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: var(--ion-color-warning);
 }
-#postCategoryDateDetails h4 span{
-    padding-left: 10px;
-    font-weight: normal;
-} 
-hr{
-    height: 8.5px; 
-    display: inline-block; 
-    border: 1px solid var(--ion-color-secondary);
-    margin-left: 6px !important;
+#postCategoryDateDetails h4 span {
+  padding-left: 10px;
+  font-weight: normal;
+}
+hr {
+  height: 8.5px;
+  display: inline-block;
+  border: 1px solid var(--ion-color-secondary);
+  margin-left: 6px !important;
 }
 //Post content
-#postContent{
-    font-family: 'Quicksand';
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    color:var(--ion-color-dark);
+#postContent {
+  font-family: "Quicksand";
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ion-color-dark);
 }
 //Image responsiveness
-.img-responisve{
-    width: 100%;
-    height: 45%;
-    border-radius: 3px;
-    padding-bottom: 10px;
+.img-responisve {
+  width: 100%;
+  height: 45%;
+  border-radius: 3px;
+  padding-bottom: 10px;
 }
 // post footer - star and comment
-.countStyle{
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
-    font-size: 12px;
-    background-color: var(--ion-color-white);
-    padding-top: 10px !important;
-    color:var(--ion-color-primary);
+.countStyle {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  background-color: var(--ion-color-white);
+  padding-top: 10px !important;
+  color: var(--ion-color-primary);
 }
-.iconResize{
-    zoom: 1.6;
+.iconResize {
+  zoom: 1.6;
 }
-#star{
-    padding-left: 74% !important; 
+#star {
+  padding-left: 74% !important;
 }
 #comment {
-    padding-left: 3% !important;
+  padding-left: 3% !important;
 }
