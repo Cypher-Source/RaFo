@@ -11,6 +11,9 @@ import { PhotoPage } from "../photo/photo.page";
 import { Post } from "src/app/schemas/post.schema";
 import { DbUtilsService } from "src/app/services/DbUtils/db-utils.service";
 import { ResponseViewService } from "src/app/services/ResponseViews/response-view.service";
+import { UserDetails } from "src/app/schemas/users.schema";
+import { AuthUtilsService } from "src/app/services/AuthUtils/auth-utils.service";
+import { ImageResizer } from "@ionic-native/image-resizer/ngx";
 
 @Component({
   selector: "app-post",
@@ -20,6 +23,9 @@ import { ResponseViewService } from "src/app/services/ResponseViews/response-vie
 export class PostPage implements OnInit {
   // post details
   postDetails: Post;
+
+  // user details
+  userDetails: UserDetails;
 
   imagePickerOptions = {
     maximumImagesCount: 1,
@@ -40,7 +46,9 @@ export class PostPage implements OnInit {
     public actionSheetController: ActionSheetController,
     private file: File,
     private dbUtils: DbUtilsService,
-    private responseViews: ResponseViewService
+    private authUtils: AuthUtilsService,
+    private responseViews: ResponseViewService,
+    private imageResizer: ImageResizer
   ) {}
   ngOnInit() {
     // initialising the post details
@@ -49,8 +57,40 @@ export class PostPage implements OnInit {
       text: "",
       image: null,
     };
+
+    this.userDetails = {
+      profilePic: "",
+      name: "",
+      category: [],
+      userId: "",
+      emailId: "",
+    };
+
+    this.fetchUserDetails();
   }
-  
+
+  // fetch user details
+  async fetchUserDetails() {
+    const loading = this.responseViews.getLoadingScreen();
+    (await loading).present();
+    try {
+      const currentUser = await this.authUtils.getCurrentUser();
+
+      if (currentUser.status) {
+        this.userDetails = await this.authUtils.getUserDetails(currentUser.uid);
+        (await loading).dismiss();
+      } else {
+        this.responseViews.presentToast("User not logged in");
+        (await loading).dismiss();
+      }
+    } catch (error) {
+      this.responseViews.presentToast(
+        "Some error has occured, please try again!"
+      );
+      (await loading).dismiss();
+    }
+  }
+
   // dismiss the modal view
   closeModal() {
     this.modalController.dismiss();
@@ -70,7 +110,14 @@ export class PostPage implements OnInit {
         // imageData is either a base64 encoded string or a file URI
         // If it's base64 (DATA_URL):
         // let base64Image = 'data:image/jpeg;base64,' + imageData;
-        this.cropImage(imageData);
+        this.imageResizer
+          .resize({
+            uri: imageData,
+            quality: 60,
+            width: 800,
+            height: 500,
+          })
+          .then((uri) => this.cropImage(uri));
       },
       (err) => {
         // Handle error

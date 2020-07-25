@@ -250,7 +250,7 @@ export class DbUtilsService {
         reject({
           status: false,
           post: null,
-          message: "Some error has occured!",
+          message: e.message,
         });
       }
     });

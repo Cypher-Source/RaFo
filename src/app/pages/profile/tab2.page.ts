@@ -7,6 +7,10 @@ import { CategoryPage } from "../category/category.page";
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { Crop, CropOptions } from "@ionic-native/crop/ngx";
 import { File } from "@ionic-native/file/ngx";
+import {
+  ImageResizer,
+  ImageResizerOptions,
+} from "@ionic-native/image-resizer/ngx";
 
 @Component({
   selector: "app-tab2",
@@ -28,7 +32,7 @@ export class Tab2Page implements OnInit {
   // image picker options
   imagePickerOptions = {
     maximumImagesCount: 1,
-    quality: 50,
+    quality: 1,
   };
 
   constructor(
@@ -37,6 +41,7 @@ export class Tab2Page implements OnInit {
     private modalController: ModalController,
     private camera: Camera,
     private crop: Crop,
+    private imageResizer: ImageResizer,
     public actionSheetController: ActionSheetController,
     private file: File
   ) {}
@@ -108,13 +113,13 @@ export class Tab2Page implements OnInit {
     }
   }
 
-  async updateProfilePicture() {
+  async updateProfilePicture(base64: string) {
     const loading = this.responseView.getLoadingScreen();
     (await loading).present();
     try {
-      const result = await this.authUtils.setProfilePicture(
-        this.userDetails.profilePic
-      );
+      console.log(base64);
+
+      const result = await this.authUtils.setProfilePicture(base64);
 
       if (result.status) {
         (await loading).dismiss();
@@ -145,7 +150,14 @@ export class Tab2Page implements OnInit {
         // imageData is either a base64 encoded string or a file URI
         // If it's base64 (DATA_URL):
         // let base64Image = 'data:image/jpeg;base64,' + imageData;
-        this.cropImage(imageData);
+        this.imageResizer
+          .resize({
+            uri: imageData,
+            quality: 40,
+            width: 500,
+            height: 500,
+          })
+          .then((uri) => this.cropImage(uri));
       },
       (err) => {
         // Handle error
@@ -206,7 +218,7 @@ export class Tab2Page implements OnInit {
       (base64) => {
         console.log(base64);
         this.userDetails.profilePic = base64;
-        this.updateProfilePicture();
+        this.updateProfilePicture(base64);
       },
       (error) => {
         alert("Error in showing image" + error);

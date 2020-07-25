@@ -22,11 +22,9 @@
       <ion-col>
         <ion-item lines="none" class="avatar-name">
           <ion-avatar slot="start">
-            <img
-              src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
-            />
+            <img src="{{userDetails.profilePic}}" />
           </ion-avatar>
-          <ion-label>Poorvasha</ion-label>
+          <ion-label>{{userDetails.name}}</ion-label>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -70,28 +68,31 @@
             rows="10"
             maxlength="200"
             placeholder="Drop your perception..."
+            [(ngModel)]="postDetails.text"
           ></ion-textarea>
         </ion-item>
       </ion-col>
     </ion-row>
 
     <!-- Image selected from gallery -->
-    <ion-row>
-      <ion-col>
-        <ion-card class="image-col-width">
-          <img class="image-size" src="../../assets/icon/postphoto.png" />
-        </ion-card>
-      </ion-col>
-    </ion-row>
+    <div *ngIf="postDetails.image">
+      <ion-row>
+        <ion-col>
+          <ion-card class="image-col-width">
+            <img class="image-size" src="{{postDetails.image}}" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
 
-    <!-- Image deletion (closing of image) -->
-    <ion-row>
-      <ion-col>
-        <ion-avatar class="into-avatar">
-          <img class="into-size" src="../../assets/icon/pinkinto.svg" />
-        </ion-avatar>
-      </ion-col>
-    </ion-row>
+      <!-- Image deletion (closing of image) -->
+      <ion-row>
+        <ion-col>
+          <ion-avatar class="into-avatar">
+            <img class="into-size" src="../../assets/icon/pinkinto.svg" />
+          </ion-avatar>
+        </ion-col>
+      </ion-row>
+    </div>
   </ion-grid>
 </ion-content>
 
