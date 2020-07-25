@@ -97,14 +97,18 @@ ion-content{
     font-family: 'Raleway', sans-serif;
     font-size: 24px;
     font-weight: 500;
-    padding-top: 5px;
-    padding-bottom: 14px;
+    padding-top: 4px;
+    padding-bottom: 12px;
 }
 
 /*Post Card*/ 
 ion-card{
-    box-shadow: 0 !important;
+    width: 100%;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    //box-shadow: none !important;
     background-color: var(--ion-color-white);
+
 }
 //Avatar
 #postAvatar{
@@ -140,6 +144,9 @@ hr{
     border: 1px solid var(--ion-color-secondary);
     margin-left: 6px !important;
 }
+.paddingLeft{
+    padding-left: 22px;
+}
 //Post content
 #postContent{
     font-family: 'Quicksand';
@@ -151,7 +158,7 @@ hr{
 //Image responsiveness
 .img-responisve{
     width: 100%;
-    height: 45%;
+    // height: 45%;
     border-radius: 3px;
     padding-bottom: 10px;
 }
@@ -172,4 +179,7 @@ hr{
 }
 #comment {
     padding-left: 3% !important;
+}
+.bottomPadding{
+    padding-bottom: 10px !important;
 }
