@@ -11,6 +11,11 @@ ion-content{
     color: var(--ion-color-dark);
     text-align: center;
 }
+// grid size adjustments
+ion-grid{
+    padding: 0 19px !important;
+    margin-top: 50px;
+}
 
 /*=========================================================
                         Heading
@@ -20,18 +25,13 @@ ion-content{
 // Heading font style
 .headingStyle{
     font: bold 20px 'Raleway', sans-serif;
-    margin-top: 60px;
+    margin-top: 50px;
 }
 
 /*=========================================================
                         Cards
 ==========================================================*/
 
-// grid size adjustments
-ion-grid{
-    padding: 0 19px !important;
-    margin-top: 60px;
-}
 // gap between each row
 ion-col{
     margin-bottom: 25px !important;
@@ -61,7 +61,8 @@ ion-col{
 
 // to bring button bottom of the page
 #button-to-bring-bottom{
-    padding-top: 50px;
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
 //Buttom styles 
 ion-button{
