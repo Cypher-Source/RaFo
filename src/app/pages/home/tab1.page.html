@@ -36,9 +36,9 @@
 
 
   <!-- CONTENT-01 STARTS -->
-  <!-- <div id="center">
+  <div id="center" *ngIf = false>
   <ion-grid>
-    row-01 image
+    <!-- row-01 image -->
     <ion-row>
       <ion-col>
         <div id="not-found-image" class="align-items-center">
@@ -47,7 +47,7 @@
       </ion-col>
     </ion-row>
 
-    row-02 image
+    <!-- row-02 image -->
     <ion-row>
       <ion-col size="12">
           <div id="not-found-text" class="align-items-center">
@@ -57,7 +57,7 @@
     </ion-row>
   
   </ion-grid>
-</div> -->
+</div>
   <!-- CONTENT-01 ENDS -->
 
 
@@ -67,7 +67,7 @@
 
 
   <!-- CONTENT-02 STARTS -->
-  <ion-grid>
+  <ion-grid *ngIF = true>
   <ion-row class=" noPaddingMargin largeDeviceAlignment" >
     <ion-card>
       <!-- Post Header -->
