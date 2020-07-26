@@ -222,14 +222,26 @@ export class DbUtilsService {
         const data = await postRef.where("postedBy", "==", uid).get();
 
         // structure the data in the form of FeedPost Schema
-        data.forEach((resp) => {
+        data.forEach(async (resp) => {
           let responseData = resp.data();
           responseData["id"] = resp.id;
           responseData["liked"] = responseData["likes"].includes(uid);
+
+          const userDetails = await this.auth.getUserDetails(
+            responseData["postedBy"]
+          );
+
+          responseData["userDetails"] = {
+            name: userDetails["name"],
+            profilePic: userDetails["profilePic"],
+          };
+
+          responseData["comments"] = await this.getCommentData(
+            responseData["id"]
+          );
+
           feedPostArray.push(<FeedPost>responseData);
         });
-
-        console.log(feedPostArray);
 
         resolve(feedPostArray);
       } catch (e) {

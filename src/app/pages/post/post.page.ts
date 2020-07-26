@@ -230,4 +230,9 @@ export class PostPage implements OnInit {
       );
     }
   }
+
+  // remove the image
+  removeImage() {
+    this.postDetails.image = null;
+  }
 }

@@ -2,13 +2,17 @@
 <ion-header class="ion-no-border">
   <ion-toolbar no-border class="closeIconResize">
     <!-- Close Icon -->
-    <ion-icon slot="end" src="assets/icon/closeIcon.svg"></ion-icon>
+    <!-- <ion-icon slot="end" src="assets/icon/closeIcon.svg"></ion-icon> -->
   </ion-toolbar>
 </ion-header>
 <!-- Header Ends -->
 
 <!-- Content -->
 <ion-content no-border [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="updateUserDetails($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-grid>
     <!-- Display Profile with editIcon-->
     <ion-row>
@@ -82,62 +86,85 @@
     </ion-row>
 
     <!-- Post -->
-    <ion-row class="noPaddingMargin largeDeviceAlignment">
-      <ion-card>
-        <!-- Post Header -->
-        <ion-card-header>
-          <ion-row class="noPaddingMargin">
-            <!-- Post Avatar -->
-            <ion-col size="2" class="noPaddingMargin">
-              <ion-avatar class="noPaddingMargin" id="postAvatar"></ion-avatar>
-            </ion-col>
-            <!-- Post (UserName, Category, Date) -->
-            <ion-col size="10" class="noPaddingMargin">
-              <ion-row id="postUserNameAlignment" class="paddingLeft">
-                <h4 class="noPaddingMargin">Poorvasha</h4>
-              </ion-row>
-              <ion-row id="postCategoryDateDetails" class="paddingLeft">
-                <h4 class="noPaddingMargin">
-                  Science
-                  <hr class="noPaddingMargin" />
-                  <span>20th Jul,2020</span>
-                </h4>
-              </ion-row>
-            </ion-col>
+    <div>
+      <ion-row
+        class="noPaddingMargin largeDeviceAlignment"
+        *ngFor="let post of feedPosts; let i = index"
+      >
+        <ion-card>
+          <!-- Post Header -->
+          <ion-card-header>
+            <ion-row class="noPaddingMargin">
+              <!-- Post Avatar -->
+              <ion-col size="2" class="noPaddingMargin">
+                <ion-avatar class="noPaddingMargin" id="postAvatar">
+                  <img
+                    *ngIf="post.userDetails.profilePic"
+                    src="{{post.userDetails.profilePic}}"
+                    alt=""
+                  />
+                </ion-avatar>
+              </ion-col>
+              <!-- Post (UserName, Category, Date) -->
+              <ion-col size="10" class="noPaddingMargin">
+                <ion-row id="postUserNameAlignment" class="paddingLeft">
+                  <h4 class="noPaddingMargin">{{post.userDetails.name}}</h4>
+                </ion-row>
+                <ion-row id="postCategoryDateDetails" class="paddingLeft">
+                  <h4 class="noPaddingMargin">
+                    {{post.category[0]}}
+                    <hr class="noPaddingMargin" />
+                    <span>{{formatDate(post.date)}}</span>
+                  </h4>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+          <!-- Post Header Ends -->
+
+          <!-- Post Content -->
+          <ion-card-content id="postContent">
+            {{post.text}}
+          </ion-card-content>
+          <img *ngIf="post.image" src="{{post.image}}" class="img-responisve" />
+          <!-- Post Content Ends -->
+
+          <!-- Post Footer -->
+          <ion-row class="noPaddingMargin bottomPadding">
+            <!-- StarIcon with count -->
+            <ion-icon
+              (click)="updateLike(i)"
+              *ngIf="!post.liked"
+              class="iconResize"
+              id="star"
+              src="../../../assets/icon/unstar-icon.svg"
+            ></ion-icon>
+            <ion-icon
+              (click)="updateDisLike(i)"
+              *ngIf="post.liked"
+              class="iconResize"
+              id="star"
+              src="../../../assets/icon/star.svg"
+            ></ion-icon>
+            <ion-badge
+              class="countStyle noPaddingMargin"
+              *ngIf="post.likes.length"
+              >{{numberFormat(post.likes.length)}}</ion-badge
+            >
+            <!-- CommentIcon with count -->
+            <ion-icon
+              class="iconResize"
+              id="comment"
+              src="../../../assets/icon/comment-icon.svg"
+              (click)="openCommentsModal(post.id)"
+            ></ion-icon>
+            <ion-badge class="countStyle noPaddingMargin" *ngIf="post.comments"
+              >{{post.comments.length}}</ion-badge
+            >
           </ion-row>
-        </ion-card-header>
-        <!-- Post Header Ends -->
-
-        <!-- Post Content -->
-        <ion-card-content id="postContent">
-          There is nothing good or bad it’s all about the characterization the
-          more you express the more you are
-        </ion-card-content>
-        <img
-          src="../../../assets/B4-images/postImage.png"
-          class="img-responisve"
-        />
-        <!-- Post Content Ends -->
-
-        <!-- Post Footer -->
-        <ion-row class="noPaddingMargin bottomPadding">
-          <!-- StarIcon with count -->
-          <ion-icon
-            class="iconResize"
-            id="star"
-            src="assets/icon/unstarIcon.svg"
-          ></ion-icon>
-          <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
-          <!-- CommentIcon with count -->
-          <ion-icon
-            class="iconResize"
-            id="comment"
-            src="assets/icon/commentIcon.svg"
-          ></ion-icon>
-          <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
-        </ion-row>
-        <!-- Post Footer Ends -->
-      </ion-card>
-    </ion-row>
+          <!-- Post Footer Ends -->
+        </ion-card>
+      </ion-row>
+    </div>
   </ion-grid>
 </ion-content>

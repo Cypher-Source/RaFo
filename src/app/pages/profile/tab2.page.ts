@@ -11,6 +11,10 @@ import {
   ImageResizer,
   ImageResizerOptions,
 } from "@ionic-native/image-resizer/ngx";
+import { FeedCommentsPage } from "src/app/modals/feed-comments/feed-comments.page";
+import { FeedPost } from "src/app/schemas/post.schema";
+import { DbUtilsService } from "src/app/services/DbUtils/db-utils.service";
+import * as moment from "moment";
 
 @Component({
   selector: "app-tab2",
@@ -19,6 +23,9 @@ import {
 })
 export class Tab2Page implements OnInit {
   profileNameEditStatus: boolean = false;
+
+  // feed post array
+  feedPosts: Array<FeedPost>;
 
   // get user details
   userDetails: UserDetails = {
@@ -43,7 +50,8 @@ export class Tab2Page implements OnInit {
     private crop: Crop,
     private imageResizer: ImageResizer,
     public actionSheetController: ActionSheetController,
-    private file: File
+    private file: File,
+    private dbUtils: DbUtilsService
   ) {}
 
   ngOnInit() {
@@ -69,16 +77,24 @@ export class Tab2Page implements OnInit {
   }
 
   // update user details
-  async updateUserDetails() {
+  async updateUserDetails(event?) {
     const loading = this.responseView.getLoadingScreen();
     (await loading).present();
     try {
       const currentUser = await this.authUtils.getCurrentUser();
       if (currentUser.status) {
         this.userDetails = await this.authUtils.getUserDetails(currentUser.uid);
+
+        this.feedPosts = await this.dbUtils.getUserPosts(currentUser.uid);
+        try {
+          event.target.complete();
+        } catch (e) {}
         (await loading).dismiss();
       } else {
         this.responseView.presentToast("User not logged in");
+        try {
+          event.target.complete();
+        } catch (e) {}
         (await loading).dismiss();
       }
     } catch (e) {
@@ -86,6 +102,9 @@ export class Tab2Page implements OnInit {
       this.responseView.presentToast(
         "Some error has occured, please check your internet connection"
       );
+      try {
+        event.target.complete();
+      } catch (e) {}
     }
   }
 
@@ -226,29 +245,98 @@ export class Tab2Page implements OnInit {
     );
   }
 
-  public count(x: number) {
-    x = 30;
-    if (isNaN(x)) return null;
+  // fetch user feeds
+  async getUserFeed(event?) {
+    const loading = this.responseViews.getLoadingScreen();
+    (await loading).present();
+    try {
+      const currentUser = await this.authUtils.getCurrentUser();
+      const currentUserCategory = await this.authUtils.getUserCategory(
+        currentUser.uid
+      );
+      const feedPosts = await this.dbUtils.getUserFeed(currentUserCategory);
 
-    if (x < 9999) {
-      return x;
+      this.feedPosts = feedPosts;
+      try {
+        event.target.complete();
+      } catch (e) {}
+      (await loading).dismiss();
+    } catch (error) {
+      (await loading).dismiss();
+      try {
+        event.target.complete();
+      } catch (e) {}
+      this.responseViews.presentToast(
+        "Some error has occured! please try again"
+      );
     }
+  }
 
-    if (x < 1000000) {
-      return Math.round(x / 1000) + "K";
+  // change the number format
+  numberFormat(count) {
+    if (count <= 999) {
+      return count;
+    } else if (count >= 1000 && count <= 999000) {
+      return (count / 1000).toFixed() + "k";
+    } else {
+      return (count / 1000000).toFixed() + "M";
     }
-    if (x < 10000000) {
-      return (x / 1000000).toFixed(2) + "M";
-    }
+  }
 
-    if (x < 1000000000) {
-      return Math.round(x / 1000000) + "M";
-    }
+  // format date to text format
+  formatDate(date) {
+    const convertedDate = moment(date, "DD/MM/yyyy").format("DD MMM, yyyy");
+    return convertedDate;
+  }
 
-    if (x < 1000000000000) {
-      return Math.round(x / 1000000000) + "B";
-    }
+  // open settings modal
+  async openSettingModal() {
+    const modal = await this.modalController.create({
+      component: SettingsPage,
+    });
 
-    return "1T+";
+    await modal.present();
+  }
+
+  // like action performed
+  async updateLike(i: number) {
+    this.feedPosts[i].liked = !this.feedPosts[i].liked;
+    const uid = (await this.authUtils.getCurrentUser()).uid;
+    try {
+      this.feedPosts[i].likes = (
+        await this.dbUtils.likeAPost(this.feedPosts[i])
+      ).likes;
+    } catch (error) {
+      this.feedPosts[i].liked = !this.feedPosts[i].liked;
+      this.responseViews.presentToast("Some error has occured!");
+      console.log(error);
+    }
+  }
+
+  // dislike action performed
+  async updateDisLike(i: number) {
+    this.feedPosts[i].liked = !this.feedPosts[i].liked;
+    const uid = (await this.authUtils.getCurrentUser()).uid;
+    try {
+      this.feedPosts[i].likes = (
+        await this.dbUtils.disLikeAPost(this.feedPosts[i])
+      ).likes;
+    } catch (error) {
+      this.feedPosts[i].liked = !this.feedPosts[i].liked;
+      this.responseViews.presentToast("Some error has occured!");
+      console.log(error);
+    }
+  }
+
+  // open the comments modal
+  async openCommentsModal(id: string) {
+    const modal = await this.modalController.create({
+      component: FeedCommentsPage,
+      componentProps: {
+        postId: id,
+      },
+    });
+
+    await modal.present();
   }
 }

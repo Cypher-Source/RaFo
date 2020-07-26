@@ -14,8 +14,6 @@ import { FeedCommentsPage } from "src/app/modals/feed-comments/feed-comments.pag
   styleUrls: ["tab1.page.scss"],
 })
 export class Tab1Page implements OnInit {
-  starcount: any = 1000;
-  count: any;
 
   // feed post array
   feedPosts: Array<FeedPost>;
@@ -26,7 +24,6 @@ export class Tab1Page implements OnInit {
     private dbUtils: DbUtilsService,
     private responseViews: ResponseViewService
   ) {
-    this.numberFormat(this.starcount);
   }
 
   ngOnInit() {
@@ -34,7 +31,7 @@ export class Tab1Page implements OnInit {
   }
 
   // fetch user feeds
-  async getUserFeed() {
+  async getUserFeed(event?) {
     const loading = this.responseViews.getLoadingScreen();
     (await loading).present();
     try {
@@ -45,12 +42,18 @@ export class Tab1Page implements OnInit {
       const feedPosts = await this.dbUtils.getUserFeed(currentUserCategory);
 
       this.feedPosts = feedPosts;
-      console.log(feedPosts);
-
+      try {
+        event.target.complete();
+      } catch (e) {}
       (await loading).dismiss();
     } catch (error) {
-      (await loading).present();
-      this.responseViews.presentToast(error.message);
+      (await loading).dismiss();
+      try {
+        event.target.complete();
+      } catch (e) {}
+      this.responseViews.presentToast(
+        "Some error has occured! please try again"
+      );
     }
   }
 

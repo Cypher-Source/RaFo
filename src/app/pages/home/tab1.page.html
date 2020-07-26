@@ -1,4 +1,8 @@
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="getUserFeed($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <!-- HEADER START -->
   <ion-grid>
     <!-- row-01 -->
@@ -88,7 +92,7 @@
               </ion-row>
               <ion-row id="postCategoryDateDetails" class="paddingLeft">
                 <h4 class="noPaddingMargin">
-                  Science
+                  {{post.category[0]}}
                   <hr class="noPaddingMargin" />
                   <span>{{formatDate(post.date)}}</span>
                 </h4>
