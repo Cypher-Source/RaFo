@@ -3,7 +3,7 @@
 ==================================================*/
 .closeIconResize{
     font-size: 23px;
-    padding-right: 5% !important;
+    padding-right: 3% !important;
     padding: 0;
     margin: 0;
 }
@@ -190,16 +190,10 @@ hr{
 ===================================================*/
 /* Medium Devices (Landscape Tablets & Medium Desktops) */
 @media(min-width: 992px) and (max-width: 1199px){
-    .closeIconResize{
-        padding-right: 3% !important;
-    }
     #userNameEdit{
         margin-left: 320px;
         margin-right: 320px;
         padding-top: 52px !important;
-    }
-    #editIcon{
-        padding-right: 2px;
     }
     .topSpacing{
         padding-top: 20px;
@@ -210,12 +204,10 @@ hr{
     #postHeading{
         padding-bottom: 20px;
     }
-
     /*Post Card*/ 
     ion-card{
         width: 90%;
     }
-
     //Avatar
     #postAvatar{
         width: 80px;
@@ -254,9 +246,6 @@ hr{
 }
 /* Small Devices (Portrait Tablets & Small Desktops) */
 @media(min-width: 768px) and (max-width: 991px){
-    .closeIconResize{
-        padding-right: 3% !important;
-    }
     #userNameEdit{
         margin-left: 240px;
         margin-right: 240px;
@@ -270,12 +259,10 @@ hr{
     #postHeading{
         padding-bottom: 20px;
     }
-
     /*Post Card*/ 
     ion-card{
         width: 90%;
     }
-
     //Avatar
     #postAvatar{
         width: 70px;
@@ -313,10 +300,7 @@ hr{
     }
 }
 /* Extra Small Devices (Portrait Tablets & Landscape Phones) */
-@media(min-width: 500px) and (max-width: 767px){
-    .closeIconResize{
-        padding-right: 3% !important;
-    }
+@media(min-width: 550px) and (max-width: 767px){
     #userNameEdit{
         margin-left: 150px;
         margin-right: 150px;
@@ -335,10 +319,7 @@ hr{
 
 }
 /* Extra Small Devices (Portrait Phones & Smaller Devices) */
-@media(min-width: 400px) and (max-width:499px){
-    .closeIconResize{
-        padding-right: 3% !important;
-    }
+@media(min-width: 400px) and (max-width:549px){
     #userNameEdit{
         margin-left: 90px;
         margin-right: 90px;
@@ -353,9 +334,6 @@ hr{
 }
 /* Extra Small Devices (Portrait Phones & Smaller Devices) */
 @media(min-width: 360px) and (max-width:399px){
-    .closeIconResize{
-        padding-right: 3% !important;
-    }
     #userNameEdit{
         margin-left: 80px;
         margin-right: 80px;
@@ -376,9 +354,6 @@ hr{
 }
 /* Extra Small Devices (Portrait Phones & Smaller Devices) */
 @media(min-width: 320px) and (max-width:359px){
-    .closeIconResize{
-        padding-right: 3% !important;
-    }
     #userNameEdit{
         margin-left: 65px;
         margin-right: 65px;
