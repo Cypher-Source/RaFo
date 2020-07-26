@@ -36,3 +36,8 @@ export interface Category {
   image: string;
   name: string;
 }
+
+export interface LogoutStatus {
+  status: boolean;
+  message: string;
+}

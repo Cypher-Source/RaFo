@@ -1,78 +1,74 @@
-  <ion-content>
-  
+<ion-content>
   <!-- HEADER START -->
   <ion-grid>
     <!-- row-01 -->
     <ion-row>
       <!-- col-01 -->
-      <ion-col size="3">  
-          <!-- empty for responsiveness -->
+      <ion-col size="3">
+        <!-- empty for responsiveness -->
       </ion-col>
 
       <!-- col-02 for heading and border line -->
       <ion-col size="6">
         <div>
-            <p id="headingStyle" class="dark-color">Settings</p>
+          <p id="headingStyle" class="dark-color">Settings</p>
         </div>
       </ion-col>
 
       <!-- col-03 for Setting-icon -->
-      <ion-col size="3"> 
-        <div id="cancel-icon" class="dark-color" >
-            <!-- ripple effect -->
-            <div class="ion-activatable ripple">
-                <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
-                <!-- cancel icon -->
-                <ion-icon src="../../../assets/icon/cancel-icon.svg"> </ion-icon> 
-            </div>     
+      <ion-col size="3">
+        <div id="cancel-icon" class="dark-color">
+          <!-- ripple effect -->
+          <div class="ion-activatable ripple" (click)="closeModal()">
+            <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+            <!-- cancel icon -->
+            <ion-icon src="../../../assets/icon/cancel-icon.svg"> </ion-icon>
+          </div>
         </div>
       </ion-col>
     </ion-row>
-</ion-grid>
-<!-- HEADER END -->
+  </ion-grid>
+  <!-- HEADER END -->
 
+  <!-- Content Starts Here -->
+  <ion-grid id="grid">
+    <!-- row-01 -->
+    <ion-row class="row-margin-top">
+      <!-- change password -->
+      <ion-col>
+        <div id="button-alignCenter" class="borderLine">
+          <ion-button color="dark" style="color: white;"
+            >Change password</ion-button
+          >
+        </div>
+      </ion-col>
+    </ion-row>
 
-<!-- Content Starts Here -->
-<ion-grid id="grid">
-  <!-- row-01 -->
-  <ion-row class="row-margin-top" >
-    <!-- change password -->
-    <ion-col>
-      <div id="button-alignCenter" class="borderLine" >
-        <ion-button color = dark style="color: white;">Change password</ion-button>
-      </div>
-    </ion-col>
-  </ion-row>
+    <!-- row-02 -->
+    <ion-row class="row-margin-top">
+      <!-- Dark mode text -->
+      <ion-col>
+        <div id="darkMode-text">
+          <p>Dark Mode</p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <!-- toggle -->
+        <div id="toogle-align">
+          <ion-toggle color="dark" mode="ios"></ion-toggle>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- CONTENT STARTS HERE -->
 
-  <!-- row-02 -->
-  <ion-row class="row-margin-top">
-    <!-- Dark mode text -->
-    <ion-col>
-      <div id="darkMode-text">
-        <p>Dark Mode</p>
-      </div>
-    </ion-col>
-    <ion-col>
-      <!-- toggle -->
-      <div id="toogle-align">
-        <ion-toggle color = dark mode = ios></ion-toggle>
-      </div>
-    </ion-col>
-  </ion-row> 
-
-</ion-grid>
-<!-- CONTENT STARTS HERE -->
-
-
-<!-- LOGOUT ICON -->
-<div id="logout-icon">
-      <!-- ripple effect -->
-    <div class="ion-activatable ripple">
-      <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
+  <!-- LOGOUT ICON -->
+  <div id="logout-icon">
+    <!-- ripple effect -->
+    <div class="ion-activatable ripple" (click)="logoutUser()">
+      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
       <!-- logout icon -->
-      <ion-icon src="../../../assets/icon/logout.svg"> </ion-icon> 
-    </div>     
-</div>
-
-
+      <ion-icon src="../../../assets/icon/logout.svg"> </ion-icon>
+    </div>
+  </div>
 </ion-content>

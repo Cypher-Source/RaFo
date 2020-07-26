@@ -6,6 +6,7 @@ import {
   UserCategoryStatus,
   UserNameStatus,
   ProfilePictureStatus,
+  LogoutStatus,
 } from "src/app/schemas/users.schema";
 import { AngularFirestore } from "@angular/fire/firestore";
 
@@ -226,6 +227,26 @@ export class AuthUtilsService {
         reject({
           status: false,
           profilePic: null,
+          message: e.message,
+        });
+      }
+    });
+  }
+
+  // logout the user
+  async logoutUser(): Promise<LogoutStatus> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await this.auth.signOut();
+
+        resolve({
+          status: true,
+          message: "User logged out successfully!",
+        });
+      } catch (e) {
+        console.log(e);
+        reject({
+          status: false,
           message: e.message,
         });
       }
