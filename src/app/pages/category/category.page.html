@@ -1,175 +1,224 @@
-
-
 <ion-content>
+  <!-- HEADER START -->
+  <ion-grid id="header-grid">
+    <!-- row-01 -->
+    <ion-row>
+      <!-- col-01 -->
+      <ion-col size="2">
+        <!-- empty for responsiveness -->
+      </ion-col>
 
-    <!-- HEADER START -->
-    <ion-grid id="header-grid">
-      <!-- row-01 -->
-      <ion-row>
-        <!-- col-01 -->
-        <ion-col size="2">  
-            <!-- empty for responsiveness -->
-        </ion-col>
-  
-        <!-- col-02 for heading and border line -->
-        <ion-col size="8">
-          <div>
-              <p id="headingStyle" class="text-color">Pick your category</p>
+      <!-- col-02 for heading and border line -->
+      <ion-col size="8">
+        <div>
+          <p id="headingStyle" class="text-color">Pick your category</p>
+        </div>
+      </ion-col>
+
+      <!-- col-03 for Setting-icon -->
+      <ion-col size="2">
+        <div id="cancel-icon">
+          <!-- ripple effect -->
+          <div class="ion-activatable ripple">
+            <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+            <!-- cancel icon -->
+            <ion-icon src="../../../assets/icon/cancel-icon.svg" id="color">
+            </ion-icon>
           </div>
-        </ion-col>
-  
-        <!-- col-03 for Setting-icon -->
-        <ion-col size="2"> 
-          <div id="cancel-icon">
-              <!-- ripple effect -->
-              <div class="ion-activatable ripple">
-                  <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
-                  <!-- cancel icon -->
-                  <ion-icon src="../../../assets/icon/cancel-icon.svg" id="color"> </ion-icon> 
-              </div>     
-          </div>
-        </ion-col>
-      </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
   </ion-grid>
   <!-- HEADER END -->
 
-
   <!-- grid contains no of cards -->
   <ion-grid id="card-grid">
-
     <!-- row 1 -->
     <ion-row>
-
       <!-- col-1 for card -->
-      <ion-col size="6" class = "left" size-xl="2" size-lg="3" size-md="3" size-sm="4" size-xs="6" size="12">
-          <!-- card 01 -->
-          <ion-card class="card-design">
-              <div class="card-image-adjustment">
-                <img src= "../../../assets/B2-images/Agriculture.svg">
-              </div>
-              <div class="cardTextStyle text-color">
-                <p>Agriculture</p>
-              </div>
-          </ion-card>
+      <ion-col
+        size="6"
+        class="left"
+        size-xl="2"
+        size-lg="3"
+        size-md="3"
+        size-sm="4"
+        size-xs="6"
+        size="12"
+      >
+        <!-- card 01 -->
+        <ion-card class="card-design">
+          <div class="card-image-adjustment">
+            <img src="../../../assets/B2-images/Agriculture.svg" />
+          </div>
+          <div class="cardTextStyle text-color">
+            <p>Agriculture</p>
+          </div>
+        </ion-card>
       </ion-col>
-      
+
       <!-- col-2 for card -->
-      <ion-col size="6" class="right" size-xl="2" size-lg="3" size-md="3" size-sm="4" size-xs="6" size="12">
-          <!-- card 02 -->
-          <ion-card class="card-design">
-              <div class="card-image-adjustment">
-                <img src= "../../../assets/B2-images/Education.svg">
-              </div>
-              <div class="cardTextStyle text-color">
-                <p>Education</p>
-              </div>
-          </ion-card>
+      <ion-col
+        size="6"
+        class="right"
+        size-xl="2"
+        size-lg="3"
+        size-md="3"
+        size-sm="4"
+        size-xs="6"
+        size="12"
+      >
+        <!-- card 02 -->
+        <ion-card class="card-design">
+          <div class="card-image-adjustment">
+            <img src="../../../assets/B2-images/Education.svg" />
+          </div>
+          <div class="cardTextStyle text-color">
+            <p>Education</p>
+          </div>
+        </ion-card>
       </ion-col>
 
       <!-- col-3 for card -->
-      <ion-col size="6" class="right" size-xl="2" size-lg="3" size-md="3" size-sm="4" size-xs="6" size="12">
-        <!-- card 03 -->  
+      <ion-col
+        size="6"
+        class="right"
+        size-xl="2"
+        size-lg="3"
+        size-md="3"
+        size-sm="4"
+        size-xs="6"
+        size="12"
+      >
+        <!-- card 03 -->
         <ion-card class="card-design">
-              <div class="card-image-adjustment">
-                <img src= "../../../assets/B2-images/Science.svg">
-              </div>
-              <div class="cardTextStyle text-color">
-                <p>Science</p>
-              </div>
-          </ion-card>
+          <div class="card-image-adjustment">
+            <img src="../../../assets/B2-images/Science.svg" />
+          </div>
+          <div class="cardTextStyle text-color">
+            <p>Science</p>
+          </div>
+        </ion-card>
       </ion-col>
 
       <!-- col-4 for card -->
-      <ion-col size="6" class="right" size-xl="2" size-lg="3" size-md="3" size-sm="4" size-xs="6" size="12">
-          <!-- card 04 -->
-          <ion-card class="card-design">
-              <div class="card-image-adjustment">
-                <img src= "../../../assets/B2-images/Sports.svg">
-              </div>
-              <div class="cardTextStyle text-color">
-                <p>Sports</p>
-              </div>
-          </ion-card>
+      <ion-col
+        size="6"
+        class="right"
+        size-xl="2"
+        size-lg="3"
+        size-md="3"
+        size-sm="4"
+        size-xs="6"
+        size="12"
+      >
+        <!-- card 04 -->
+        <ion-card class="card-design">
+          <div class="card-image-adjustment">
+            <img src="../../../assets/B2-images/Sports.svg" />
+          </div>
+          <div class="cardTextStyle text-color">
+            <p>Sports</p>
+          </div>
+        </ion-card>
       </ion-col>
 
       <!-- col-5 for card -->
-      <ion-col size="6" class="right" size-xl="2" size-lg="3" size-md="3" size-sm="4" size-xs="6" size="12">
-          <!-- card 05 -->
-          <ion-card class="card-design">
-              <div class="card-image-adjustment">
-                <img src= "../../../assets/B2-images/Technology.svg">
-              </div>
-              <div class="cardTextStyle text-color">
-                <p>Technology</p>
-              </div>
-          </ion-card>
+      <ion-col
+        size="6"
+        class="right"
+        size-xl="2"
+        size-lg="3"
+        size-md="3"
+        size-sm="4"
+        size-xs="6"
+        size="12"
+      >
+        <!-- card 05 -->
+        <ion-card class="card-design">
+          <div class="card-image-adjustment">
+            <img src="../../../assets/B2-images/Technology.svg" />
+          </div>
+          <div class="cardTextStyle text-color">
+            <p>Technology</p>
+          </div>
+        </ion-card>
       </ion-col>
 
       <!-- col-6 for card -->
-      <ion-col size="6" class="right" size-xl="2" size-lg="3" size-md="3" size-sm="4" size-xs="6" size="12">
-          <!-- card 06 -->
-          <ion-card class="card-design">
-              <div class="card-image-adjustment">
-                <img src= "../../../assets/B2-images/Finance.svg">
-              </div>
-              <div class="cardTextStyle text-color">
-                <p>Finance</p>
-              </div>
-          </ion-card>
+      <ion-col
+        size="6"
+        class="right"
+        size-xl="2"
+        size-lg="3"
+        size-md="3"
+        size-sm="4"
+        size-xs="6"
+        size="12"
+      >
+        <!-- card 06 -->
+        <ion-card class="card-design">
+          <div class="card-image-adjustment">
+            <img src="../../../assets/B2-images/Finance.svg" />
+          </div>
+          <div class="cardTextStyle text-color">
+            <p>Finance</p>
+          </div>
+        </ion-card>
       </ion-col>
 
       <!-- col-7 for card -->
-      <ion-col size="6" class="right" size-xl="2" size-lg="3" size-md="3" size-sm="4" size-xs="6" size="12">
-          <!-- card 07 -->
-          <ion-card class="card-design">
-              <div class="card-image-adjustment">
-                <img src= "../../../assets/B2-images/Politics.svg">
-              </div>
-              <div class="cardTextStyle text-color">
-                <p>Politics</p>
-              </div>
-          </ion-card>
+      <ion-col
+        size="6"
+        class="right"
+        size-xl="2"
+        size-lg="3"
+        size-md="3"
+        size-sm="4"
+        size-xs="6"
+        size="12"
+      >
+        <!-- card 07 -->
+        <ion-card class="card-design">
+          <div class="card-image-adjustment">
+            <img src="../../../assets/B2-images/Politics.svg" />
+          </div>
+          <div class="cardTextStyle text-color">
+            <p>Politics</p>
+          </div>
+        </ion-card>
       </ion-col>
 
       <!-- col-8 for card -->
-      <ion-col size="6" class="right" size-xl="2" size-lg="3" size-md="3" size-sm="4" size-xs="6" size="12">
+      <ion-col
+        size="6"
+        class="right"
+        size-xl="2"
+        size-lg="3"
+        size-md="3"
+        size-sm="4"
+        size-xs="6"
+        size="12"
+      >
         <!-- card 08 -->
         <ion-card class="card-design">
-              <div class="card-image-adjustment">
-                <img src= "../../../assets/B2-images/Entertainment.svg">
-              </div>
-              <div class="cardTextStyle text-color">
-                <p>Entertainment</p>
-              </div>
-          </ion-card>
+          <div class="card-image-adjustment">
+            <img src="../../../assets/B2-images/Entertainment.svg" />
+          </div>
+          <div class="cardTextStyle text-color">
+            <p>Entertainment</p>
+          </div>
+        </ion-card>
       </ion-col>
-
     </ion-row>
-  
-  
+
     <!--  Row 2 -->
     <ion-row id="button-to-bring-bottom">
       <!-- col-1 for button -->
-        <ion-col class="button-alignCenter" >
-            <!-- Next Button -->
-            <ion-button color = dark (click)= "openModal()">Next</ion-button>
-        </ion-col>
+      <ion-col class="button-alignCenter">
+        <!-- Next Button -->
+        <ion-button color="dark" (click)="openModal()">Next</ion-button>
+      </ion-col>
     </ion-row>
-
-
   </ion-grid>
-
-
 </ion-content>
-
-
-
-
-
-
-
-
-
-
-
-
