@@ -15,45 +15,144 @@
         </div>
       </ion-col>
 
-      <!-- col-03 for Setting-icon -->
-      <ion-col size="3">
-        <div id="setting-icon">
-          <ion-icon
-            src="../../../assets/icon/settings-icon.svg"
-            id="setting-icon"
-          ></ion-icon>
-        </div>
-      </ion-col>
-    </ion-row>
+        <!-- col-03 for Setting-icon -->
+        <ion-col size="3"> 
+          <div id="setting-icon">
+            <!-- ripple effect -->
+            <div class="ion-activatable ripple">
+                <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
+                <!-- setting icon -->
+                <ion-icon src="../../../assets/icon/settings-icon.svg" id="setting-padd" (click)= "openSettingPage()"></ion-icon>
+            </div>   
+          </div>
+        </ion-col>
+      </ion-row>
   </ion-grid>
   <!-- HEADER END -->
 
   <!-- CONTENT-01 STARTS -->
-  <ion-grid id="grid-not-found">
-    <!-- row-01 image -->
+  <!-- <div id="center">
+  <ion-grid>
+    row-01 image
     <ion-row>
       <ion-col>
-        <div id="not-found-image" class="align-center">
-          <img src="../../../assets/B2-images/not_found.svg" />
+        <div id="not-found-image" class="align-items-center">
+            <img src="../../../assets/B2-images/not_found.svg">
         </div>
       </ion-col>
     </ion-row>
 
-    <!-- row-02 image -->
+    row-02 image
     <ion-row>
       <ion-col size="12">
-        <div id="not-found-text" class="align-center">
-          <p>
-            Sorry, No feeds available for your <br />
-            prefered category!
-          </p>
-        </div>
+          <div id="not-found-text" class="align-items-center">
+            <p>Sorry, No feeds available for your <br> prefered category!</p>
+          </div>
       </ion-col>
     </ion-row>
   </ion-grid>
+</div> -->
   <!-- CONTENT-01 ENDS -->
 
-  <!-- CONTENT-02 STARTS -->
 
+ 
+ 
+
+
+
+  <!-- CONTENT-02 STARTS -->
+  <ion-grid>
+  <ion-row class=" noPaddingMargin largeDeviceAlignment" >
+    <ion-card>
+      <!-- Post Header -->
+      <ion-card-header>
+        <ion-row class="noPaddingMargin">
+          <!-- Post Avatar -->
+          <ion-col size="2" class="noPaddingMargin">
+            <ion-avatar class="noPaddingMargin" id="postAvatar"></ion-avatar>
+          </ion-col>
+          <!-- Post (UserName, Category, Date) -->
+          <ion-col size="10" class="noPaddingMargin">
+            <ion-row id="postUserNameAlignment" class="paddingLeft">
+              <h4 class="noPaddingMargin">Poorvasha</h4>
+            </ion-row>
+            <ion-row id="postCategoryDateDetails" class="paddingLeft">
+              <h4 class="noPaddingMargin">Science
+                <hr class="noPaddingMargin">
+                <span>20th Jul,2020</span></h4>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+      <!-- Post Header Ends -->
+
+      <!-- Post Content -->
+      <ion-card-content id="postContent">
+        There is nothing good or bad it’s all about the characterization
+        the more you express the more you are
+      </ion-card-content>
+      <img src="../../../assets/B2-images/flower.png" class="img-responisve">
+      <!-- Post Content Ends -->
+
+      <!-- Post Footer -->
+        <ion-row class="noPaddingMargin bottomPadding">
+          <!-- StarIcon with count -->
+            <ion-icon class="iconResize" id="star" src="../../../assets/icon/unstar-icon.svg"></ion-icon>
+            <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
+          <!-- CommentIcon with count -->
+            <ion-icon class="iconResize" id="comment" src="../../../assets/icon/comment-icon.svg"></ion-icon>
+            <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
+        </ion-row>
+      <!-- Post Footer Ends -->
+    </ion-card>
+  </ion-row>
+
+
+  <ion-row class=" noPaddingMargin largeDeviceAlignment">
+    <ion-card>
+      <!-- Post Header -->
+      <ion-card-header>
+        <ion-row class="noPaddingMargin">
+          <!-- Post Avatar -->
+          <ion-col size="2" class="noPaddingMargin">
+            <ion-avatar class="noPaddingMargin" id="postAvatar"></ion-avatar>
+          </ion-col>
+          <!-- Post (UserName, Category, Date) -->
+          <ion-col size="10" class="noPaddingMargin">
+            <ion-row id="postUserNameAlignment" class="paddingLeft">
+              <h4 class="noPaddingMargin">Poorvasha</h4>
+            </ion-row>
+            <ion-row id="postCategoryDateDetails" class="paddingLeft">
+              <h4 class="noPaddingMargin">Science
+                <hr class="noPaddingMargin">
+                <span>20th Jul,2020</span></h4>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+      <!-- Post Header Ends -->
+
+      <!-- Post Content -->
+      <ion-card-content id="postContent">
+        There is nothing good or bad it’s all about the characterization
+        the more you express the more you are
+      </ion-card-content>
+      <img src="../../../assets/B2-images/flower.png" class="img-responisve">
+      <!-- Post Content Ends -->
+
+      <!-- Post Footer -->
+        <ion-row class="noPaddingMargin bottomPadding">
+          <!-- StarIcon with count -->
+            <ion-icon class="iconResize" id="star" src="../../../assets/icon/unstar-icon.svg"></ion-icon>
+            <ion-badge class="countStyle noPaddingMargin">{{ count }}</ion-badge>
+          <!-- CommentIcon with count -->
+            <ion-icon class="iconResize" id="comment" src="../../../assets/icon/comment-icon.svg"></ion-icon>
+            <ion-badge class="countStyle noPaddingMargin">20</ion-badge>
+        </ion-row>
+      <!-- Post Footer Ends -->
+    </ion-card>
+  </ion-row>
   <!-- CONTENT-02 ENDS -->
+</ion-grid>
+
 </ion-content>

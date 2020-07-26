@@ -1,0 +1,73 @@
+
+/*=========================================================
+                        Common
+==========================================================*/
+.dark-color{
+    color: var(--ion-color-dark);
+}
+ion-grid{
+    margin : 2px 30px;
+}
+// ripple effect for icon
+.ripple{
+    position: relative;
+    overflow: hidden;
+    color: var(--ion-color-secondary);
+}
+
+/*=========================================================
+                        Header
+==========================================================*/
+// Heading font style
+#headingStyle{
+    font: bold 24px 'Raleway', sans-serif;
+    text-align: center;
+}
+// setting icon
+#cancel-icon{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+ion-icon{
+    padding: 10px 10px 5px 10px;    
+}
+/*=========================================================
+                        Header
+==========================================================*/
+#grid{
+    height: 75vh;
+}
+#button-alignCenter{
+    display: flex;
+    justify-content: center;
+}
+ion-button{
+    font: 600 14px 'Raleway', sans-serif;
+    text-transform: none !important;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0 0 3px 0px var(--ion-color-dark);
+    border-radius: 5px;
+}
+.borderLine{
+    border-bottom: 1px solid var(--ion-color-secondary);
+    height: 100px;
+}
+.row-margin-top{
+    margin-top: 10px;
+}
+#darkMode-text{
+    font: 500 18px 'Raleway', sans-serif;
+    color: var(--ion-color-dark);
+}
+#toogle-align{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+#logout-icon{
+    zoom: 1.7;
+    text-align: center;
+}
+
