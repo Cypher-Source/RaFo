@@ -31,9 +31,11 @@ export class SettingsPage implements OnInit {
       await this.authUtils.logoutUser();
       this.responseViews.presentToast("User logged out!");
       (await loading).dismiss();
+      this.modalController.dismiss();
     } catch (error) {
       this.responseViews.presentToast(error.message);
       (await loading).dismiss();
+      this.modalController.dismiss();
     }
   }
 }
