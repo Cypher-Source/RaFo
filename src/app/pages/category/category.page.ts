@@ -35,11 +35,13 @@ export class CategoryPage implements OnInit {
     private route: ActivatedRoute,
     private modalController: ModalController
   ) {
-    this.route.queryParams.subscribe((params) => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.userDetails = this.router.getCurrentNavigation().extras.state.userDetails;
-      }
-    });
+    try {
+      this.route.queryParams.subscribe((params) => {
+        if (this.router.getCurrentNavigation().extras.state) {
+          this.userDetails = this.router.getCurrentNavigation().extras.state.userDetails;
+        }
+      });
+    } catch (e) {}
   }
 
   ngOnInit() {
