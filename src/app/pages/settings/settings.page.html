@@ -48,20 +48,25 @@
     </ion-row>
 
     <!-- row-02 -->
-    <ion-row class="row-margin-top">
-      <!-- Dark mode text -->
+    <!-- <ion-row class="row-margin-top">
+      Dark mode text
       <ion-col>
         <div id="darkMode-text">
           <p>Dark Mode</p>
         </div>
       </ion-col>
       <ion-col>
-        <!-- toggle -->
+        toggle
         <div id="toogle-align">
-          <ion-toggle color="dark" mode="ios"></ion-toggle>
+          <ion-toggle
+            (ionChange)="darkModeToggled($event)"
+            [(ngModel)]="darkModeStatus"
+            color="dark"
+            mode="ios"
+          ></ion-toggle>
         </div>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
   </ion-grid>
   <!-- CONTENT STARTS HERE -->
 

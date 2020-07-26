@@ -15,6 +15,7 @@ import { FeedCommentsPage } from "src/app/modals/feed-comments/feed-comments.pag
 import { FeedPost } from "src/app/schemas/post.schema";
 import { DbUtilsService } from "src/app/services/DbUtils/db-utils.service";
 import * as moment from "moment";
+import { SettingsPage } from '../settings/settings.page';
 
 @Component({
   selector: "app-tab2",
@@ -247,7 +248,7 @@ export class Tab2Page implements OnInit {
 
   // fetch user feeds
   async getUserFeed(event?) {
-    const loading = this.responseViews.getLoadingScreen();
+    const loading = this.responseView.getLoadingScreen();
     (await loading).present();
     try {
       const currentUser = await this.authUtils.getCurrentUser();
@@ -266,7 +267,7 @@ export class Tab2Page implements OnInit {
       try {
         event.target.complete();
       } catch (e) {}
-      this.responseViews.presentToast(
+      this.responseView.presentToast(
         "Some error has occured! please try again"
       );
     }
@@ -308,7 +309,7 @@ export class Tab2Page implements OnInit {
       ).likes;
     } catch (error) {
       this.feedPosts[i].liked = !this.feedPosts[i].liked;
-      this.responseViews.presentToast("Some error has occured!");
+      this.responseView.presentToast("Some error has occured!");
       console.log(error);
     }
   }
@@ -323,7 +324,7 @@ export class Tab2Page implements OnInit {
       ).likes;
     } catch (error) {
       this.feedPosts[i].liked = !this.feedPosts[i].liked;
-      this.responseViews.presentToast("Some error has occured!");
+      this.responseView.presentToast("Some error has occured!");
       console.log(error);
     }
   }

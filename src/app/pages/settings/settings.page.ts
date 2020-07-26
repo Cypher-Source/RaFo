@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { ModalController, PopoverController } from "@ionic/angular";
+import { ModalController, PopoverController, Platform } from "@ionic/angular";
 import { AuthUtilsService } from "src/app/services/AuthUtils/auth-utils.service";
 import { ResponseViewService } from "src/app/services/ResponseViews/response-view.service";
 import { PasswordChangePage } from "../password-change/password-change.page";
+import { ThemeService } from "src/app/services/Theme/theme.service";
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: "app-settings",
@@ -10,14 +12,24 @@ import { PasswordChangePage } from "../password-change/password-change.page";
   styleUrls: ["./settings.page.scss"],
 })
 export class SettingsPage implements OnInit {
+  darkModeStatus: boolean;
+
   constructor(
     private modalController: ModalController,
     private authUtils: AuthUtilsService,
     private responseViews: ResponseViewService,
-    private popoverController: PopoverController
+    private popoverController: PopoverController,
+    private plt: Platform,
+    private storage: Storage
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.plt.ready().then(() => {
+    //   this.storage.get(this.theme.THEME_KEY).then((theme) => {
+    //     this.darkModeStatus = theme;
+    //   });
+    // });
+  }
 
   // dismiss the modal
   closeModal() {
@@ -49,5 +61,9 @@ export class SettingsPage implements OnInit {
       translucent: true,
     });
     return await popover.present();
+  }
+
+  darkModeToggled(ev) {
+    this.theme.setAppTheme(this.darkModeStatus);
   }
 }

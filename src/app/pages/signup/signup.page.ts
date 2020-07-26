@@ -104,7 +104,7 @@ export class SignupPage implements OnInit {
   }
 
   signup() {
-    this.router.navigateByUrl("/signup");
+    this.router.navigateByUrl("/login");
   }
 
   passwordMatch(formGroup: FormGroup) {
