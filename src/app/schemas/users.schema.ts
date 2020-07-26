@@ -41,3 +41,14 @@ export interface LogoutStatus {
   status: boolean;
   message: string;
 }
+
+export interface ChangePassword {
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword?: string;
+}
+
+export interface ChangePasswordStatus {
+  status: boolean;
+  message?: string;
+}

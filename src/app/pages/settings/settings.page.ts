@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { ModalController } from "@ionic/angular";
+import { ModalController, PopoverController } from "@ionic/angular";
 import { AuthUtilsService } from "src/app/services/AuthUtils/auth-utils.service";
 import { ResponseViewService } from "src/app/services/ResponseViews/response-view.service";
+import { PasswordChangePage } from "../password-change/password-change.page";
 
 @Component({
   selector: "app-settings",
@@ -12,7 +13,8 @@ export class SettingsPage implements OnInit {
   constructor(
     private modalController: ModalController,
     private authUtils: AuthUtilsService,
-    private responseViews: ResponseViewService
+    private responseViews: ResponseViewService,
+    private popoverController: PopoverController
   ) {}
 
   ngOnInit() {}
@@ -37,5 +39,15 @@ export class SettingsPage implements OnInit {
       (await loading).dismiss();
       this.modalController.dismiss();
     }
+  }
+
+  // open password change popover
+  async presentPasswordChange(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PasswordChangePage,
+      event: ev,
+      translucent: true,
+    });
+    return await popover.present();
   }
 }

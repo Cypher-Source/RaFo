@@ -7,8 +7,11 @@ import {
   UserNameStatus,
   ProfilePictureStatus,
   LogoutStatus,
+  ChangePassword,
+  ChangePasswordStatus,
 } from "src/app/schemas/users.schema";
 import { AngularFirestore } from "@angular/fire/firestore";
+import * as firebase from "firebase";
 
 @Injectable({
   providedIn: "root",
@@ -242,6 +245,35 @@ export class AuthUtilsService {
         resolve({
           status: true,
           message: "User logged out successfully!",
+        });
+      } catch (e) {
+        console.log(e);
+        reject({
+          status: false,
+          message: e.message,
+        });
+      }
+    });
+  }
+
+  async changePassword(
+    passwords: ChangePassword
+  ): Promise<ChangePasswordStatus> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const credentials = firebase.auth.EmailAuthProvider.credential(
+          firebase.auth().currentUser.email,
+          passwords.oldPassword
+        );
+
+        const currentUser = firebase.auth().currentUser;
+        await currentUser.reauthenticateWithCredential(credentials);
+
+        await currentUser.updatePassword(passwords.newPassword);
+
+        resolve({
+          status: true,
+          message: "Password changed successfully!",
         });
       } catch (e) {
         console.log(e);
