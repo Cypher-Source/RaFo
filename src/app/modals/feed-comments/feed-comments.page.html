@@ -1,135 +1,108 @@
-
 <ion-app>
-<ion-content>
- 
-
-  <!-- HEADER START -->
-  <ion-grid>
-    <!-- row-01 -->
-    <ion-row>
-      <!-- col-01 for heading -->
-      <ion-col size="8">
+  <ion-content>
+    <!-- HEADER START -->
+    <ion-grid>
+      <!-- row-01 -->
+      <ion-row>
+        <!-- col-01 for heading -->
+        <ion-col size="8">
           <div id="headingStyle">
             <p class="heading-text-color">Comments</p>
           </div>
-      </ion-col>
-      <!-- col-02 for cancel-icon -->
-      <ion-col size="4">  
-          <div class = "cancel-icon">
+        </ion-col>
+        <!-- col-02 for cancel-icon -->
+        <ion-col size="4">
+          <div class="cancel-icon">
             <!-- ripple effect -->
-            <div class="ion-activatable ripple">
-                <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
-                <!-- cancel icon -->
-                <ion-icon src="../../../assets/icon/cancel-icon.svg" id="cancel-padd"> </ion-icon> 
-            </div>     
+            <div class="ion-activatable ripple" (click)="closeModal()">
+              <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+              <!-- cancel icon -->
+              <ion-icon
+                src="../../../assets/icon/cancel-icon.svg"
+                id="cancel-padd"
+              >
+              </ion-icon>
+            </div>
           </div>
-      </ion-col>
-    </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- HEADER END -->
 
-  </ion-grid>
-  <!-- HEADER END -->
-
-
-  <!-- COMMENTS START -->
-  <ion-grid id="grid-comments">
-    
+    <!-- COMMENTS START -->
+    <ion-grid id="grid-comments">
       <!-- row-01 - comment 01-->
-      <ion-row class="comment">
-          <!-- col-01 for avatar -->
-          <ion-col size="1.7vw">
-            <div id="avatar-align-center">
-              <ion-avatar>
-                <img src="../../../assets/icon/userProfile-icon.svg">
-              </ion-avatar>
-            </div>
-          </ion-col>
+      <ion-row class="comment" *ngFor="let comment of commentsData">
+        <!-- col-01 for avatar -->
+        <ion-col size="1.7vw">
+          <div id="avatar-align-center">
+            <ion-avatar>
+              <img
+                *ngIf="comment.userDetails.profilePic"
+                src="{{comment.userDetails.profilePic}}"
+              />
+            </ion-avatar>
+          </div>
+        </ion-col>
 
-          <!-- col-02 for userName and usercomments -->
-          <ion-col size="10.3">
-            <!-- userName -->
-            <div class="userName heading-text-color">
-              <p>Ramya Venkatesh</p>
-            </div><br> 
-             <!-- UserComment  -->
-            <div class="userComment"> 
-              <p>hdhjsdsjndsjbhjsdjksnjsfhsdbcjsncjhcjbjcnjbcdhcbddh</p>
-            </div>
-          </ion-col>
-
+        <!-- col-02 for userName and usercomments -->
+        <ion-col size="10.3">
+          <!-- userName -->
+          <div class="userName heading-text-color">
+            <p>{{comment.userDetails.name}}</p>
+          </div>
+          <br />
+          <!-- UserComment  -->
+          <div class="userComment">
+            <p>{{comment.text}}</p>
+          </div>
+        </ion-col>
       </ion-row>
-      
-  
-      
-      <!-- row-02 - comment 02 -->
-      <ion-row class="comment">
-          <!-- col-01 for avatar -->
-          <ion-col size="1.7vw">
-            <div id="avatar-align-center">
-              <ion-avatar>
-                <img src="../../../assets/icon/userProfile-icon.svg">
-              </ion-avatar>
-            </div>
-          </ion-col>
-      
-          <!-- col-02 for userName and usercomments -->
-          <ion-col size="10.3">
-            <!-- userName -->
-            <div class="userName heading-text-color">
-              <p>Poorvasha Murugavel</p>
-            </div><br> 
-            <!-- UserComment  -->
-            <div class="userComment"> 
-              <p>hdhjsdsjndsjbhjsdjksnjsfhsdbcjsncjhcjbjcnjbcdhcbddh</p>
-            </div>
-          </ion-col>
+    </ion-grid>
+    <!-- COMMENTS END  -->
 
-      </ion-row>
-
-  </ion-grid>
-   <!-- COMMENTS END  -->
-
-
-
-  <!-- FOOTER  -->
-  <ion-footer>
-    <ion-toolbar>
-      <ion-grid id="grid-footer">
-        <!-- row-01 for header -->
-        <ion-row>
-
+    <!-- FOOTER  -->
+    <ion-footer>
+      <ion-toolbar>
+        <ion-grid id="grid-footer">
+          <!-- row-01 for header -->
+          <ion-row>
             <!-- col-01 for avatar -->
             <ion-col size="1.2">
-                <!-- avatar -->
-                  <ion-avatar id="avatar">
-                    <img src="../../../assets/icon/userProfile-icon.svg">
-                  </ion-avatar>
-                <!-- </div> -->
+              <!-- avatar -->
+              <ion-avatar id="avatar">
+                <img src="../../../assets/icon/userProfile-icon.svg" />
+              </ion-avatar>
+              <!-- </div> -->
             </ion-col>
 
             <!-- col-02 for input -->
             <ion-col size="8.8">
-                <ion-input placeholder="leave your thoughts"></ion-input>
+              <ion-input
+                placeholder="leave your thoughts"
+                [(ngModel)]="newComment"
+              ></ion-input>
             </ion-col>
 
             <!-- col-02 for cancel-icon -->
-            <ion-col size="2">  
+            <ion-col size="2">
               <div id="send-icon">
-                  <!-- ripple effect -->
-                  <div class="ion-activatable ripple">
-                      <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
-                      <!-- send icon -->
-                      <ion-icon src="../../../assets/icon/send-icon.svg" id="send-padd"> </ion-icon> 
-                  </div>     
+                <!-- ripple effect -->
+                <div class="ion-activatable ripple" (click)="commentAPost()">
+                  <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+                  <!-- send icon -->
+                  <ion-icon
+                    src="../../../assets/icon/send-icon.svg"
+                    id="send-padd"
+                  >
+                  </ion-icon>
+                </div>
               </div>
             </ion-col>
-    
-        </ion-row>
-
-      </ion-grid>
-    </ion-toolbar>
-  </ion-footer>
-  <!-- FOOTER END -->
-
-
-</ion-content>
+          </ion-row>
+        </ion-grid>
+      </ion-toolbar>
+    </ion-footer>
+    <!-- FOOTER END -->
+  </ion-content>
 </ion-app>

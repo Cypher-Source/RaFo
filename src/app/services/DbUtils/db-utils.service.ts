@@ -74,12 +74,25 @@ export class DbUtilsService {
           .get();
 
         // structure the data in the form of FeedPost Schema
-        data.forEach((resp) => {
+        data.forEach(async (resp) => {
           let responseData = resp.data();
           responseData["id"] = resp.id;
           responseData["liked"] = responseData["likes"].includes(
-            "navayuvan_sb"
+            (await this.auth.getCurrentUser()).uid
           );
+          const userDetails = await this.auth.getUserDetails(
+            responseData["postedBy"]
+          );
+
+          responseData["userDetails"] = {
+            name: userDetails["name"],
+            profilePic: userDetails["profilePic"],
+          };
+
+          responseData["comments"] = await this.getCommentData(
+            responseData["id"]
+          );
+
           feedPostArray.push(<FeedPost>responseData);
         });
 
@@ -93,30 +106,33 @@ export class DbUtilsService {
   }
 
   // like a post
-  async likeAPost(post: FeedPost, uid: string): Promise<LikeResponse> {
+  async likeAPost(post: FeedPost): Promise<LikeResponse> {
     return new Promise(async (resolve, reject) => {
       try {
+        const uid = (await this.auth.getCurrentUser()).uid;
+
         if (!post.likes.includes(uid)) {
           post.likes.push(uid);
 
           await this.db
             .collection("posts")
             .doc(post.id)
-            .update({ comments: post.likes });
+            .update({ likes: post.likes });
 
           resolve({
             status: true,
             message: "Post liked successfully",
+            likes: post.likes,
           });
         } else {
-          resolve({
+          reject({
             status: false,
             message: "Post already liked by the user",
           });
         }
       } catch (e) {
         console.log(e);
-        resolve({
+        reject({
           status: false,
           message: "Some error has occured, please try again!",
         });
@@ -125,9 +141,10 @@ export class DbUtilsService {
   }
 
   // dislike a post
-  async disLikeAPost(post: FeedPost, uid: string): Promise<LikeResponse> {
+  async disLikeAPost(post: FeedPost): Promise<LikeResponse> {
     return new Promise(async (resolve, reject) => {
       try {
+        const uid = (await this.auth.getCurrentUser()).uid;
         if (post.likes.includes(uid)) {
           let likes = post.likes;
 
@@ -138,21 +155,22 @@ export class DbUtilsService {
           await this.db
             .collection("posts")
             .doc(post.id)
-            .update({ comments: likes });
+            .update({ likes: likes });
 
           resolve({
             status: true,
             message: "Post disliked successfully",
+            likes: likes,
           });
         } else {
-          resolve({
+          reject({
             status: false,
             message: "Post is not liked by the user",
           });
         }
       } catch (e) {
         console.log(e);
-        resolve({
+        reject({
           status: false,
           message: "Some error has occured, please try again!",
         });
@@ -167,13 +185,14 @@ export class DbUtilsService {
   ): Promise<CommentResponse> {
     return new Promise(async (resolve, reject) => {
       try {
+        const uid = (await this.auth.getCurrentUser()).uid;
         await this.db
           .collection("posts")
           .doc(postId)
           .collection("comments")
           .doc(this.getTime())
           .set({
-            commentedBy: (await this.auth.getCurrentUser()).uid,
+            commentedBy: uid,
             date: this.getDate(),
             text: comment,
           });

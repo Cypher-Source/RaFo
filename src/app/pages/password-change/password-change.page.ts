@@ -53,4 +53,5 @@ export class PasswordChangePage implements OnInit {
       (await loading).dismiss();
     }
   }
+  
 }

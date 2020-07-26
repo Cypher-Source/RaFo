@@ -8,6 +8,10 @@ export interface FeedPost {
   text: String;
   likes: Array<String>;
   liked: boolean;
+  userDetails: {
+    name: string;
+    profilePic: string;
+  };
 }
 
 export interface Post {
@@ -39,6 +43,7 @@ export interface FeedPostComments {
 export interface LikeResponse {
   status: boolean;
   message: string;
+  likes: Array<String>;
 }
 
 export interface CommentResponse {
