@@ -4,8 +4,8 @@
 .dark-color {
   color: var(--ion-color-dark);
 }
-ion-grid {
-  margin: 2px 30px;
+ion-grid{
+    margin : 2px 20px;
 }
 // ripple effect for icon
 .ripple {
@@ -23,11 +23,12 @@ ion-grid {
   text-align: center;
 }
 // setting icon
-#cancel-icon {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-  margin-right: -18px;
+#cancel-icon{
+    display: flex;
+    justify-content: flex-end;
+    zoom: 1.2;
+    margin-top: 13px;
+    margin-left: 30px !important;
 }
 ion-icon {
   padding: 10px 10px 5px 10px;

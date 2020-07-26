@@ -172,4 +172,9 @@ export class CategoryPage implements OnInit {
 
     return categories;
   }
+
+  // close the modal view
+  closeModal() {
+    this.modalController.dismiss();
+  }
 }

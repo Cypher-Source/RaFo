@@ -16,21 +16,37 @@ ion-grid{
     padding: 0 19px !important;
     margin-top: 50px;
 }
+// ripple effect for icon
+.ripple{
+    position: relative;
+    overflow: hidden;
+    color: var(--ion-color-secondary);
+}
 
 /*=========================================================
                         Heading
 ==========================================================*/
 
-// Heading font style
-.headingStyle{
+#headingStyle{
     font: bold 20px 'Raleway', sans-serif;
-    margin-top: 50px;
+}
+// setting icon
+#cancel-icon{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -25px;
+}
+ion-icon{
+    padding: 10px 10px 5px 10px; 
+    --color: var(--ion-color-primary) !important;   
 }
 
 /*=========================================================
                         Cards
 ==========================================================*/
-
+#card-grid{
+    margin-top: 15px ;
+}
 // gap between each row
 ion-col {
   margin-bottom: 25px !important;
