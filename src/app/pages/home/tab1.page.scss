@@ -1,8 +1,8 @@
 /*=========================================================
                         Common
 ==========================================================*/
-ion-grid{
-    margin : 5px 0px;
+#header-grid{
+    margin : 5px 0px 10px 0px;
 }
 .large-text-color{
     color: var(--ion-color-dark);
@@ -105,9 +105,7 @@ hr{
     border: 1px solid var(--ion-color-secondary);
     margin-left: 6px !important;
 }
-.paddingLeft{
-    padding-left: 22px;
-}
+
 //Post content
 #postContent{
     font-family: 'Quicksand';
@@ -144,65 +142,19 @@ hr{
 .bottomPadding{
     padding-bottom: 10px !important;
 }
-.noPaddingMargin{
-    padding: 0;
-    margin: 0;
+// .noPaddingMargin{
+//     padding: 0;
+//     margin: 0;
+// }
+.largeDeviceAlignment{
+    margin-bottom: -5px;
 }
 
 
 
 /*==================================================
                    Responsiveness
-==================================================*/
-/* large Devices (Desktops & Laptops) */
-@media(min-width: 1200px) and (max-width: 1299px){
-
-    /*Post Card*/ 
-    ion-card{
-        width: 90%;
-    }
-
-    //Avatar
-    #postAvatar{
-        width: 80px;
-        height: 80px;
-
-    }
-    .paddingLeft{
-        padding-left: 0 !important;
-    }
-    //userDetails, category and date
-    #postUserNameAlignment h4{
-        font-size: 16px;
-        line-height: 36px;
-    }
-    #postCategoryDateDetails{
-        padding-bottom: 18px !important;
-    }
-    #postCategoryDateDetails h4{
-        font-size: 15px;
-    }
-    //Post content
-    #postContent{
-        font-size: 16px;
-    }
-    .largeDeviceAlignment{
-        display: flex;
-        justify-content: center;
-    }
-    // post footer - star and comment
-    .countStyle{
-        font-size: 14px;
-        padding-top: 12px !important;
-    }
-    .iconResize{
-        zoom: 1.8;
-    }
-    #star{
-        padding-left: 88% !important; 
-    }
-}
-
+===================================================*/
 /* Medium Devices (Landscape Tablets & Medium Desktops) */
 @media(min-width: 992px) and (max-width: 1199px){
 
@@ -210,15 +162,10 @@ hr{
     ion-card{
         width: 90%;
     }
-
     //Avatar
     #postAvatar{
         width: 80px;
         height: 80px;
-
-    }
-    .paddingLeft{
-        padding-left: 0 !important;
     }
     //userDetails, category and date
     #postUserNameAlignment h4{
@@ -258,14 +205,10 @@ hr{
     ion-card{
         width: 90%;
     }
-
     //Avatar
     #postAvatar{
         width: 70px;
         height: 70px;
-}
-    .paddingLeft{
-        padding-left: 0 !important;
     }
     //userDetails, category and date
     #postUserNameAlignment h4{
@@ -295,30 +238,47 @@ hr{
         zoom: 1.8;
     }
     #star{
-        padding-left: 84% !important; 
+        padding-left: 83% !important; 
     }
 }
 /* Extra Small Devices (Portrait Tablets & Landscape Phones) */
-@media(max-width: 768px){
+@media(min-width: 550px) and (max-width: 767px){
+
+    //Avatar
+    #postAvatar{
+        width: 70px;
+        height: 70px;
+        }
+        .paddingLeft{
+            padding-left: 15px;
+        }
     #star{
-        padding-left: 79% !important; 
+        padding-left: 81% !important; 
     }
 
 }
 /* Extra Small Devices (Portrait Phones & Smaller Devices) */
-@media(max-width:480px){
+@media(min-width: 400px) and (max-width:549px){
+
+    .paddingLeft{
+        padding-left: 22px;
+    }
     // post footer - star and comment
     #star{
-        padding-left: 73% !important; 
+        padding-left: 75% !important; 
     }
 }
 /* Extra Small Devices (Portrait Phones & Smaller Devices) */
-@media(max-width:360px){
+@media(min-width: 360px) and (max-width:399px){
+
     //Avatar
     #postAvatar{
         width: 55px;
         height:55px;
 
+    }
+    .paddingLeft{
+        padding-left: 22px;
     }
     // post footer - star and comment
     #star{
@@ -326,12 +286,16 @@ hr{
     }
 }
 /* Extra Small Devices (Portrait Phones & Smaller Devices) */
-@media(max-width:320px){
+@media(min-width: 320px) and (max-width:359px){
+
     //Avatar
     #postAvatar{
         width: 50px;
         height:50px;
 
+    }
+    .paddingLeft{
+        padding-left: 22px;
     }
     // post footer - star and comment
     #star{

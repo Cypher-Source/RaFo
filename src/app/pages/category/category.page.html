@@ -2,14 +2,40 @@
 
 <ion-content>
 
-  <!-- heading -->
-  <p class="headingStyle text-color">Pick your category!</p>
-
+    <!-- HEADER START -->
+    <ion-grid id="header-grid">
+      <!-- row-01 -->
+      <ion-row>
+        <!-- col-01 -->
+        <ion-col size="2">  
+            <!-- empty for responsiveness -->
+        </ion-col>
+  
+        <!-- col-02 for heading and border line -->
+        <ion-col size="8">
+          <div>
+              <p id="headingStyle" class="text-color">Pick your category</p>
+          </div>
+        </ion-col>
+  
+        <!-- col-03 for Setting-icon -->
+        <ion-col size="2"> 
+          <div id="cancel-icon">
+              <!-- ripple effect -->
+              <div class="ion-activatable ripple">
+                  <ion-ripple-effect type = "unbounded"></ion-ripple-effect>
+                  <!-- cancel icon -->
+                  <ion-icon src="../../../assets/icon/cancel-icon.svg" id="color"> </ion-icon> 
+              </div>     
+          </div>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+  <!-- HEADER END -->
 
 
   <!-- grid contains no of cards -->
-  <ion-grid>
-
+  <ion-grid id="card-grid">
 
     <!-- row 1 -->
     <ion-row>
