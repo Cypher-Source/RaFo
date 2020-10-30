@@ -63,7 +63,7 @@ export class SettingsPage implements OnInit {
     return await popover.present();
   }
 
-  darkModeToggled(ev) {
-    this.theme.setAppTheme(this.darkModeStatus);
-  }
+  // darkModeToggled(ev) {
+  //   this.theme.setAppTheme(this.darkModeStatus);
+  // }
 }
